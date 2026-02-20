@@ -4,23 +4,36 @@ import { MessageSquare, X, Send, Bot, User, GraduationCap, Briefcase, DollarSign
 import ReactMarkdown from 'react-markdown';
 
 // ── Bot knowledge base ────────────────────────────────────────────────────────
-const BOT_RESPONSES: Record<string, string> = {
-    admissions:
-        '**Admissions 2026-27 Open!** 🎓\n\nWe are accepting applications for:\n- **B.Tech** (CSE, IT, ECE, ME, CE, AIML)\n- **M.Tech** & **MBA**\n\n**Eligibility:** 10+2 with PCM (min 45%) + JEE/State score.\n\n[Apply Now](/admissions) or ask about a specific course!',
-    placements:
-        '**Placement Highlights 2025** 🚀\n\n- **Highest Package:** ₹18 LPA\n- **Average Package:** ₹4.5 LPA\n- **Top Recruiters:** TCS, Infosys, Wipro, Capgemini, Hexaware\n\nWe provide 360° placement training from 1st year.',
-    'fee structure':
-        '**Fee Structure (Per Semester)** 💰\n\n- **B.Tech:** ₹35,000 - ₹40,000\n- **MBA:** ₹30,000\n- **M.Tech:** ₹25,000\n\n*Scholarships available for meritorious students.* Want me to check your scholarship eligibility?',
-    contact:
-        '**Get in Touch** 📞\n\n- **Campaign:** +91 93297 72477\n- **Email:** admission@mitindore.co.in\n- **Address:** Alwasa, Behind Revti Range, Sanwer Road, Indore\n\nVisit us Mon-Sat, 9:00 AM - 5:00 PM.',
-    default:
-        'Hi there! 👋 I\'m **MIT Assistant**.\n\nI can help you with **Admissions**, **Placements**, **Fees**, or **Campus Life**. What are you looking for today?',
-};
+const KNOWLEDGE_BASE = [
+    {
+        keywords: ["fee", "cost", "tuition", "price"],
+        response: "**Fee Structure** 💰\n\nThe total tuition fees for **B.Tech** range from **₹1.17 Lakhs to ₹1.24 Lakhs**. \n\n- **MBA:** ₹52,600 to ₹1.05 Lakhs\n- **M.Tech:** ₹62,000\n- **Diploma:** courses are ₹38,250."
+    },
+    {
+        keywords: ["placement", "package", "lpa", "salary", "recruiter", "company"],
+        response: "**Placement Records** 🚀\n\n- **Highest Package:** 12 LPA to 22 LPA (Peak: 36 LPA!)\n- **Average Package:** 3-8 LPA\n- **Top Recruiters:** TCS, Infosys, Wipro, Capgemini, and HCL.\n- **Placement Rate:** 80% in CSE and AI/ML!"
+    },
+    {
+        keywords: ["admission", "apply", "eligibility", "process", "btech", "mtech"],
+        response: "**Admissions 2026-27** 🎓\n\nAdmissions are now **OPEN**! We accept JEE Main, MP BE, GATE, and CMAT scores.\n\n**Offered Courses:** B.Tech in CSE, IT, AI/ML, ECE, Mechanical, Auto, and Civil."
+    },
+    {
+        keywords: ["contact", "phone", "email", "address", "location", "where"],
+        response: "**Contact Information** 📞\n\n- **Location:** Indore-Dewas Bypass Road, Indore (MP) - 452016.\n- **Admission Office:** +91-9522722722\n- **Email:** admission@mitindore.co.in"
+    },
+    {
+        keywords: ["hi", "hello", "hey"],
+        response: "Hello! 👋 Welcome to **MIT Indore**.\n\nI can help you with admissions, fee structures, placement records, and contact details. What would you like to know?"
+    }
+];
+
+const FALLBACK_RESPONSE = "I'm still learning! 🧠 For specific questions, please contact our admission office at **+91-9522722722** or email **admission@mitindore.co.in**.";
+const GREETING_RESPONSE = KNOWLEDGE_BASE[4].response;
 
 const QUICK_ACTIONS = [
-    { label: 'Admissions', icon: GraduationCap, key: 'admissions' },
-    { label: 'Placements', icon: Briefcase, key: 'placements' },
-    { label: 'Fees', icon: DollarSign, key: 'fee structure' },
+    { label: 'Admissions', icon: GraduationCap, key: 'admission' },
+    { label: 'Placements', icon: Briefcase, key: 'placement' },
+    { label: 'Fees', icon: DollarSign, key: 'fee' },
     { label: 'Contact', icon: Phone, key: 'contact' },
 ];
 
@@ -36,10 +49,15 @@ const getTime = () =>
 
 const getBotReply = (input: string): string => {
     const lower = input.toLowerCase();
-    for (const key of Object.keys(BOT_RESPONSES)) {
-        if (lower.includes(key)) return BOT_RESPONSES[key];
+
+    // Check for keyword matches
+    for (const item of KNOWLEDGE_BASE) {
+        if (item.keywords.some(keyword => lower.includes(keyword))) {
+            return item.response;
+        }
     }
-    return BOT_RESPONSES.default;
+
+    return FALLBACK_RESPONSE;
 };
 
 // ── Components ───────────────────────────────────────────────────────────────
@@ -74,7 +92,7 @@ const Chatbot = () => {
     const [open, setOpen] = useState(false);
     const [input, setInput] = useState('');
     const [messages, setMessages] = useState<Message[]>([
-        { id: 0, role: 'bot', text: BOT_RESPONSES.default, time: getTime() },
+        { id: 0, role: 'bot', text: GREETING_RESPONSE, time: getTime() },
     ]);
     const [typing, setTyping] = useState(false);
     const [isMobile, setIsMobile] = useState(false);
@@ -120,7 +138,7 @@ const Chatbot = () => {
             const botMsg: Message = { id: Date.now() + 1, role: 'bot', text: getBotReply(text), time: getTime() };
             setTyping(false);
             setMessages(prev => [...prev, botMsg]);
-        }, 1200);
+        }, 600);
     };
 
     // Chat window: full-screen on mobile, popup on desktop
