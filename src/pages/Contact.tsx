@@ -9,7 +9,7 @@ const Contact = () => {
                 {/* Header */}
                 <div style={{ textAlign: 'center', marginBottom: '4rem' }}>
                     <div className="section-chip"><span className="chip-dot"></span>Get in Touch</div>
-                    <h1 className="section-title" style={{ fontSize: '3rem', marginBottom: '1rem' }}>Contact <span>MIT Indore</span></h1>
+                    <h1 className="section-title" style={{ marginBottom: '1rem' }}>Contact <span>MIT Indore</span></h1>
                     <p className="section-sub" style={{ margin: '0 auto' }}>
                         We'd love to hear from you. Visit our campus, call us, or send an enquiry below.
                     </p>
@@ -20,7 +20,7 @@ const Contact = () => {
 
                     {/* Left: Contact Info */}
                     <div>
-                        <div className="info-card" style={{ background: '#fff', padding: '2.5rem', borderRadius: '16px', border: '1px solid var(--border-light)', boxShadow: '0 4px 20px rgba(0,0,0,0.04)' }}>
+                        <div className="info-card">
                             <h3 style={{ fontSize: '1.5rem', color: 'var(--navy)', marginBottom: '1.5rem' }}>Contact Details</h3>
 
                             <div className="contact-item">
@@ -75,6 +75,13 @@ const Contact = () => {
             </div>
 
             <style>{`
+        .info-card {
+          background: #fff;
+          padding: 2.5rem;
+          border-radius: 16px;
+          border: 1px solid var(--border-light);
+          box-shadow: 0 4px 20px rgba(0,0,0,0.04);
+        }
         .contact-item {
           display: flex;
           gap: 1rem;
