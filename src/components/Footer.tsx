@@ -28,22 +28,22 @@ const footerLinks = [
 
 const Footer = () => {
     return (
-        <footer className="footer" style={{ background: '#050a14', color: '#fff', paddingTop: '5rem', borderTop: '1px solid rgba(255,255,255,0.05)' }}>
-            <div className="container footer-grid" style={{ display: 'grid', gridTemplateColumns: '1.5fr 0.8fr 0.8fr 1.2fr', gap: '3rem', paddingBottom: '4rem' }}>
+        <footer className="footer" id="footer">
+            <div className="footer-main">
 
                 {/* Brand Col */}
                 <div className="footer-brand">
-                    <Link to="/" style={{ display: 'flex', alignItems: 'center', gap: '0.8rem', marginBottom: '1.5rem', textDecoration: 'none' }}>
-                        <img src={logoImg} alt="MIT Logo" style={{ height: '48px', width: 'auto' }} />
-                        <div style={{ lineHeight: 1.1 }}>
-                            <div style={{ fontWeight: 800, fontSize: '1.2rem', color: '#fff', letterSpacing: '-0.02em' }}>MIT Indore</div>
-                            <div style={{ fontSize: '0.75rem', opacity: 0.6, fontWeight: 400 }}>Excellence since 2004</div>
+                    <Link to="/" className="footer-brand-logo">
+                        <img src={logoImg} alt="MIT Logo" className="footer-logo-mark" />
+                        <div>
+                            <div className="footer-brand-name">MIT Indore</div>
+                            <div className="footer-brand-sub">Excellence since 2004</div>
                         </div>
                     </Link>
-                    <p style={{ opacity: 0.6, lineHeight: 1.7, marginBottom: '2rem', fontSize: '0.95rem', maxWidth: '300px' }}>
+                    <p>
                         A premier engineering institute dedicated to fostering innovation, research, and holistic development for the leaders of tomorrow.
                     </p>
-                    <div className="footer-socials" style={{ display: 'flex', gap: '0.75rem', flexWrap: 'wrap' }}>
+                    <div className="footer-socials">
                         {[
                             {
                                 href: 'https://www.facebook.com/malwainstitute/',
@@ -76,7 +76,7 @@ const Footer = () => {
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 aria-label={label}
-                                className="footer-social-icon"
+                                className="footer-social-btn"
                                 style={{ '--fs-color': color } as React.CSSProperties}
                             >
                                 {icon}
@@ -87,23 +87,17 @@ const Footer = () => {
 
                 {/* Links Cols */}
                 {footerLinks.map((col, i) => (
-                    <div key={i} className="footer-links">
-                        <h4 style={{ fontSize: '1.1rem', marginBottom: '1.5rem', fontWeight: 600, color: '#fff' }}>{col.title}</h4>
-                        <ul style={{ listStyle: 'none', padding: 0, margin: 0, display: 'flex', flexDirection: 'column', gap: '0.8rem' }}>
+                    <div key={i} className="footer-col">
+                        <h4 className="footer-col-title">{col.title}</h4>
+                        <ul className="footer-links-list">
                             {col.items.map(l => (
                                 <li key={l.label}>
                                     {l.external ? (
-                                        <a href={l.href} target="_blank" rel="noopener noreferrer" style={{ color: 'rgba(255,255,255,0.6)', textDecoration: 'none', fontSize: '0.95rem', transition: 'color 0.2s', display: 'flex', alignItems: 'center', gap: '0.5rem' }}
-                                            onMouseOver={(e) => e.currentTarget.style.color = 'var(--crimson)'}
-                                            onMouseOut={(e) => e.currentTarget.style.color = 'rgba(255,255,255,0.6)'}
-                                        >
+                                        <a href={l.href} target="_blank" rel="noopener noreferrer">
                                             {l.label} <span style={{ fontSize: '0.7rem', opacity: 0.5 }}>↗</span>
                                         </a>
                                     ) : (
-                                        <Link to={l.href} style={{ color: 'rgba(255,255,255,0.6)', textDecoration: 'none', fontSize: '0.95rem', transition: 'color 0.2s' }}
-                                            onMouseOver={(e) => e.currentTarget.style.color = 'var(--crimson)'}
-                                            onMouseOut={(e) => e.currentTarget.style.color = 'rgba(255,255,255,0.6)'}
-                                        >
+                                        <Link to={l.href}>
                                             {l.label}
                                         </Link>
                                     )}
@@ -114,60 +108,31 @@ const Footer = () => {
                 ))}
 
                 {/* Mini Map Col */}
-                <div className="footer-contact">
-                    <h4 style={{ fontSize: '1.1rem', marginBottom: '1.5rem', fontWeight: 600, color: '#fff' }}>Locate Us</h4>
-                    <div style={{ height: '140px', borderRadius: '12px', overflow: 'hidden', marginBottom: '1.2rem', border: '1px solid rgba(255,255,255,0.1)' }}>
+                <div className="footer-col footer-contact">
+                    <h4 className="footer-col-title">Locate Us</h4>
+                    <div className="footer-map-wrap">
                         <MapEmbed />
                     </div>
-                    <p style={{ opacity: 0.6, fontSize: '0.9rem', display: 'flex', gap: '0.5rem', alignItems: 'flex-start' }}>
+                    <div className="footer-contact-item">
                         <span>📍</span> Off Bypass Road, Indore (M.P.) - 452016
-                    </p>
-                    <p style={{ opacity: 0.6, fontSize: '0.9rem', display: 'flex', gap: '0.5rem', marginTop: '0.5rem' }}>
+                    </div>
+                    <div className="footer-contact-item">
                         <span>📞</span> +91 731 2345678
-                    </p>
+                    </div>
                 </div>
 
             </div>
 
-            <div className="footer-bottom" style={{ borderTop: '1px solid rgba(255,255,255,0.05)', padding: '2rem 0', background: '#02050a' }}>
-                <div className="container footer-bottom-inner" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '1rem' }}>
-                    <p style={{ opacity: 0.4, fontSize: '0.85rem' }}>© 2026 MIT Indore. All rights reserved.</p>
-                    <div className="footer-bottom-links" style={{ display: 'flex', gap: '2rem' }}>
-                        <a href="#" style={{ color: 'rgba(255,255,255,0.4)', fontSize: '0.85rem', textDecoration: 'none' }}>Privacy Policy</a>
-                        <a href="#" style={{ color: 'rgba(255,255,255,0.4)', fontSize: '0.85rem', textDecoration: 'none' }}>Terms of Use</a>
-                        <a href="#" style={{ color: 'rgba(255,255,255,0.4)', fontSize: '0.85rem', textDecoration: 'none' }}>Sitemap</a>
+            <div className="footer-bottom">
+                <div className="footer-bottom-inner">
+                    <p>© 2026 MIT Indore. All rights reserved.</p>
+                    <div className="footer-bottom-links">
+                        <a href="#">Privacy Policy</a>
+                        <a href="#">Terms of Use</a>
+                        <a href="#">Sitemap</a>
                     </div>
                 </div>
             </div>
-
-            <style>{`
-            @media (max-width: 900px) {
-                .footer-grid { grid-template-columns: 1fr 1fr !important; gap: 2rem !important; }
-            }
-            @media (max-width: 600px) {
-                .footer-grid { grid-template-columns: 1fr !important; }
-                .footer-bottom-inner { flex-direction: column; text-align: center; }
-            }
-            .footer-social-icon {
-                width: 38px;
-                height: 38px;
-                border-radius: 10px;
-                background: rgba(255,255,255,0.07);
-                border: 1px solid rgba(255,255,255,0.09);
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                color: rgba(255,255,255,0.55);
-                text-decoration: none;
-                transition: background 0.25s ease, color 0.25s ease, transform 0.25s ease, border-color 0.25s ease;
-            }
-            .footer-social-icon:hover {
-                color: var(--fs-color, #fff);
-                background: rgba(255,255,255,0.12);
-                border-color: rgba(255,255,255,0.18);
-                transform: translateY(-3px) scale(1.08);
-            }
-        `}</style>
         </footer>
     );
 };
