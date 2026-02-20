@@ -90,7 +90,12 @@ const Hero = () => {
                             <path d="M5 12h14M12 5l7 7-7 7" />
                         </svg>
                     </a>
-                    <a href="#about" className="btn btn-ghost">Discover More</a>
+                    <button
+                        className="btn btn-ghost hero-btn-discover"
+                        onClick={() => document.getElementById('why-choose-us')?.scrollIntoView({ behavior: 'smooth' })}
+                    >
+                        Discover More
+                    </button>
                 </div>
             </div>
 

@@ -82,6 +82,8 @@ html {
   scroll-behavior: smooth;
   font-size: 16px;
   -webkit-font-smoothing: antialiased;
+  width: 100%;
+  overflow-x: hidden;
 }
 
 body {
@@ -89,7 +91,11 @@ body {
   background: var(--surface);
   color: var(--text);
   line-height: 1.6;
+  width: 100%;
+  max-width: 100%;
   overflow-x: hidden;
+  margin: 0;
+  padding: 0;
 }
 
 img {
@@ -251,6 +257,16 @@ button {
   transform: translateY(-2px);
 }
 
+.hero-btn-discover {
+  cursor: pointer;
+  transition: transform 0.25s ease, box-shadow 0.25s ease, background 0.25s ease, border-color 0.25s ease;
+}
+
+.hero-btn-discover:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 24px rgba(255, 255, 255, 0.15);
+}
+
 .btn-outline {
   background: transparent;
   color: var(--crimson);
@@ -410,14 +426,18 @@ button {
   top: 72px;
   left: 0;
   right: 0;
+  bottom: 0;
+  width: 100%;
   background: #fff;
   border-bottom: 1px solid var(--border-light);
   box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
-  z-index: 999;
-  padding: 1.5rem 5% 2rem;
+  z-index: 1001;
+  padding: 1.5rem 5% 5rem;
   display: flex;
   flex-direction: column;
   gap: 0.3rem;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
   transform: translateY(-120%);
   transition: transform 0.45s var(--ease);
 }
@@ -492,6 +512,7 @@ button {
 .hero {
   position: relative;
   min-height: 100vh;
+  width: 100%;
   display: flex;
   align-items: center;
   background: var(--navy);
@@ -1831,11 +1852,6 @@ footer {
 @media (max-width: 640px) {
   :root {
     --section-py: 4.5rem;
-  }
-
-  .navbar {
-    width: calc(100% - 2rem);
-    top: 0.75rem;
   }
 
   .hero h1 {
