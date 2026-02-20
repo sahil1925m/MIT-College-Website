@@ -57,10 +57,10 @@ const Navbar = () => {
                         </button>
                         <div className="nav-drop-content">
                             <a href="http://mit.thecollegeerp.com/academic/stlogin.php" target="_blank" rel="noopener noreferrer">
-                                <span>👨‍🎓</span> Student ERP
+                                <span style={{ background: 'rgba(198,40,40,0.1)', width: '32px', height: '32px', borderRadius: '8px', display: 'grid', placeItems: 'center' }}>👨‍🎓</span> Student ERP
                             </a>
                             <a href="http://mit.thecollegeerp.com/academic/facultylogin.php" target="_blank" rel="noopener noreferrer">
-                                <span>👨‍🏫</span> Faculty ERP
+                                <span style={{ background: 'rgba(5,10,20,0.05)', width: '32px', height: '32px', borderRadius: '8px', display: 'grid', placeItems: 'center' }}>👨‍🏫</span> Faculty ERP
                             </a>
                         </div>
                     </div>
@@ -120,7 +120,7 @@ const Navbar = () => {
             <style>{`
                 .active-link { color: var(--navy) !important; font-weight: 700 !important; }
                 .active-link::after { transform: scaleX(1) !important; }
-                .mobile-nav .active-link { color: var(--crimson) !important; background: rgba(198,40,40,0.05); }
+                .mobile-nav .active-link { color: var(--crimson) !important; font-weight: 700; background: transparent; }
                 
                 /* Dropdown Styles */
                 .nav-dropdown:hover .nav-drop-content {

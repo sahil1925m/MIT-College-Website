@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from 'react';
+import { Link } from 'react-router-dom';
 
 // ─── Data ─────────────────────────────────────────────────────────────────────
 
@@ -11,22 +12,22 @@ const highlights = [
 ];
 
 const recruiters = [
-    { name: 'TCS', logo: 'https://cdn.simpleicons.org/tcs/0' },
-    { name: 'Infosys', logo: 'https://cdn.simpleicons.org/infosys/007CC3' },
-    { name: 'Wipro', logo: 'https://cdn.simpleicons.org/wipro/341c5e' },
-    { name: 'Capgemini', logo: 'https://cdn.simpleicons.org/capgemini/0070AD' },
-    { name: 'IBM', logo: 'https://cdn.simpleicons.org/ibm/052FAD' },
-    { name: 'Oracle', logo: 'https://cdn.simpleicons.org/oracle/F80000' },
-    { name: 'Microsoft', logo: 'https://cdn.simpleicons.org/microsoft/5E5E5E' },
-    { name: 'Amazon', logo: 'https://cdn.simpleicons.org/amazon/FF9900' },
-    { name: 'Accenture', logo: 'https://cdn.simpleicons.org/accenture/A100FF' },
-    { name: 'Cognizant', logo: 'https://cdn.simpleicons.org/cognizant/1A4CA1' },
-    { name: 'Deloitte', logo: 'https://cdn.simpleicons.org/deloitte/86BC25' },
-    { name: 'Tech Mahindra', logo: 'https://cdn.simpleicons.org/techmahindra/C41E3A' },
-    { name: 'Hexaware', logo: 'https://cdn.simpleicons.org/hexaware/EE3525' },
-    { name: 'Mphasis', logo: 'https://cdn.simpleicons.org/mphasis/552e8a' },
-    { name: 'LTIMindtree', logo: 'https://cdn.simpleicons.org/ltimindtree/01A551' },
-    { name: 'HCL Tech', logo: 'https://cdn.simpleicons.org/hcl/EE3124' },
+    { name: 'TCS', domain: 'tcs.com', logo: 'https://cdn.simpleicons.org/tcs/0' },
+    { name: 'Infosys', domain: 'infosys.com', logo: 'https://cdn.simpleicons.org/infosys/007CC3' },
+    { name: 'Wipro', domain: 'wipro.com', logo: 'https://cdn.simpleicons.org/wipro/341c5e' },
+    { name: 'Capgemini', domain: 'capgemini.com', logo: 'https://cdn.simpleicons.org/capgemini/0070AD' },
+    { name: 'IBM', domain: 'ibm.com', logo: 'https://cdn.simpleicons.org/ibm/052FAD' },
+    { name: 'Oracle', domain: 'oracle.com', logo: 'https://cdn.simpleicons.org/oracle/F80000' },
+    { name: 'Microsoft', domain: 'microsoft.com', logo: 'https://cdn.simpleicons.org/microsoft/5E5E5E' },
+    { name: 'Amazon', domain: 'amazon.com', logo: 'https://cdn.simpleicons.org/amazon/FF9900' },
+    { name: 'Accenture', domain: 'accenture.com', logo: 'https://cdn.simpleicons.org/accenture/A100FF' },
+    { name: 'Cognizant', domain: 'cognizant.com', logo: 'https://cdn.simpleicons.org/cognizant/1A4CA1' },
+    { name: 'Deloitte', domain: 'deloitte.com', logo: 'https://cdn.simpleicons.org/deloitte/86BC25' },
+    { name: 'Tech Mahindra', domain: 'techmahindra.com', logo: 'https://cdn.simpleicons.org/techmahindra/C41E3A' },
+    { name: 'Hexaware', domain: 'hexaware.com', logo: 'https://cdn.simpleicons.org/hexaware/EE3525' },
+    { name: 'Mphasis', domain: 'mphasis.com', logo: 'https://cdn.simpleicons.org/mphasis/552e8a' },
+    { name: 'LTIMindtree', domain: 'ltimindtree.com', logo: 'https://cdn.simpleicons.org/ltimindtree/01A551' },
+    { name: 'HCL Tech', domain: 'hcltech.com', logo: 'https://cdn.simpleicons.org/hcl/EE3124' },
 ];
 
 const yearStats = [
@@ -266,7 +267,12 @@ const Placements = () => {
                                         src={company.logo}
                                         alt={`${company.name} logo`}
                                         onError={(e) => {
-                                            (e.target as HTMLImageElement).style.display = 'none';
+                                            const target = e.target as HTMLImageElement;
+                                            if (!target.src.includes('uplead.com')) {
+                                                target.src = `https://logo.uplead.com/${company.domain}`;
+                                            } else {
+                                                target.style.display = 'none';
+                                            }
                                         }}
                                     />
                                 </div>
@@ -418,15 +424,15 @@ const Placements = () => {
                         Your success story begins here.
                     </p>
                     <div className="pl-cta-actions">
-                        <a href="/admissions" className="btn btn-primary pl-cta-btn">
+                        <Link to="/admissions" className="btn btn-primary pl-cta-btn">
                             Apply Now
                             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" width="18" height="18">
                                 <path d="M5 12h14M12 5l7 7-7 7" />
                             </svg>
-                        </a>
-                        <a href="/contact" className="btn btn-ghost pl-cta-btn">
+                        </Link>
+                        <Link to="/contact" className="btn btn-ghost pl-cta-btn">
                             Contact Placement Cell
-                        </a>
+                        </Link>
                     </div>
                 </div>
             </section>

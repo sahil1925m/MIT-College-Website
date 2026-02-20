@@ -1,4 +1,5 @@
 import { useRef, useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 
 const programs = [
     { icon: '💻', title: 'Computer Science & Engineering', desc: 'AI, Machine Learning, Cloud Computing, Cybersecurity, and full-stack development with cutting-edge lab facilities.', degrees: 'B.E. / M.Tech / Ph.D' },
@@ -30,7 +31,7 @@ const Programs = () => {
                     </div>
                     <h2 className="section-title">Our <span>Departments</span></h2>
                 </div>
-                <a href="#" className="link-red">All Departments &#8594;</a>
+                <Link to="/academics" className="link-red">All Departments &#8594;</Link>
             </div>
 
             <div className="programs-grid">
@@ -48,7 +49,7 @@ const Programs = () => {
                         </div>
                         <div className="prog-card-footer">
                             <span className="prog-degree">{p.degrees}</span>
-                            <a href="#" className="prog-link">Explore &#8594;</a>
+                            <Link to="/academics" className="prog-link">Explore &#8594;</Link>
                         </div>
                     </div>
                 ))}

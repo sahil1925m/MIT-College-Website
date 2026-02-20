@@ -127,9 +127,9 @@ const Footer = () => {
                 <div className="footer-bottom-inner">
                     <p>© 2026 MIT Indore. All rights reserved.</p>
                     <div className="footer-bottom-links">
-                        <a href="#">Privacy Policy</a>
-                        <a href="#">Terms of Use</a>
-                        <a href="#">Sitemap</a>
+                        <Link to="/">Privacy Policy</Link>
+                        <Link to="/">Terms of Use</Link>
+                        <Link to="/">Sitemap</Link>
                     </div>
                 </div>
             </div>

@@ -150,11 +150,11 @@ const Chatbot = () => {
         <div>
             {/* ── FAB ── */}
             <div style={{
+                display: open && isMobile ? 'none' : 'flex',
                 position: 'fixed',
-                bottom: isMobile ? '1rem' : '1.5rem',
+                bottom: isMobile ? '5.5rem' : '1.5rem',
                 right: isMobile ? '1rem' : '1.5rem',
                 zIndex: 1100,
-                display: 'flex',
                 flexDirection: 'column',
                 alignItems: 'flex-end',
                 gap: '0.75rem',

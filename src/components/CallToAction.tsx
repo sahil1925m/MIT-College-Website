@@ -1,4 +1,5 @@
 import { useRef, useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 
 const CallToAction = () => {
     const ref = useRef<HTMLElement>(null);
@@ -26,10 +27,10 @@ const CallToAction = () => {
                     Batch 2025–26. Apply now and secure your future.
                 </p>
                 <div className="cta-actions">
-                    <a href="/admissions" className="btn btn-white">
+                    <Link to="/admissions" className="btn btn-white">
                         Apply Now &#8594;
-                    </a>
-                    <a href="#programs" className="btn btn-ghost">View Programs</a>
+                    </Link>
+                    <Link to="/academics" className="btn btn-ghost">View Programs</Link>
                 </div>
             </div>
         </section>

@@ -1,4 +1,5 @@
 import { useRef, useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 
 const newsItems = [
     { category: 'Tech Fest', title: 'TechFest 2025 — Annual Technical Festival', desc: 'Three days of hackathons, robotics competitions, project exhibitions, and guest lectures from industry leaders.', date: 'March 14–16, 2025' },
@@ -27,7 +28,7 @@ const News = () => {
                     </div>
                     <h2 className="section-title">News &amp; <span>Events</span></h2>
                 </div>
-                <a href="#" className="link-red">All Events &#8594;</a>
+                <Link to="/news" className="link-red">All Events &#8594;</Link>
             </div>
 
             <div className="news-grid">
@@ -45,7 +46,7 @@ const News = () => {
                             <div className="n-date">📅 {item.date}</div>
                         </div>
                         <div className="n-card-footer">
-                            <a href="#" className="n-read-more">Read More &#8594;</a>
+                            <Link to="/news" className="n-read-more">Read More &#8594;</Link>
                         </div>
                     </div>
                 ))}

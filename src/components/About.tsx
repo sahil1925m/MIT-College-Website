@@ -1,4 +1,5 @@
 import { useRef, useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 import aboutImg from '../assets/image_3.jpg';
 
 const features = [
@@ -64,13 +65,13 @@ const About = () => {
                         ))}
                     </ul>
 
-                    <a
-                        href="#"
+                    <Link
+                        to="/about"
                         className="btn btn-outline"
                         style={{ marginTop: '2rem' }}
                     >
                         Our Story &#8594;
-                    </a>
+                    </Link>
                 </div>
             </div>
         </section>

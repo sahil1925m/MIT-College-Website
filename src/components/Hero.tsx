@@ -84,12 +84,15 @@ const Hero = () => {
                 </p>
 
                 <div className="hero-actions">
-                    <a href="#programs" className="btn btn-primary">
+                    <button 
+                        className="btn btn-primary"
+                        onClick={() => document.getElementById('programs')?.scrollIntoView({ behavior: 'smooth' })}
+                    >
                         Explore Programs
                         <svg className="arrow-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
                             <path d="M5 12h14M12 5l7 7-7 7" />
                         </svg>
-                    </a>
+                    </button>
                     <button
                         className="btn btn-ghost hero-btn-discover"
                         onClick={() => document.getElementById('why-choose-us')?.scrollIntoView({ behavior: 'smooth' })}

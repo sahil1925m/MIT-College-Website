@@ -16,7 +16,7 @@ const Contact = () => {
                 </div>
 
                 {/* Info & Map Grid */}
-                <div style={{ display: 'grid', gridTemplateColumns: '1fr 1.2fr', gap: '3rem', marginBottom: '5rem' }}>
+                <div className="contact-grid" style={{ gap: '3rem', marginBottom: '5rem' }}>
 
                     {/* Left: Contact Info */}
                     <div>
@@ -103,9 +103,13 @@ const Contact = () => {
           font-size: 0.95rem;
           line-height: 1.5;
         }
+        .contact-grid {
+          display: grid;
+          grid-template-columns: 1fr 1.2fr;
+        }
         @media (max-width: 900px) {
           .info-card { padding: 1.5rem; }
-          div[style*="gridTemplateColumns"] { grid-template-columns: 1fr !important; }
+          .contact-grid { grid-template-columns: 1fr; }
         }
       `}</style>
         </div>
