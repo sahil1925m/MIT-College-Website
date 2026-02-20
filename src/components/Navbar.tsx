@@ -36,8 +36,7 @@ const Navbar = () => {
                 </NavLink>
 
                 {/* Desktop links */}
-                <div className="nav-links" style={{ display: 'none' }}>
-                    <style>{`@media (min-width: 1024px) { .nav-links { display: flex !important; } }`}</style>
+                <div className="nav-links">
                     {links.map(l => (
                         <NavLink
                             key={l.label}
@@ -75,9 +74,7 @@ const Navbar = () => {
                     <div
                         className={`hamburger ${mobileOpen ? 'open' : ''}`}
                         onClick={() => setMobileOpen(!mobileOpen)}
-                        style={{ display: 'flex' }}
                     >
-                        <style>{`@media (min-width: 1024px) { .hamburger { display: none !important; } }`}</style>
                         <span></span>
                         <span></span>
                         <span></span>

@@ -44,11 +44,11 @@ const getBotReply = (input: string): string => {
 
 // ── Components ───────────────────────────────────────────────────────────────
 const TypingDots = () => (
-    <div className="flex items-center gap-1 h-3">
+    <div style={{ display: 'flex', alignItems: 'center', gap: '4px', height: '12px' }}>
         {[0, 1, 2].map(i => (
             <motion.span
                 key={i}
-                className="block w-1.5 h-1.5 rounded-full bg-slate-500"
+                style={{ display: 'block', width: 6, height: 6, borderRadius: '50%', background: '#64748b' }}
                 animate={{ y: [0, -3, 0] }}
                 transition={{ duration: 0.6, repeat: Infinity, delay: i * 0.15 }}
             />
@@ -58,15 +58,15 @@ const TypingDots = () => (
 
 const mdComponents = {
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    p: ({ children }: any) => <p className="mb-2 last:mb-0 leading-relaxed text-[14px]">{children}</p>,
+    p: ({ children }: any) => <p style={{ marginBottom: '0.5rem', lineHeight: 1.6, fontSize: '14px' }}>{children}</p>,
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    strong: ({ children }: any) => <span className="font-semibold text-slate-900">{children}</span>,
+    strong: ({ children }: any) => <span style={{ fontWeight: 600, color: '#0f172a' }}>{children}</span>,
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    ul: ({ children }: any) => <ul className="mt-2 mb-2 pl-4 space-y-1 list-disc marker:text-red-500">{children}</ul>,
+    ul: ({ children }: any) => <ul style={{ marginTop: '0.5rem', marginBottom: '0.5rem', paddingLeft: '1rem', listStyleType: 'disc' }}>{children}</ul>,
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    li: ({ children }: any) => <li className="text-[13.5px] pl-1">{children}</li>,
+    li: ({ children }: any) => <li style={{ fontSize: '13.5px', paddingLeft: '2px', lineHeight: 1.6 }}>{children}</li>,
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    a: ({ href, children }: any) => <a href={href} className="text-red-700 hover:underline font-medium">{children}</a>,
+    a: ({ href, children }: any) => <a href={href} style={{ color: '#b91c1c', textDecoration: 'underline', fontWeight: 500 }}>{children}</a>,
 };
 
 // ── Main Chatbot ─────────────────────────────────────────────────────────────
@@ -77,27 +77,45 @@ const Chatbot = () => {
         { id: 0, role: 'bot', text: BOT_RESPONSES.default, time: getTime() },
     ]);
     const [typing, setTyping] = useState(false);
+    const [isMobile, setIsMobile] = useState(false);
     const bottomRef = useRef<HTMLDivElement>(null);
     const inputRef = useRef<HTMLInputElement>(null);
 
-    // Initial focus & scroll
+    // Detect mobile screen size reactively
+    useEffect(() => {
+        const mq = window.matchMedia('(max-width: 640px)');
+        const handler = (e: MediaQueryListEvent | MediaQueryList) => setIsMobile(e.matches);
+        handler(mq);
+        mq.addEventListener('change', handler);
+        return () => mq.removeEventListener('change', handler);
+    }, []);
+
+    // Focus input when opened
     useEffect(() => {
         if (open) setTimeout(() => inputRef.current?.focus(), 100);
     }, [open]);
 
+    // Auto-scroll to latest message
     useEffect(() => {
         bottomRef.current?.scrollIntoView({ behavior: 'smooth' });
     }, [messages, typing]);
 
+    // Lock body scroll when chat is open on mobile
+    useEffect(() => {
+        if (isMobile && open) {
+            document.body.style.overflow = 'hidden';
+        } else {
+            document.body.style.overflow = '';
+        }
+        return () => { document.body.style.overflow = ''; };
+    }, [isMobile, open]);
+
     const sendMessage = (text: string) => {
         if (!text.trim() || typing) return;
-
         const userMsg: Message = { id: Date.now(), role: 'user', text: text.trim(), time: getTime() };
         setMessages(prev => [...prev, userMsg]);
         setInput('');
         setTyping(true);
-
-        // Simulate network delay
         setTimeout(() => {
             const botMsg: Message = { id: Date.now() + 1, role: 'bot', text: getBotReply(text), time: getTime() };
             setTyping(false);
@@ -105,11 +123,24 @@ const Chatbot = () => {
         }, 1200);
     };
 
-    return (
-        <div className="font-sans antialiased" style={{ fontFamily: 'var(--font-sans)' }}>
+    // Chat window: full-screen on mobile, popup on desktop
+    const chatWindowStyle: React.CSSProperties = isMobile
+        ? { position: 'fixed', top: 0, left: 0, right: 0, bottom: 0, width: '100%', height: '100%', borderRadius: 0 }
+        : { position: 'fixed', bottom: '6rem', right: '1.5rem', width: '380px', height: '600px', borderRadius: '1rem' };
 
-            {/* ── FAB ──────────────────────────────────────────────────── */}
-            <div className="fixed bottom-6 right-6 z-[1100] flex flex-col items-end gap-3">
+    return (
+        <div>
+            {/* ── FAB ── */}
+            <div style={{
+                position: 'fixed',
+                bottom: isMobile ? '1rem' : '1.5rem',
+                right: isMobile ? '1rem' : '1.5rem',
+                zIndex: 1100,
+                display: 'flex',
+                flexDirection: 'column',
+                alignItems: 'flex-end',
+                gap: '0.75rem',
+            }}>
                 <AnimatePresence>
                     {!open && (
                         <motion.button
@@ -117,10 +148,31 @@ const Chatbot = () => {
                             animate={{ opacity: 1, y: 0, scale: 1 }}
                             exit={{ opacity: 0, scale: 0.9 }}
                             onClick={() => setOpen(true)}
-                            className="bg-white text-slate-700 text-[13.5px] font-medium px-4 py-2.5 rounded-full shadow-lg border border-slate-100 flex items-center gap-2 hover:translate-y-[-2px] transition-transform"
+                            style={{
+                                background: '#fff',
+                                color: '#475569',
+                                fontSize: '13px',
+                                fontWeight: 500,
+                                padding: '0.55rem 1rem',
+                                borderRadius: '9999px',
+                                boxShadow: '0 4px 20px rgba(0,0,0,0.12)',
+                                border: '1px solid #f1f5f9',
+                                display: 'flex',
+                                alignItems: 'center',
+                                gap: '0.5rem',
+                                cursor: 'pointer',
+                                whiteSpace: 'nowrap',
+                                fontFamily: 'inherit',
+                            }}
                         >
                             <span>Chat with us</span>
-                            <span className="w-2 h-2 bg-green-500 rounded-full animate-pulse" />
+                            <span style={{
+                                width: 8, height: 8,
+                                background: '#22c55e',
+                                borderRadius: '50%',
+                                display: 'inline-block',
+                                animation: 'pulse 2s ease infinite',
+                            }} />
                         </motion.button>
                     )}
                 </AnimatePresence>
@@ -129,19 +181,26 @@ const Chatbot = () => {
                     onClick={() => setOpen(!open)}
                     whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.95 }}
-                    className={`relative w-14 h-14 rounded-full shadow-xl flex items-center justify-center transition-all duration-300 ${open ? 'bg-slate-800 rotate-90' : 'bg-red-600 !bg-red-600 rotate-0 hover:shadow-red-500/30'
-                        }`}
-                    style={{ backgroundColor: open ? '#1e293b' : '#dc2626' }}
+                    style={{
+                        width: isMobile ? '52px' : '56px',
+                        height: isMobile ? '52px' : '56px',
+                        borderRadius: '50%',
+                        boxShadow: '0 8px 24px rgba(0,0,0,0.2)',
+                        display: 'flex',
+                        alignItems: 'center',
+                        justifyContent: 'center',
+                        border: 'none',
+                        cursor: 'pointer',
+                        backgroundColor: open ? '#1e293b' : '#dc2626',
+                        transition: 'background-color 0.3s, transform 0.3s',
+                        transform: open ? 'rotate(90deg)' : 'rotate(0deg)',
+                    }}
                 >
-                    {open ? (
-                        <X size={24} className="text-white !text-white" color="white" />
-                    ) : (
-                        <MessageSquare size={24} className="text-white !text-white" color="white" />
-                    )}
+                    {open ? <X size={22} color="white" /> : <MessageSquare size={22} color="white" />}
                 </motion.button>
             </div>
 
-            {/* ── Chat Window ──────────────────────────────────────────── */}
+            {/* ── Chat Window ── */}
             <AnimatePresence>
                 {open && (
                     <motion.div
@@ -149,52 +208,123 @@ const Chatbot = () => {
                         animate={{ opacity: 1, y: 0, scale: 1 }}
                         exit={{ opacity: 0, y: 20, scale: 0.95 }}
                         transition={{ duration: 0.25, ease: 'easeOut' }}
-                        className="fixed bottom-24 right-6 w-[380px] h-[600px] bg-white rounded-2xl shadow-2xl shadow-slate-400/20 overflow-hidden flex flex-col border border-slate-100 z-[1100] max-sm:inset-0 max-sm:w-full max-sm:h-full max-sm:rounded-none"
+                        style={{
+                            ...chatWindowStyle,
+                            background: '#fff',
+                            boxShadow: '0 20px 60px rgba(100,116,139,0.2)',
+                            overflow: 'hidden',
+                            display: 'flex',
+                            flexDirection: 'column',
+                            border: '1px solid #f1f5f9',
+                            zIndex: 1099,
+                        }}
                     >
                         {/* Header */}
-                        <div className="bg-gradient-to-r from-red-700 to-red-600 p-4 flex items-center gap-3.5 text-white shadow-sm z-10">
-                            <div className="relative">
-                                <div className="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center backdrop-blur-sm border border-white/20 shadow-inner">
+                        <div style={{
+                            background: 'linear-gradient(to right, #b91c1c, #dc2626)',
+                            padding: '1rem',
+                            paddingTop: isMobile ? 'calc(1rem + env(safe-area-inset-top, 0px))' : '1rem',
+                            display: 'flex',
+                            alignItems: 'center',
+                            gap: '0.875rem',
+                            color: '#fff',
+                            flexShrink: 0,
+                        }}>
+                            <div style={{ position: 'relative' }}>
+                                <div style={{
+                                    width: 40, height: 40,
+                                    background: 'rgba(255,255,255,0.12)',
+                                    borderRadius: '50%',
+                                    display: 'flex',
+                                    alignItems: 'center',
+                                    justifyContent: 'center',
+                                    border: '1px solid rgba(255,255,255,0.2)',
+                                }}>
                                     <Bot size={20} />
                                 </div>
-                                <div className="absolute bottom-0 right-0 w-2.5 h-2.5 bg-green-400 border-2 border-red-700 rounded-full"></div>
+                                <div style={{
+                                    position: 'absolute', bottom: 0, right: 0,
+                                    width: 10, height: 10,
+                                    background: '#4ade80',
+                                    border: '2px solid #b91c1c',
+                                    borderRadius: '50%',
+                                }} />
                             </div>
-                            <div className="flex-1">
-                                <h3 className="font-bold text-[15px] leading-tight" style={{ fontFamily: 'var(--font-heading)' }}>MIT Assistant</h3>
-                                <p className="text-red-50 text-xs opacity-90 mt-0.5">Usually replies instantly</p>
+                            <div style={{ flex: 1 }}>
+                                <h3 style={{ fontWeight: 700, fontSize: '15px', lineHeight: 1.2, margin: 0 }}>MIT Assistant</h3>
+                                <p style={{ fontSize: '12px', opacity: 0.85, margin: '3px 0 0' }}>Usually replies instantly</p>
                             </div>
-                            <button onClick={() => setOpen(false)} className="p-2 hover:bg-white/10 rounded-full transition-colors focus:outline-none focus:ring-2 focus:ring-white/20">
+                            <button
+                                onClick={() => setOpen(false)}
+                                style={{
+                                    background: 'transparent', border: 'none', cursor: 'pointer',
+                                    color: '#fff', padding: '0.5rem', borderRadius: '50%',
+                                    display: 'flex', alignItems: 'center', justifyContent: 'center',
+                                }}
+                            >
                                 <X size={20} />
                             </button>
                         </div>
 
                         {/* Messages */}
-                        <div className="flex-1 overflow-y-auto bg-white p-5 space-y-6">
+                        <div style={{
+                            flex: 1,
+                            overflowY: 'auto',
+                            background: '#fff',
+                            padding: isMobile ? '0.875rem' : '1.25rem',
+                            display: 'flex',
+                            flexDirection: 'column',
+                            gap: '1.25rem',
+                            WebkitOverflowScrolling: 'touch',
+                        }}>
                             {messages.map((msg) => (
                                 <motion.div
                                     key={msg.id}
                                     initial={{ opacity: 0, y: 10 }}
                                     animate={{ opacity: 1, y: 0 }}
-                                    className={`flex gap-3 items-end ${msg.role === 'user' ? 'flex-row-reverse' : ''}`}
+                                    style={{
+                                        display: 'flex',
+                                        gap: '0.625rem',
+                                        alignItems: 'flex-end',
+                                        flexDirection: msg.role === 'user' ? 'row-reverse' : 'row',
+                                    }}
                                 >
-                                    {/* Avatar */}
-                                    <div className={`w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0 shadow-sm border border-slate-50 ${msg.role === 'bot' ? 'bg-slate-50 text-red-600' : 'bg-red-50 text-red-600'
-                                        }`}>
-                                        {msg.role === 'bot' ? <Bot size={16} /> : <User size={16} />}
+                                    <div style={{
+                                        width: 30, height: 30,
+                                        borderRadius: '50%',
+                                        display: 'flex',
+                                        alignItems: 'center',
+                                        justifyContent: 'center',
+                                        flexShrink: 0,
+                                        background: msg.role === 'bot' ? '#f8fafc' : '#fff1f2',
+                                        border: '1px solid #f1f5f9',
+                                        color: '#dc2626',
+                                    }}>
+                                        {msg.role === 'bot' ? <Bot size={15} /> : <User size={15} />}
                                     </div>
 
-                                    <div className={`max-w-[75%] flex flex-col gap-1 ${msg.role === 'user' ? 'items-end' : 'items-start'}`}>
-                                        <div className={`p-4 rounded-2xl text-[14px] leading-relaxed shadow-sm ${msg.role === 'bot'
-                                            ? 'bg-slate-100 text-slate-800 rounded-bl-sm'
-                                            : 'bg-red-600 text-white rounded-br-sm'
-                                            }`}>
-                                            {msg.role === 'bot' ? (
-                                                <ReactMarkdown components={mdComponents}>{msg.text}</ReactMarkdown>
-                                            ) : (
-                                                <p className="leading-relaxed">{msg.text}</p>
-                                            )}
+                                    <div style={{
+                                        maxWidth: isMobile ? '84%' : '75%',
+                                        display: 'flex',
+                                        flexDirection: 'column',
+                                        gap: '4px',
+                                        alignItems: msg.role === 'user' ? 'flex-end' : 'flex-start',
+                                    }}>
+                                        <div style={{
+                                            padding: '0.75rem 1rem',
+                                            borderRadius: msg.role === 'bot' ? '1rem 1rem 1rem 0.15rem' : '1rem 1rem 0.15rem 1rem',
+                                            fontSize: '14px',
+                                            lineHeight: 1.6,
+                                            background: msg.role === 'bot' ? '#f1f5f9' : '#dc2626',
+                                            color: msg.role === 'bot' ? '#1e293b' : '#fff',
+                                            boxShadow: '0 1px 4px rgba(0,0,0,0.06)',
+                                        }}>
+                                            {msg.role === 'bot'
+                                                ? <ReactMarkdown components={mdComponents}>{msg.text}</ReactMarkdown>
+                                                : <p style={{ margin: 0 }}>{msg.text}</p>
+                                            }
                                         </div>
-                                        <span className="text-[10px] text-slate-400 font-medium px-1 opacity-70">
+                                        <span style={{ fontSize: '10px', color: '#94a3b8', fontWeight: 500, padding: '0 4px', opacity: 0.75 }}>
                                             {msg.time}
                                         </span>
                                     </div>
@@ -202,11 +332,25 @@ const Chatbot = () => {
                             ))}
 
                             {typing && (
-                                <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="flex gap-3 items-end">
-                                    <div className="w-8 h-8 bg-slate-50 border border-slate-100 rounded-full flex items-center justify-center shadow-sm">
-                                        <Bot size={16} className="text-red-600" />
+                                <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} style={{ display: 'flex', gap: '0.625rem', alignItems: 'flex-end' }}>
+                                    <div style={{
+                                        width: 30, height: 30,
+                                        background: '#f8fafc',
+                                        border: '1px solid #f1f5f9',
+                                        borderRadius: '50%',
+                                        display: 'flex',
+                                        alignItems: 'center',
+                                        justifyContent: 'center',
+                                        color: '#dc2626',
+                                    }}>
+                                        <Bot size={15} />
                                     </div>
-                                    <div className="bg-slate-100 px-4 py-3 rounded-2xl rounded-bl-sm shadow-sm">
+                                    <div style={{
+                                        background: '#f1f5f9',
+                                        padding: '0.75rem 1rem',
+                                        borderRadius: '1rem 1rem 1rem 0.15rem',
+                                        boxShadow: '0 1px 4px rgba(0,0,0,0.06)',
+                                    }}>
                                         <TypingDots />
                                     </div>
                                 </motion.div>
@@ -215,16 +359,46 @@ const Chatbot = () => {
                         </div>
 
                         {/* Input Area */}
-                        <div className="p-4 bg-white border-t border-slate-100 pb-5">
+                        <div style={{
+                            padding: '0.75rem',
+                            paddingBottom: isMobile ? 'calc(0.75rem + env(safe-area-inset-bottom, 0px))' : '0.75rem',
+                            background: '#fff',
+                            borderTop: '1px solid #f1f5f9',
+                            flexShrink: 0,
+                        }}>
                             {/* Quick Actions */}
-                            <div className="flex gap-2 overflow-x-auto pb-3 mb-1 no-scrollbar scroll-smooth">
+                            <div style={{
+                                display: 'flex',
+                                gap: '0.4rem',
+                                overflowX: 'auto',
+                                paddingBottom: '0.625rem',
+                                marginBottom: '0.5rem',
+                                scrollbarWidth: 'none',
+                                WebkitOverflowScrolling: 'touch',
+                            }}>
                                 {QUICK_ACTIONS.map((action) => (
                                     <button
                                         key={action.key}
                                         onClick={() => sendMessage(action.key)}
-                                        className="flex items-center gap-1.5 px-3.5 py-2 bg-white hover:bg-slate-50 border border-slate-200 hover:border-slate-300 rounded-full text-[12.5px] font-medium text-slate-600 hover:text-slate-900 transition-all whitespace-nowrap flex-shrink-0 shadow-sm hover:shadow-md"
+                                        style={{
+                                            display: 'flex',
+                                            alignItems: 'center',
+                                            gap: '0.3rem',
+                                            padding: '0.4rem 0.8rem',
+                                            background: '#fff',
+                                            border: '1px solid #e2e8f0',
+                                            borderRadius: '9999px',
+                                            fontSize: '12px',
+                                            fontWeight: 500,
+                                            color: '#475569',
+                                            cursor: 'pointer',
+                                            whiteSpace: 'nowrap',
+                                            flexShrink: 0,
+                                            boxShadow: '0 1px 3px rgba(0,0,0,0.06)',
+                                            fontFamily: 'inherit',
+                                        }}
                                     >
-                                        <action.icon size={13} className="text-slate-400 group-hover:text-slate-600" />
+                                        <action.icon size={12} style={{ color: '#94a3b8' }} />
                                         {action.label}
                                     </button>
                                 ))}
@@ -232,7 +406,15 @@ const Chatbot = () => {
 
                             <form
                                 onSubmit={(e) => { e.preventDefault(); sendMessage(input); }}
-                                className="flex items-center gap-2 bg-slate-50 border border-slate-200 rounded-full p-1.5 pl-4 shadow-sm focus-within:ring-2 focus-within:ring-red-500/10 focus-within:border-red-300 focus-within:bg-white transition-all duration-300"
+                                style={{
+                                    display: 'flex',
+                                    alignItems: 'center',
+                                    gap: '0.5rem',
+                                    background: '#f8fafc',
+                                    border: '1px solid #e2e8f0',
+                                    borderRadius: '9999px',
+                                    padding: '0.3rem 0.3rem 0.3rem 1rem',
+                                }}
                             >
                                 <input
                                     ref={inputRef}
@@ -240,22 +422,41 @@ const Chatbot = () => {
                                     value={input}
                                     onChange={(e) => setInput(e.target.value)}
                                     placeholder="Type your message..."
-                                    className="flex-1 text-[14px] text-slate-800 bg-transparent outline-none placeholder:text-slate-400 h-9"
+                                    style={{
+                                        flex: 1,
+                                        fontSize: '15px', // 15px prevents iOS auto-zoom
+                                        color: '#1e293b',
+                                        background: 'transparent',
+                                        border: 'none',
+                                        outline: 'none',
+                                        height: '34px',
+                                        fontFamily: 'inherit',
+                                    }}
                                 />
                                 <button
                                     type="submit"
                                     disabled={!input.trim() || typing}
-                                    className="w-9 h-9 flex items-center justify-center rounded-full bg-red-600 text-white shadow-md hover:bg-red-700 hover:shadow-lg disabled:bg-slate-200 disabled:text-slate-400 disabled:shadow-none transition-all transform hover:scale-105 active:scale-95"
+                                    style={{
+                                        width: 34, height: 34,
+                                        display: 'flex',
+                                        alignItems: 'center',
+                                        justifyContent: 'center',
+                                        borderRadius: '50%',
+                                        background: !input.trim() || typing ? '#e2e8f0' : '#dc2626',
+                                        color: !input.trim() || typing ? '#94a3b8' : '#fff',
+                                        border: 'none',
+                                        cursor: !input.trim() || typing ? 'not-allowed' : 'pointer',
+                                        flexShrink: 0,
+                                        transition: 'background 0.2s',
+                                    }}
                                 >
-                                    <Send size={15} className="ml-0.5" />
+                                    <Send size={14} style={{ marginLeft: 1 }} />
                                 </button>
                             </form>
 
-                            <div className="text-center mt-3">
-                                <p className="text-[10px] text-slate-400 font-medium tracking-wide">
-                                    Powered by <span className="text-slate-600 font-semibold">MIT AI Assistant</span>
-                                </p>
-                            </div>
+                            <p style={{ textAlign: 'center', fontSize: '10px', color: '#94a3b8', fontWeight: 500, letterSpacing: '0.04em', margin: '0.5rem 0 0' }}>
+                                Powered by <span style={{ color: '#64748b', fontWeight: 600 }}>MIT AI Assistant</span>
+                            </p>
                         </div>
                     </motion.div>
                 )}

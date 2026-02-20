@@ -447,6 +447,44 @@ button {
 }
 
 /* ──────────────────────────────────────
+   NAVBAR RESPONSIVE
+────────────────────────────────────── */
+@media (max-width: 1023px) {
+  .navbar {
+    padding: 0 4%;
+  }
+
+  .nav-links {
+    display: none !important;
+  }
+
+  .hamburger {
+    display: flex !important;
+  }
+
+  /* Hide the "Apply Now" CTA in the top bar on mobile
+     (it already appears inside the mobile menu) */
+  .nav-cta .btn-primary {
+    display: none;
+  }
+}
+
+@media (max-width: 480px) {
+  .navbar {
+    padding: 0 3%;
+    height: 64px;
+  }
+
+  .mobile-nav {
+    top: 64px;
+  }
+
+  .nav-logo img {
+    height: 36px !important;
+  }
+}
+
+/* ──────────────────────────────────────
    HERO
 ────────────────────────────────────── */
 .hero {
