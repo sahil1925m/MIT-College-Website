@@ -2,6 +2,8 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import ScrollToTop from './components/ScrollToTop';
+import SocialBar from './components/SocialBar';
+import Chatbot from './components/Chatbot';
 
 // Pages
 import Home from './pages/Home';
@@ -31,6 +33,8 @@ function App() {
         <Route path="/contact" element={<Contact />} />
       </Routes>
       <Footer />
+      <SocialBar />
+      <Chatbot />
     </Router>
   );
 }

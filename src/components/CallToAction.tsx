@@ -26,7 +26,7 @@ const CallToAction = () => {
                     Batch 2025–26. Apply now and secure your future.
                 </p>
                 <div className="cta-actions">
-                    <a href="tel:+917311234567" className="btn btn-white">
+                    <a href="/admissions" className="btn btn-white">
                         Apply Now &#8594;
                     </a>
                     <a href="#programs" className="btn btn-ghost">View Programs</a>
