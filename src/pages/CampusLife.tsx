@@ -1,80 +1,6 @@
-import InteractiveImageBentoGallery, { type ImageItem } from '../components/ui/bento-gallery';
+import ThumbnailCarousel from '../components/ui/thumbnail-carousel';
 import VideoPlayer from '../components/VideoPlayer';
-import campus1 from '../assets/campus1.webp';
-import campus2 from '../assets/campus2.webp';
-import campus3 from '../assets/campus3.webp';
-import campus4 from '../assets/campus4.webp';
 import campus5 from '../assets/campus5.webp';
-import image3 from '../assets/image_3.jpg';
-import image4 from '../assets/image_4.jpg';
-import image5 from '../assets/image_5.jpg';
-import image6 from '../assets/image_6.jpg';
-
-const imageItems: ImageItem[] = [
-    {
-        id: 1,
-        title: "Main Building",
-        desc: "The heart of MIT Indore.",
-        url: campus1,
-        span: "md:col-span-2 md:row-span-2",
-    },
-    {
-        id: 2,
-        title: "Lush Green Campus",
-        desc: "A beautiful environment for learning.",
-        url: campus2,
-        span: "md:row-span-1",
-    },
-    {
-        id: 3,
-        title: "Annual Tech Fest",
-        desc: "Students showcasing innovation.",
-        url: image3,
-        span: "md:row-span-1",
-    },
-    {
-        id: 4,
-        title: "Advanced Laboratories",
-        desc: "State-of-the-art equipment.",
-        url: campus4,
-        span: "md:row-span-2",
-    },
-    {
-        id: 5,
-        title: "Annual Sports Meet",
-        desc: "Fostering team spirit and health.",
-        url: image4,
-        span: "md:row-span-1",
-    },
-    {
-        id: 6,
-        title: "Cultural Night",
-        desc: "Celebrating diversity and talent.",
-        url: campus3,
-        span: "md:col-span-2 md:row-span-1",
-    },
-    {
-        id: 7,
-        title: "NCC Parade",
-        desc: "Discipline and dedication.",
-        url: image5,
-        span: "md:row-span-2",
-    },
-    {
-        id: 8,
-        title: "Hackathon Winners",
-        desc: "Coding through the night.",
-        url: image6,
-        span: "md:row-span-1",
-    },
-    {
-        id: 9,
-        title: "Basketball Tournament",
-        desc: "Action on the courts.",
-        url: campus5,
-        span: "md:col-span-2 md:row-span-1",
-    }
-];
 
 const CampusLife = () => {
     return (
@@ -106,11 +32,7 @@ const CampusLife = () => {
                 />
             </div>
 
-            <InteractiveImageBentoGallery
-                imageItems={imageItems}
-                title="Memories"
-                description="Life at MIT Indore. Drag to explore our campus gallery, click to expand."
-            />
+            <ThumbnailCarousel />
 
             {/* Amenities Grid */}
             <div className="container" style={{ maxWidth: '1200px', margin: '4rem auto', padding: '0 5%' }}>
