@@ -32,7 +32,9 @@ const CampusLife = () => {
                 />
             </div>
 
-            <ThumbnailCarousel />
+            <div className="container" style={{ maxWidth: '1000px', margin: '0 auto 4rem', padding: '0 5%' }}>
+                <ThumbnailCarousel />
+            </div>
 
             {/* Amenities Grid */}
             <div className="container" style={{ maxWidth: '1200px', margin: '4rem auto', padding: '0 5%' }}>
