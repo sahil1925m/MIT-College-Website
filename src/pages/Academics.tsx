@@ -19,6 +19,24 @@ const Academics = () => {
 
             <Programs />
 
+            {/* Featured Video */}
+            <section className="section" style={{ padding: '4rem 5%', backgroundColor: 'var(--bg-light, #f8fafc)' }}>
+                <div className="container" style={{ maxWidth: '1000px', margin: '0 auto', textAlign: 'center' }}>
+                    <h2 className="section-title" style={{ marginBottom: '2rem' }}>Experience <span>MIT</span></h2>
+                    <div style={{ position: 'relative', paddingBottom: '56.25%', height: 0, overflow: 'hidden', borderRadius: '16px', boxShadow: '0 20px 40px rgba(0,0,0,0.1)' }}>
+                        <iframe
+                            style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%' }}
+                            src="https://www.youtube.com/embed/lyUCDXrMgz0?si=gFv9PkL8n6StKvPH"
+                            title="YouTube video player"
+                            frameBorder={0}
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                            referrerPolicy="strict-origin-when-cross-origin"
+                            allowFullScreen
+                        ></iframe>
+                    </div>
+                </div>
+            </section>
+
             {/* Curriculum Highlights */}
             <section className="section section-alt">
                 <div className="container" style={{ maxWidth: '1200px', margin: '0 auto', padding: '0 5%' }}>
