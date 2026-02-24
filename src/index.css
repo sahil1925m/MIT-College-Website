@@ -4065,3 +4065,7 @@ footer {
     font-size: 0.82rem;
   }
 }
+ . g a l l e r y - h o v e r - i t e m : h o v e r   . g a l l e r y - i m g   {   t r a n s f o r m :   s c a l e ( 1 . 1 ) ;   } 
+ . g a l l e r y - h o v e r - i t e m : h o v e r   . g a l l e r y - o v e r l a y   {   t r a n s f o r m :   t r a n s l a t e Y ( 0 ) ;   } 
+  
+ 
