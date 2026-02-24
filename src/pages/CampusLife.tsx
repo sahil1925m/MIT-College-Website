@@ -1,15 +1,16 @@
 import ThumbnailCarousel from '../components/ui/thumbnail-carousel';
 import VideoPlayer from '../components/VideoPlayer';
 import campus5 from '../assets/campus5.webp';
+import camp1 from '../assets/mit gallery/campus/camp1.jpeg';
 
 const CampusLife = () => {
     return (
         <div className="page-wrapper" style={{ paddingTop: '80px', overflowX: 'hidden' }}>
             <div style={{
-                background: `linear-gradient(rgba(5, 10, 20, 0.8), rgba(5, 10, 20, 0.8)), url(${campus5})`,
+                background: `linear-gradient(rgba(5, 10, 20, 0.8), rgba(5, 10, 20, 0.8)), url(${camp1})`,
                 backgroundSize: 'cover',
                 backgroundPosition: 'center',
-                color: '#fff', padding: '6rem 5% 4rem', textAlign: 'center'
+                color: '#fff', padding: '10rem 5% 8rem', textAlign: 'center'
             }}>
                 <h1 className="section-title section-title-white" style={{ fontSize: '3.5rem', marginBottom: '1rem' }}>Campus <span>Life</span></h1>
                 <p className="section-sub section-sub-white" style={{ margin: '0 auto', maxWidth: '700px' }}>

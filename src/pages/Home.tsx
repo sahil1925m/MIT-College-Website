@@ -35,15 +35,7 @@ const Home = () => {
                             alt="MIT Indore Campus Life"
                             className="enquiry-img"
                         />
-
-                        {/* Floating Badge */}
-                        <div className="floating-badge">
-                            <div className="badge-icon">#1</div>
-                            <div>
-                                <div className="badge-label">Ranked</div>
-                                <div className="badge-text">Emerging Engg. College</div>
-                            </div>
-                        </div>
+                        {/* Floating Badge (Removed) */}
                     </div>
                 </div>
             </div>

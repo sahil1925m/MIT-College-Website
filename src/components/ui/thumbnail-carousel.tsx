@@ -228,14 +228,30 @@ export default function ThumbnailCarousel() {
                     <motion.button
                         disabled={index === 0}
                         onClick={() => setIndex((i) => Math.max(0, i - 1))}
-                        className={`absolute left-4 text-black top-1/2 -translate-y-1/2 w-10 h-10 rounded-full flex items-center justify-center shadow-lg transition-transform z-10
-              ${index === 0
-                                ? 'opacity-40 cursor-not-allowed'
-                                : 'bg-white hover:scale-110 hover:opacity-100 opacity-70'
-                            }`}
+                        style={{
+                            position: 'absolute',
+                            left: '1rem',
+                            top: '50%',
+                            transform: 'translateY(-50%)',
+                            width: '2.5rem',
+                            height: '2.5rem',
+                            borderRadius: '9999px',
+                            display: 'flex',
+                            alignItems: 'center',
+                            justifyContent: 'center',
+                            boxShadow: '0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05)',
+                            zIndex: 10,
+                            backgroundColor: 'white',
+                            color: 'black',
+                            opacity: index === 0 ? 0.4 : 0.8,
+                            cursor: index === 0 ? 'not-allowed' : 'pointer',
+                            border: 'none',
+                        }}
+                        whileHover={index !== 0 ? { scale: 1.1, opacity: 1 } : {}}
+                        whileTap={index !== 0 ? { scale: 0.95 } : {}}
                     >
                         <svg
-                            className='w-6 h-6'
+                            style={{ width: '1.25rem', height: '1.25rem' }}
                             fill='none'
                             stroke='currentColor'
                             viewBox='0 0 24 24'
@@ -243,7 +259,7 @@ export default function ThumbnailCarousel() {
                             <path
                                 strokeLinecap='round'
                                 strokeLinejoin='round'
-                                strokeWidth={2}
+                                strokeWidth={2.5}
                                 d='M15 19l-7-7 7-7'
                             />
                         </svg>
@@ -253,14 +269,30 @@ export default function ThumbnailCarousel() {
                     <motion.button
                         disabled={index === items.length - 1}
                         onClick={() => setIndex((i) => Math.min(items.length - 1, i + 1))}
-                        className={`absolute text-black right-4 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full flex items-center justify-center shadow-lg transition-transform z-10
-              ${index === items.length - 1
-                                ? 'opacity-40 cursor-not-allowed'
-                                : 'bg-white hover:scale-110 hover:opacity-100 opacity-70'
-                            }`}
+                        style={{
+                            position: 'absolute',
+                            right: '1rem',
+                            top: '50%',
+                            transform: 'translateY(-50%)',
+                            width: '2.5rem',
+                            height: '2.5rem',
+                            borderRadius: '9999px',
+                            display: 'flex',
+                            alignItems: 'center',
+                            justifyContent: 'center',
+                            boxShadow: '0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05)',
+                            zIndex: 10,
+                            backgroundColor: 'white',
+                            color: 'black',
+                            opacity: index === items.length - 1 ? 0.4 : 0.8,
+                            cursor: index === items.length - 1 ? 'not-allowed' : 'pointer',
+                            border: 'none',
+                        }}
+                        whileHover={index !== items.length - 1 ? { scale: 1.1, opacity: 1 } : {}}
+                        whileTap={index !== items.length - 1 ? { scale: 0.95 } : {}}
                     >
                         <svg
-                            className='w-6 h-6'
+                            style={{ width: '1.25rem', height: '1.25rem' }}
                             fill='none'
                             stroke='currentColor'
                             viewBox='0 0 24 24'
@@ -268,21 +300,57 @@ export default function ThumbnailCarousel() {
                             <path
                                 strokeLinecap='round'
                                 strokeLinejoin='round'
-                                strokeWidth={2}
+                                strokeWidth={2.5}
                                 d='M9 5l7 7-7 7'
                             />
                         </svg>
                     </motion.button>
 
                     {/* Image Counter */}
-                    <div className='absolute bottom-4 left-1/2 -translate-x-1/2 bg-black/50 text-white px-3 py-1 rounded-full text-sm'>
+                    <div style={{
+                        position: 'absolute',
+                        bottom: '1rem',
+                        left: '50%',
+                        transform: 'translateX(-50%)',
+                        backgroundColor: 'rgba(0, 0, 0, 0.6)',
+                        border: '1px solid rgba(255, 255, 255, 0.15)',
+                        backdropFilter: 'blur(4px)',
+                        WebkitBackdropFilter: 'blur(4px)',
+                        color: 'white',
+                        padding: '0.35rem 1rem',
+                        borderRadius: '9999px',
+                        fontSize: '0.85rem',
+                        fontWeight: 600,
+                        zIndex: 10,
+                        letterSpacing: '0.1em'
+                    }}>
                         {index + 1} / {items.length}
                     </div>
 
                     {/* Title Overlay */}
-                    <div className='absolute top-4 left-4 bg-black/50 text-white px-4 py-2 rounded-lg'>
-                        <h3 className="text-lg font-medium shadow-sm">{items[index].title}</h3>
-                    </div>
+                    <motion.div
+                        initial={{ opacity: 0, x: -10 }}
+                        animate={{ opacity: 1, x: 0 }}
+                        key={index}
+                        style={{
+                            position: 'absolute',
+                            top: '1.5rem',
+                            left: '1.5rem',
+                            backgroundColor: 'rgba(0, 0, 0, 0.4)',
+                            backdropFilter: 'blur(8px)',
+                            WebkitBackdropFilter: 'blur(8px)',
+                            border: '1px solid rgba(255, 255, 255, 0.2)',
+                            color: 'white',
+                            padding: '0.625rem 1.5rem',
+                            borderRadius: '9999px',
+                            boxShadow: '0 25px 50px -12px rgba(0, 0, 0, 0.25)',
+                            zIndex: 20
+                        }}
+                    >
+                        <h3 style={{ fontSize: '0.875rem', fontWeight: 500, letterSpacing: '0.05em', margin: 0 }}>
+                            {items[index].title}
+                        </h3>
+                    </motion.div>
                 </div>
 
                 <Thumbnails index={index} setIndex={setIndex} />

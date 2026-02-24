@@ -114,15 +114,22 @@ const Footer = () => {
                 {/* Mini Map Col */}
                 <div className="footer-col footer-contact">
                     <h4 className="footer-col-title">Locate Us</h4>
-                    <div className="footer-map-wrap">
+                    <div className="footer-map-wrap" style={{ position: 'relative' }}>
                         <MapEmbed />
+                        <a
+                            href="https://www.google.com/maps/place/Malwa+Institute+of+Technology/@22.7667076,75.9303447,15z"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            style={{ position: 'absolute', inset: 0, zIndex: 10 }}
+                            aria-label="Open MIT Indore on Google Maps"
+                        />
                     </div>
-                    <div className="footer-contact-item">
+                    <a href="https://www.google.com/maps/place/Malwa+Institute+of+Technology/@22.7667076,75.9303447,15z" target="_blank" rel="noopener noreferrer" className="footer-contact-item" style={{ textDecoration: 'none', transition: 'color 0.2s' }} onMouseOver={(e) => e.currentTarget.style.color = 'var(--crimson)'} onMouseOut={(e) => e.currentTarget.style.color = 'rgba(255, 255, 255, 0.6)'}>
                         <span>📍</span> Off Bypass Road, Indore (M.P.) - 452016
-                    </div>
-                    <div className="footer-contact-item">
+                    </a>
+                    <a href="tel:+917312345678" className="footer-contact-item" style={{ textDecoration: 'none', transition: 'color 0.2s' }} onMouseOver={(e) => e.currentTarget.style.color = 'var(--crimson)'} onMouseOut={(e) => e.currentTarget.style.color = 'rgba(255, 255, 255, 0.6)'}>
                         <span>📞</span> +91 731 2345678
-                    </div>
+                    </a>
                 </div>
 
             </div>
