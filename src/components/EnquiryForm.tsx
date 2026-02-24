@@ -68,7 +68,7 @@ const EnquiryForm: React.FC<EnquiryFormProps> = ({ variant = 'full' }) => {
                         </div>
                         <div className="form-group">
                             <label>Email Address *</label>
-                            <input type="email" placeholder="Your Email " required className="form-input-full" />
+                            <input type="email" placeholder="Your Email" required className="form-input-full" />
                         </div>
                     </div>
                     <div className="form-row">

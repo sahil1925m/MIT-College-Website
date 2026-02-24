@@ -45,9 +45,6 @@ const Gallery = () => {
                 {tiles.map((t, i) => (
                     <div key={i} className={`g-tile ${t.cls}`}>
                         <img src={t.src} alt={t.label} />
-                        <div className="g-overlay">
-                            <div className="g-label">{t.label}</div>
-                        </div>
                     </div>
                 ))}
             </div>
