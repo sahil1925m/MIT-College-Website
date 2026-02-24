@@ -1,5 +1,5 @@
-@import "tailwindcss";
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap');
+@import "tailwindcss";
 
 :root {
   --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
@@ -4065,7 +4065,3 @@ footer {
     font-size: 0.82rem;
   }
 }
- . g a l l e r y - h o v e r - i t e m : h o v e r   . g a l l e r y - i m g   {   t r a n s f o r m :   s c a l e ( 1 . 1 ) ;   } 
- . g a l l e r y - h o v e r - i t e m : h o v e r   . g a l l e r y - o v e r l a y   {   t r a n s f o r m :   t r a n s l a t e Y ( 0 ) ;   } 
-  
- 
