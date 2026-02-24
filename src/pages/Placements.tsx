@@ -192,7 +192,16 @@ const Placements = () => {
         <div className="page-wrapper pl-page">
 
             {/* ── 1. HERO ────────────────────────────────────────────── */}
-            <section className="pl-hero">
+            <section className="pl-hero" style={{ position: 'relative' }}>
+                <div style={{
+                    position: 'absolute',
+                    top: 0, left: 0, right: 0, bottom: 0,
+                    backgroundImage: 'url(/src/assets/campus4.webp)',
+                    backgroundSize: 'cover',
+                    backgroundPosition: 'center',
+                    opacity: 0.2,
+                    pointerEvents: 'none'
+                }} />
                 <div className="pl-hero-bg" />
                 <div className="pl-hero-overlay" />
                 <div className="pl-hero-grid" />

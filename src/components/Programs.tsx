@@ -49,7 +49,6 @@ const Programs = () => {
                         </div>
                         <div className="prog-card-footer">
                             <span className="prog-degree">{p.degrees}</span>
-                            <Link to="/academics" className="prog-link">Explore &#8594;</Link>
                         </div>
                     </div>
                 ))}
