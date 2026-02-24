@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
+import campus4 from '../assets/campus4.webp';
 
 // ─── Data ─────────────────────────────────────────────────────────────────────
 
@@ -196,7 +197,7 @@ const Placements = () => {
                 <div style={{
                     position: 'absolute',
                     top: 0, left: 0, right: 0, bottom: 0,
-                    backgroundImage: 'url(/src/assets/campus4.webp)',
+                    backgroundImage: `url(${campus4})`,
                     backgroundSize: 'cover',
                     backgroundPosition: 'center',
                     opacity: 0.2,

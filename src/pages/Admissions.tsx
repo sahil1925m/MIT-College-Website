@@ -1,6 +1,7 @@
 import { useState, useRef, useEffect } from 'react';
 import CallToAction from '../components/CallToAction';
 import EnquiryForm from '../components/EnquiryForm';
+import campus2 from '../assets/campus2.webp';
 
 // ── Eligibility data ───────────────────────────────────────────────────────────
 const programs = [
@@ -120,7 +121,7 @@ const Admissions = () => {
                 <div style={{
                     position: 'absolute',
                     top: 0, left: 0, right: 0, bottom: 0,
-                    backgroundImage: 'url(/src/assets/campus2.webp)',
+                    backgroundImage: `url(${campus2})`,
                     backgroundSize: 'cover',
                     backgroundPosition: 'center',
                     opacity: 0.15,
