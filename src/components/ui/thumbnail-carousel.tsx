@@ -2,30 +2,30 @@ import React, { useEffect, useRef, useState } from 'react';
 import { motion, useMotionValue, animate, type PanInfo } from 'framer-motion';
 
 import evm1 from '../../assets/mit gallery/EVM/aditya.jpeg';
-import ncc1 from '../../assets/mit gallery/NCC/Copy of DSC_2586.jpg.jpeg';
-import spandan1 from '../../assets/mit gallery/spandan/TOWgame_spandan.JPG';
+import ncc1 from '../../assets/mit gallery/NCC/Copy of DSC_2586.jpg.webp';
+import spandan1 from '../../assets/mit gallery/spandan/TOWgame_spandan.webp';
 import event1 from '../../assets/mit gallery/Events/event.jpeg';
 import campus1 from '../../assets/mit gallery/campus/camp1.jpeg';
 
 import evm2 from '../../assets/mit gallery/EVM/aman.jpeg';
-import ncc2 from '../../assets/mit gallery/NCC/Copy of DSC_2873.jpg.jpeg';
-import spandan2 from '../../assets/mit gallery/spandan/green_dance_spandan.JPG';
+import ncc2 from '../../assets/mit gallery/NCC/Copy of DSC_2873.jpg.webp';
+import spandan2 from '../../assets/mit gallery/spandan/green_dance_spandan.webp';
 import event2 from '../../assets/mit gallery/Events/event2.jpg';
 
 import evm3 from '../../assets/mit gallery/EVM/judge.jpeg';
 import ncc3 from '../../assets/mit gallery/NCC/IMG-20240921-WA0014.jpg.jpeg';
-import spandan3 from '../../assets/mit gallery/spandan/jeet_spandan.JPG';
+import spandan3 from '../../assets/mit gallery/spandan/jeet_spandan.webp';
 
 import evm4 from '../../assets/mit gallery/EVM/mehak.jpeg';
 import ncc4 from '../../assets/mit gallery/NCC/IMG-20250216-WA0106.jpg.jpeg';
-import spandan4 from '../../assets/mit gallery/spandan/medal_spandan.JPG';
+import spandan4 from '../../assets/mit gallery/spandan/medal_spandan.webp';
 
 import evm5 from '../../assets/mit gallery/EVM/visitor.jpeg';
-import ncc5 from '../../assets/mit gallery/NCC/IMG_20250202_084052.jpg.jpeg';
-import spandan5 from '../../assets/mit gallery/spandan/stage_couple_spandan.JPG';
+import ncc5 from '../../assets/mit gallery/NCC/IMG_20250202_084052.jpg.webp';
+import spandan5 from '../../assets/mit gallery/spandan/stage_couple_spandan.webp';
 
-import ncc6 from '../../assets/mit gallery/NCC/IMG_20250520_161935.jpg.jpeg';
-import spandan6 from '../../assets/mit gallery/spandan/teacher_spandan.JPG';
+import ncc6 from '../../assets/mit gallery/NCC/IMG_20250520_161935.jpg.webp';
+import spandan6 from '../../assets/mit gallery/spandan/teacher_spandan.webp';
 
 const items = [
 
