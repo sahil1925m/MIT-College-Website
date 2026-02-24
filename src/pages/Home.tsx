@@ -6,7 +6,7 @@ import Testimonials from '../components/Testimonials';
 import News from '../components/News';
 import CallToAction from '../components/CallToAction';
 import EnquiryForm from '../components/EnquiryForm';
-import PortalSection from '../components/PortalSection';
+
 import campus2 from '../assets/campus2.webp';
 
 const Home = () => {
@@ -48,7 +48,6 @@ const Home = () => {
                     </div>
                 </div>
             </div>
-            <PortalSection />
             <Programs />
             <WhyChooseUs />
             <Gallery />

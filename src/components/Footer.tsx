@@ -19,7 +19,6 @@ const footerLinks = [
         items: [
             { label: "Campus Life", href: "/campus" },
             { label: "Research", href: "/research" },
-            { label: "Hostel Facility", href: "/campus" },
             { label: "Transport", href: "/campus" },
             { label: "Contact Us", href: "/contact" }
         ]

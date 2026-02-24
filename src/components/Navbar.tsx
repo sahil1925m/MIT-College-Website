@@ -3,6 +3,7 @@ import { NavLink } from 'react-router-dom';
 import logoImg from '../assets/logo.png';
 
 const links = [
+    { label: 'Home', href: '/' },
     { label: 'About', href: '/about' },
     { label: 'Academics', href: '/academics' },
     { label: 'Admissions', href: '/admissions' },
