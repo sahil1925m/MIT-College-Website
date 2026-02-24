@@ -3,7 +3,6 @@ import Programs from '../components/Programs';
 import WhyChooseUs from '../components/WhyChooseUs';
 import Gallery from '../components/Gallery';
 import Testimonials from '../components/Testimonials';
-import News from '../components/News';
 import CallToAction from '../components/CallToAction';
 import EnquiryForm from '../components/EnquiryForm';
 
@@ -52,7 +51,6 @@ const Home = () => {
             <WhyChooseUs />
             <Gallery />
             <Testimonials />
-            <News />
             <CallToAction />
         </main>
     );

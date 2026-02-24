@@ -18,7 +18,6 @@ const footerLinks = [
         title: "Campus",
         items: [
             { label: "Campus Life", href: "/campus" },
-            { label: "Research", href: "/research" },
             { label: "Transport", href: "/campus" },
             { label: "Contact Us", href: "/contact" }
         ]

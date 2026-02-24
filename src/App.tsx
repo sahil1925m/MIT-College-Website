@@ -12,8 +12,6 @@ import Academics from './pages/Academics';
 import Admissions from './pages/Admissions';
 import Placements from './pages/Placements';
 import CampusLife from './pages/CampusLife';
-import Research from './pages/Research';
-import News from './pages/News';
 import Contact from './pages/Contact';
 
 function App() {
@@ -28,8 +26,6 @@ function App() {
         <Route path="/admissions" element={<Admissions />} />
         <Route path="/placements" element={<Placements />} />
         <Route path="/campus" element={<CampusLife />} />
-        <Route path="/research" element={<Research />} />
-        <Route path="/news" element={<News />} />
         <Route path="/contact" element={<Contact />} />
       </Routes>
       <Footer />

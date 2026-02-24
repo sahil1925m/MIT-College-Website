@@ -9,8 +9,6 @@ const links = [
     { label: 'Admissions', href: '/admissions' },
     { label: 'Placements', href: '/placements' },
     { label: 'Campus Life', href: '/campus' },
-    { label: 'Research', href: '/research' },
-    { label: 'News', href: '/news' },
     { label: 'Contact', href: '/contact' }
 ];
 
