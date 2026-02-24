@@ -1,4 +1,4 @@
-import Gallery from '../components/Gallery';
+import CategoryGallery from '../components/CategoryGallery';
 import VideoPlayer from '../components/VideoPlayer';
 import campus5 from '../assets/campus5.webp';
 
@@ -32,7 +32,7 @@ const CampusLife = () => {
                 />
             </div>
 
-            <Gallery />
+            <CategoryGallery />
 
             {/* Amenities Grid */}
             <div className="container" style={{ maxWidth: '1200px', margin: '4rem auto', padding: '0 5%' }}>
