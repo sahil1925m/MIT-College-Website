@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
-import campus4 from '../assets/campus4.webp';
+import campus2 from '../assets/campus2.webp';
+import placementVideo from '../assets/video/placement.mp4';
 
 // ─── Data ─────────────────────────────────────────────────────────────────────
 
@@ -194,15 +195,21 @@ const Placements = () => {
 
             {/* ── 1. HERO ────────────────────────────────────────────── */}
             <section className="pl-hero" style={{ position: 'relative' }}>
-                <div style={{
-                    position: 'absolute',
-                    top: 0, left: 0, right: 0, bottom: 0,
-                    backgroundImage: `url(${campus4})`,
-                    backgroundSize: 'cover',
-                    backgroundPosition: 'center',
-                    opacity: 0.2,
-                    pointerEvents: 'none'
-                }} />
+                <video
+                    autoPlay
+                    loop
+                    muted
+                    playsInline
+                    style={{
+                        position: 'absolute',
+                        top: 0, left: 0, width: '100%', height: '100%',
+                        objectFit: 'cover',
+                        opacity: 0.35,
+                        pointerEvents: 'none'
+                    }}
+                >
+                    <source src={placementVideo} type="video/mp4" />
+                </video>
                 <div className="pl-hero-bg" />
                 <div className="pl-hero-overlay" />
                 <div className="pl-hero-grid" />
@@ -232,7 +239,16 @@ const Placements = () => {
             </section>
 
             {/* ── 2. HIGHLIGHTS ─────────────────────────────────────── */}
-            <section className="pl-highlights section-dark" ref={statsSection.ref}>
+            <section
+                className="pl-highlights section-dark"
+                ref={statsSection.ref}
+                style={{
+                    backgroundImage: `linear-gradient(rgba(10, 15, 28, 0.9), rgba(10, 15, 28, 0.9)), url(${campus2})`,
+                    backgroundSize: 'cover',
+                    backgroundPosition: 'center',
+                    backgroundAttachment: 'fixed'
+                }}
+            >
                 <div className="pl-highlights-inner container">
                     <div className="pl-section-header center light">
                         <div className="section-chip light-chip">

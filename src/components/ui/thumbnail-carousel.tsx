@@ -1,26 +1,59 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { motion, useMotionValue, animate, type PanInfo } from 'framer-motion';
 
-import campus1 from '../../assets/campus1.webp';
-import campus2 from '../../assets/campus2.webp';
-import campus3 from '../../assets/campus3.webp';
-import campus4 from '../../assets/campus4.webp';
-import campus5 from '../../assets/campus5.webp';
-import image3 from '../../assets/image_3.jpg';
-import image4 from '../../assets/image_4.jpg';
-import image5 from '../../assets/image_5.jpg';
-import image6 from '../../assets/image_6.jpg';
+import evm1 from '../../assets/mit gallery/EVM/aditya.jpeg';
+import ncc1 from '../../assets/mit gallery/NCC/Copy of DSC_2586.jpg.jpeg';
+import spandan1 from '../../assets/mit gallery/spandan/TOWgame_spandan.JPG';
+import event1 from '../../assets/mit gallery/Events/event.jpeg';
+import campus1 from '../../assets/mit gallery/campus/camp1.jpeg';
+
+import evm2 from '../../assets/mit gallery/EVM/aman.jpeg';
+import ncc2 from '../../assets/mit gallery/NCC/Copy of DSC_2873.jpg.jpeg';
+import spandan2 from '../../assets/mit gallery/spandan/green_dance_spandan.JPG';
+import event2 from '../../assets/mit gallery/Events/event2.jpg';
+
+import evm3 from '../../assets/mit gallery/EVM/judge.jpeg';
+import ncc3 from '../../assets/mit gallery/NCC/IMG-20240921-WA0014.jpg.jpeg';
+import spandan3 from '../../assets/mit gallery/spandan/jeet_spandan.JPG';
+
+import evm4 from '../../assets/mit gallery/EVM/mehak.jpeg';
+import ncc4 from '../../assets/mit gallery/NCC/IMG-20250216-WA0106.jpg.jpeg';
+import spandan4 from '../../assets/mit gallery/spandan/medal_spandan.JPG';
+
+import evm5 from '../../assets/mit gallery/EVM/visitor.jpeg';
+import ncc5 from '../../assets/mit gallery/NCC/IMG_20250202_084052.jpg.jpeg';
+import spandan5 from '../../assets/mit gallery/spandan/stage_couple_spandan.JPG';
+
+import ncc6 from '../../assets/mit gallery/NCC/IMG_20250520_161935.jpg.jpeg';
+import spandan6 from '../../assets/mit gallery/spandan/teacher_spandan.JPG';
 
 const items = [
-    { id: 1, url: campus1, title: 'Main Building' },
-    { id: 2, url: campus2, title: 'Lush Green Campus' },
-    { id: 3, url: image3, title: 'Annual Tech Fest' },
-    { id: 4, url: campus4, title: 'Advanced Laboratories' },
-    { id: 5, url: image4, title: 'Annual Sports Meet' },
-    { id: 6, url: campus3, title: 'Cultural Night' },
-    { id: 7, url: image5, title: 'NCC Parade' },
-    { id: 8, url: image6, title: 'Hackathon Winners' },
-    { id: 9, url: campus5, title: 'Basketball Tournament' },
+
+    { id: 1, url: ncc1, title: 'NCC' },
+    { id: 2, url: spandan1, title: 'Spandan' },
+    { id: 3, url: event1, title: 'Events' },
+    { id: 4, url: campus1, title: 'Campus' },
+    { id: 5, url: evm1, title: 'EVM' },
+
+    { id: 6, url: evm2, title: 'EVM' },
+    { id: 7, url: ncc2, title: 'NCC' },
+    { id: 8, url: spandan2, title: 'Spandan' },
+    { id: 9, url: event2, title: 'Events' },
+
+    { id: 10, url: evm3, title: 'EVM' },
+    { id: 11, url: ncc3, title: 'NCC' },
+    { id: 12, url: spandan3, title: 'Spandan' },
+
+    { id: 13, url: evm4, title: 'EVM' },
+    { id: 14, url: ncc4, title: 'NCC' },
+    { id: 15, url: spandan4, title: 'Spandan' },
+
+    { id: 16, url: evm5, title: 'EVM' },
+    { id: 17, url: ncc5, title: 'NCC' },
+    { id: 18, url: spandan5, title: 'Spandan' },
+
+    { id: 19, url: ncc6, title: 'NCC' },
+    { id: 20, url: spandan6, title: 'Spandan' },
 ];
 
 const FULL_WIDTH_PX = 120;
@@ -94,6 +127,8 @@ function Thumbnails({ index, setIndex }: ThumbnailsProps) {
                             alt={item.title}
                             className='w-full h-full object-cover pointer-events-none select-none'
                             draggable={false}
+                            loading="lazy"
+                            decoding="async"
                         />
                     </motion.button>
                 ))}
@@ -116,11 +151,22 @@ export default function ThumbnailCarousel() {
 
             animate(x, targetX, {
                 type: 'spring',
-                stiffness: 300,
-                damping: 30,
+                stiffness: 400,
+                damping: 40,
             });
         }
     }, [index, x, isDragging]);
+
+    // Auto-slide functionality
+    useEffect(() => {
+        if (isDragging) return;
+
+        const timer = setInterval(() => {
+            setIndex((prevIndex) => (prevIndex === items.length - 1 ? 0 : prevIndex + 1));
+        }, 3000); // Change slide every 3 seconds
+
+        return () => clearInterval(timer);
+    }, [isDragging]);
 
     return (
         <div className='w-full max-w-[1000px] mx-auto px-4 lg:px-10 pb-8'>
@@ -132,12 +178,13 @@ export default function ThumbnailCarousel() {
             </h2>
             <div className='flex flex-col gap-3'>
                 {/* Main Carousel */}
-                <div className='relative overflow-hidden rounded-lg bg-gray-100' ref={containerRef}>
+                <div className='relative overflow-hidden rounded-lg bg-black' ref={containerRef}>
                     <motion.div
                         className='flex'
                         drag='x'
-                        dragElastic={0.2}
-                        dragMomentum={false}
+                        dragConstraints={{ left: -((items.length - 1) * (containerRef.current?.offsetWidth || 1000)), right: 0 }}
+                        dragElastic={0.05}
+                        dragMomentum={true}
                         onDragStart={() => setIsDragging(true)}
                         onDragEnd={(_e: MouseEvent | TouchEvent | PointerEvent, info: PanInfo) => {
                             setIsDragging(false);
@@ -148,11 +195,11 @@ export default function ThumbnailCarousel() {
                             let newIndex = index;
 
                             // If fast swipe, use velocity
-                            if (Math.abs(velocity) > 500) {
+                            if (Math.abs(velocity) > 400) {
                                 newIndex = velocity > 0 ? index - 1 : index + 1;
                             }
-                            // Otherwise use offset threshold (30% of container width)
-                            else if (Math.abs(offset) > containerWidth * 0.3) {
+                            // Otherwise use offset threshold (20% of container width)
+                            else if (Math.abs(offset) > containerWidth * 0.2) {
                                 newIndex = offset > 0 ? index - 1 : index + 1;
                             }
 
@@ -160,15 +207,18 @@ export default function ThumbnailCarousel() {
                             newIndex = Math.max(0, Math.min(items.length - 1, newIndex));
                             setIndex(newIndex);
                         }}
-                        style={{ x }}
+                        style={{ x, cursor: isDragging ? 'grabbing' : 'grab' }}
+                        transition={{ type: "spring", stiffness: 400, damping: 40 }}
                     >
                         {items.map((item) => (
-                            <div key={item.id} className='shrink-0 w-full h-[500px]'>
+                            <div key={item.id} className='shrink-0 w-full h-[300px] md:h-[500px] flex justify-center items-center'>
                                 <img
                                     src={item.url}
                                     alt={item.title}
-                                    className='w-full h-full object-cover rounded-lg select-none pointer-events-none'
+                                    className='w-full h-full object-cover rounded-lg pointer-events-none select-none drop-shadow-md'
                                     draggable={false}
+                                    loading={Math.abs(index - items.findIndex(i => i.id === item.id)) <= 1 ? "eager" : "lazy"}
+                                    decoding="async"
                                 />
                             </div>
                         ))}
