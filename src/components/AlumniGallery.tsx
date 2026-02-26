@@ -1,7 +1,7 @@
 import { useRef, useEffect, useState } from 'react';
 
 // Dynamically import all images from the placement folder
-const imageModules = import.meta.glob('../assets/placement/*.{png,jpg,jpeg,webp}', { eager: true, query: '?url', import: 'default' });
+const imageModules = import.meta.glob('../assets/Placement/*.{png,jpg,jpeg,webp}', { eager: true, query: '?url', import: 'default' });
 const allImages = Object.values(imageModules) as string[];
 
 // Shuffle helper
@@ -97,7 +97,6 @@ const AlumniGallery = () => {
                     height: 100%;
                     overflow: hidden;
                     position: relative;
-                    min-width: 0;
                 }
                 .marquee-content {
                     display: flex;
@@ -106,7 +105,6 @@ const AlumniGallery = () => {
                 }
                 .marquee-card {
                     width: 100%;
-                    min-width: 0;
                     border-radius: 12px;
                     overflow: hidden;
                     border: 1px solid rgba(255,255,255,0.1);
