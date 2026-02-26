@@ -2505,15 +2505,17 @@ footer {
 }
 
 .pl-stats-grid {
-  display: grid;
-  grid-template-columns: repeat(5, 1fr);
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
   gap: 2rem;
   width: 100%;
   margin-top: 1rem;
 }
 
 .pl-stat-card {
-  background: rgba(255, 255, 255, 0.04);
+  flex: 1 1 200px;
+  max-width: 250px;
   border: 1px solid rgba(255, 255, 255, 0.08);
   border-radius: var(--radius-lg);
   padding: 2.5rem 1.5rem 2rem;
@@ -2880,9 +2882,7 @@ footer {
 
 /* ── Responsive ── */
 @media (max-width: 1100px) {
-  .pl-stats-grid {
-    grid-template-columns: repeat(3, 1fr);
-  }
+  /* Use flex-wrap instead of redefining grid columns */
 
   .pl-recruiters-grid {
     grid-template-columns: repeat(3, 1fr);
@@ -2890,9 +2890,7 @@ footer {
 }
 
 @media (max-width: 900px) {
-  .pl-stats-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
+  /* flex handles wrap automatically for smaller screens */
 
   .pl-stats-charts {
     grid-template-columns: 1fr;
@@ -2920,7 +2918,7 @@ footer {
   }
 
   .pl-stats-grid {
-    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
   }
 
   .pl-recruiters-grid {

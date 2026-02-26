@@ -25,7 +25,6 @@ import logoWindworld from '../assets/COMPANIES/windworld.webp';
 // ─── Data ─────────────────────────────────────────────────────────────────────
 
 const highlights = [
-    { num: 95, suffix: '%', label: 'Placement Rate' },
     { num: 18, suffix: ' LPA', label: 'Highest Package', prefix: '₹' },
     { num: 6.5, suffix: ' LPA', label: 'Average Package', prefix: '₹', decimal: true },
     { num: 120, suffix: '+', label: 'Recruiting Companies' },
