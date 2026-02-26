@@ -112,10 +112,6 @@ const WhyChooseUs = () => {
                                         <div className={`wcu-card-icon ${focused ? 'active' : ''}`}>
                                             <feat.Icon />
                                         </div>
-                                        <div className="wcu-card-stat">
-                                            <span className="wcu-stat-num">{feat.stat}</span>
-                                            <span className="wcu-stat-lbl">{feat.statLabel}</span>
-                                        </div>
                                     </div>
                                     <div className="wcu-card-body">
                                         <h4 className="wcu-card-title">{feat.title}</h4>

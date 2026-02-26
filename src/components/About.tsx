@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import aboutImg from '../assets/image_3.jpg';
 
 const features = [
-    { icon: '🏆', text: '25+ Years of Academic Leadership' },
+    { icon: '🏆', text: '20+ Years of Academic Leadership' },
     { icon: '👨‍🏫', text: 'Expert PhD Faculty from IITs & NITs' },
     { icon: '🔬', text: 'State-of-the-Art Labs & Infrastructure' },
     { icon: '🌍', text: 'International Collaborations & MoUs' },
@@ -31,7 +31,7 @@ const About = () => {
                         <div className="about-img-overlay" />
                     </div>
                     <div className="about-badge">
-                        <div className="about-badge-num">25+</div>
+                        <div className="about-badge-num">20+</div>
                         <div className="about-badge-text">Years of Excellence</div>
                     </div>
                     <div className="about-corner" />

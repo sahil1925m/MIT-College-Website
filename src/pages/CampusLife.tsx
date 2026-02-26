@@ -10,9 +10,9 @@ const CampusLife = () => {
                 background: `linear-gradient(rgba(5, 10, 20, 0.8), rgba(5, 10, 20, 0.8)), url(${camp1})`,
                 backgroundSize: 'cover',
                 backgroundPosition: 'center',
-                color: '#fff', padding: '10rem 5% 8rem', textAlign: 'center'
+                color: '#fff', padding: 'clamp(5rem, 10vw, 10rem) 5% clamp(4rem, 8vw, 8rem)', textAlign: 'center'
             }}>
-                <h1 className="section-title section-title-white" style={{ fontSize: '3.5rem', marginBottom: '1rem' }}>Campus <span>Life</span></h1>
+                <h1 className="section-title section-title-white" style={{ fontSize: 'clamp(2rem, 5vw, 3.5rem)', marginBottom: '1rem' }}>Campus <span>Life</span></h1>
                 <p className="section-sub section-sub-white" style={{ margin: '0 auto', maxWidth: '700px' }}>
                     A vibrant ecosystem of learning, sports, culture, and innovation. Experience the best years of your life at MIT Indore.
                 </p>
@@ -40,7 +40,7 @@ const CampusLife = () => {
             {/* Amenities Grid */}
             <div className="container" style={{ maxWidth: '1200px', margin: '4rem auto', padding: '0 5%' }}>
                 <h2 className="section-title" style={{ textAlign: 'center', marginBottom: '3rem' }}>World-Class <span>Amenities</span></h2>
-                <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '2rem' }}>
+                <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))', gap: '1.5rem' }}>
                     {[
                         { icon: '📚', title: 'Central Library', desc: '50,000+ books, e-journals, and digital resources.' },
                         { icon: '🏟️', title: 'Sports Complex', desc: 'Cricket ground, basketball court, and indoor games.' },

@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from 'react';
 
 const stats = [
-    { num: 25, suffix: '+', label: 'Years of Excellence' },
+    { num: 20, suffix: '+', label: 'Years of Excellence' },
     { num: 200, suffix: '+', label: 'Recruiting Companies' },
     { num: 5000, suffix: '+', label: 'Students Placed' },
     { num: 92, suffix: '%', label: 'Placement Rate' },
@@ -84,7 +84,7 @@ const Hero = () => {
                 </p>
 
                 <div className="hero-actions">
-                    <button 
+                    <button
                         className="btn btn-primary"
                         onClick={() => document.getElementById('programs')?.scrollIntoView({ behavior: 'smooth' })}
                     >

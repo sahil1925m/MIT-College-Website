@@ -5,6 +5,7 @@ import Gallery from '../components/Gallery';
 import Testimonials from '../components/Testimonials';
 import CallToAction from '../components/CallToAction';
 import EnquiryForm from '../components/EnquiryForm';
+import AlumniGallery from '../components/AlumniGallery';
 
 import campus2 from '../assets/campus2.webp';
 
@@ -17,7 +18,7 @@ const Home = () => {
                     {/* Text & Form Side */}
                     <div className="enquiry-content">
                         <div className="section-chip"><span className="chip-dot"></span>Admissions 2026</div>
-                        <h2 className="section-title" style={{ marginBottom: '1.5rem', fontSize: '3rem' }}>Your Future Starts <span style={{ color: 'var(--crimson)' }}>Here</span></h2>
+                        <h2 className="section-title" style={{ marginBottom: '1.5rem', fontSize: 'clamp(1.8rem, 4vw, 3rem)' }}>Your Future Starts <span style={{ color: 'var(--crimson)' }}>Here</span></h2>
                         <p className="section-sub" style={{ marginBottom: '3rem', fontSize: '1.1rem', lineHeight: 1.7 }}>
                             Join a community of innovators, leaders, and problem solvers.
                             Our industry-aligned curriculum ensures you are ready for the global workforce from day one.
@@ -42,6 +43,7 @@ const Home = () => {
             <Programs />
             <WhyChooseUs />
             <Gallery />
+            <AlumniGallery />
             <Testimonials />
             <CallToAction />
         </main>

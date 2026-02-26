@@ -26,7 +26,7 @@ const Gallery = () => {
     }, []);
 
     return (
-        <section className="section section-alt" id="gallery" ref={ref}>
+        <section className="section section-alt pb-4" id="gallery" ref={ref}>
             <div className={`gallery-top anim-fade ${vis ? 'visible' : ''}`}>
                 <div className="section-chip">
                     <span className="chip-dot" />Campus Life

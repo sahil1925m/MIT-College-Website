@@ -8,6 +8,7 @@ interface VideoPlayerProps {
     autoplay?: boolean;
     loop?: boolean;
     muted?: boolean;
+    aspectRatio?: '16/9' | '9/16';
 }
 
 const VideoPlayer: React.FC<VideoPlayerProps> = ({
@@ -17,7 +18,8 @@ const VideoPlayer: React.FC<VideoPlayerProps> = ({
     thumbnail,
     autoplay = false,
     loop = false,
-    muted = false
+    muted = false,
+    aspectRatio = '16/9'
 }) => {
     const [isPlaying, setIsPlaying] = useState(autoplay);
     const [isMuted, setIsMuted] = useState(muted);
@@ -69,7 +71,7 @@ const VideoPlayer: React.FC<VideoPlayerProps> = ({
             style={{
                 position: 'relative',
                 width: '100%',
-                paddingBottom: '56.25%', // 16:9 Aspect Ratio
+                paddingBottom: aspectRatio === '9/16' ? '177.77%' : '56.25%', // Conditional ratio
                 backgroundColor: '#000',
                 borderRadius: '16px',
                 overflow: 'hidden',
