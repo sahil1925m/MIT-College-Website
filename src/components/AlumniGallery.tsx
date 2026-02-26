@@ -54,7 +54,7 @@ const AlumniGallery = () => {
                         <div className="marquee-content">
                             {[...col1, ...col1].map((src, i) => (
                                 <div key={`c1-${i}`} className="marquee-card">
-                                    <img src={src} alt="Alumni Success" loading="lazy" />
+                                    <img src={src} alt="Alumni Success" loading="lazy" decoding="async" />
                                 </div>
                             ))}
                         </div>
@@ -65,7 +65,7 @@ const AlumniGallery = () => {
                         <div className="marquee-content">
                             {[...col2, ...col2].map((src, i) => (
                                 <div key={`c2-${i}`} className="marquee-card">
-                                    <img src={src} alt="Alumni Success" loading="lazy" />
+                                    <img src={src} alt="Alumni Success" loading="lazy" decoding="async" />
                                 </div>
                             ))}
                         </div>
@@ -76,7 +76,7 @@ const AlumniGallery = () => {
                         <div className="marquee-content">
                             {[...col3, ...col3].map((src, i) => (
                                 <div key={`c3-${i}`} className="marquee-card">
-                                    <img src={src} alt="Alumni Success" loading="lazy" />
+                                    <img src={src} alt="Alumni Success" loading="lazy" decoding="async" />
                                 </div>
                             ))}
                         </div>
@@ -105,18 +105,33 @@ const AlumniGallery = () => {
                 }
                 .marquee-card {
                     width: 100%;
+                    min-width: 0;
                     border-radius: 12px;
                     overflow: hidden;
                     border: 1px solid rgba(255,255,255,0.1);
                     box-shadow: 0 10px 30px rgba(0,0,0,0.5);
                     transition: transform 0.3s ease, border-color 0.3s ease;
+                    /* Skeleton Loader Background */
+                    background: linear-gradient(90deg, rgba(255,255,255,0.03) 25%, rgba(255,255,255,0.08) 50%, rgba(255,255,255,0.03) 75%);
+                    background-size: 200% 100%;
+                    animation: skeleton-glow 2s infinite linear;
                 }
                 .marquee-card img {
                     width: 100%;
                     height: auto;
                     display: block;
                     filter: grayscale(20%);
-                    transition: filter 0.3s ease;
+                    transition: filter 0.3s ease, opacity 0.5s ease;
+                    /* Make image fade in smoothly once loaded over skeleton */
+                    opacity: 0;
+                    animation: fade-in-img 0.5s ease forwards;
+                }
+                @keyframes fade-in-img {
+                    to { opacity: 1; }
+                }
+                @keyframes skeleton-glow {
+                    0% { background-position: 200% 0; }
+                    100% { background-position: -200% 0; }
                 }
                 .marquee-card:hover {
                     transform: scale(1.02);

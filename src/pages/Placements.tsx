@@ -249,7 +249,7 @@ const Placements = () => {
                             {[...recruitersRow1, ...recruitersRow1, ...recruitersRow1].map((company, i) => (
                                 <div className="recruiter-marquee-card" key={`r1-${i}`}>
                                     <div className="recruiter-marquee-logo">
-                                        <img src={company.logo} alt={`${company.name} logo`} />
+                                        <img src={company.logo} alt={`${company.name} logo`} loading="lazy" decoding="async" />
                                     </div>
                                     <span className="recruiter-marquee-name">{company.name}</span>
                                 </div>
@@ -263,7 +263,7 @@ const Placements = () => {
                             {[...recruitersRow2, ...recruitersRow2, ...recruitersRow2].map((company, i) => (
                                 <div className="recruiter-marquee-card" key={`r2-${i}`}>
                                     <div className="recruiter-marquee-logo">
-                                        <img src={company.logo} alt={`${company.name} logo`} />
+                                        <img src={company.logo} alt={`${company.name} logo`} loading="lazy" decoding="async" />
                                     </div>
                                     <span className="recruiter-marquee-name">{company.name}</span>
                                 </div>
