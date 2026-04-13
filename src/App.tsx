@@ -13,6 +13,8 @@ import Admissions from './pages/Admissions';
 import Placements from './pages/Placements';
 import CampusLife from './pages/CampusLife';
 import Contact from './pages/Contact';
+import DepartmentsIndex from './pages/departments/DepartmentsIndex';
+import DepartmentPage from './pages/departments/DepartmentPage';
 
 function App() {
   return (
@@ -27,6 +29,8 @@ function App() {
         <Route path="/placements" element={<Placements />} />
         <Route path="/campus" element={<CampusLife />} />
         <Route path="/contact" element={<Contact />} />
+        <Route path="/departments" element={<DepartmentsIndex />} />
+        <Route path="/departments/:id" element={<DepartmentPage />} />
       </Routes>
       <Footer />
       <SocialBar />

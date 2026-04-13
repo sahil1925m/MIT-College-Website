@@ -7,18 +7,18 @@
 }
 
 /* ============================================================
-   MIT INDORE — MODERN REDESIGN
+   MIT INDORE â€” MODERN REDESIGN
    Design System: Dark Navy + Crimson, Glassmorphism, Smooth Animations
    ============================================================ */
 
-/* ──────────────────────────────────────
+/* â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
    GOOGLE FONTS
-────────────────────────────────────── */
+â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 @import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:wght@300;400;500;600;700;800;900&display=swap');
 
-/* ──────────────────────────────────────
+/* â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
    DESIGN TOKENS
-────────────────────────────────────── */
+â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 :root {
   /* Colors */
   --crimson: #C62828;
@@ -67,9 +67,9 @@
   --dur-slow: 0.65s;
 }
 
-/* ──────────────────────────────────────
+/* â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
    RESET & BASE
-────────────────────────────────────── */
+â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 *,
 *::before,
 *::after {
@@ -119,9 +119,9 @@ button {
   font-family: inherit;
 }
 
-/* ──────────────────────────────────────
+/* â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
    SCROLLBAR
-────────────────────────────────────── */
+â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 ::-webkit-scrollbar {
   width: 6px;
 }
@@ -135,9 +135,9 @@ button {
   border-radius: 3px;
 }
 
-/* ──────────────────────────────────────
+/* â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
    UTILITY
-────────────────────────────────────── */
+â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 .container {
   max-width: var(--container);
   margin: 0 auto;
@@ -237,9 +237,9 @@ button {
   color: var(--text-light);
 }
 
-/* ──────────────────────────────────────
+/* â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
    BUTTONS
-────────────────────────────────────── */
+â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 .btn {
   display: inline-flex;
   align-items: center;
@@ -322,9 +322,9 @@ button {
   transform: translateX(4px);
 }
 
-/* ──────────────────────────────────────
+/* â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
    NAVBAR
-────────────────────────────────────── */
+â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 .navbar {
   position: fixed;
   top: 0;
@@ -489,9 +489,9 @@ button {
   border-radius: var(--radius);
 }
 
-/* ──────────────────────────────────────
+/* â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
    NAVBAR RESPONSIVE
-────────────────────────────────────── */
+â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 @media (max-width: 1023px) {
   .navbar {
     padding: 0 16px;
@@ -527,9 +527,9 @@ button {
   }
 }
 
-/* ──────────────────────────────────────
+/* â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
    HERO
-────────────────────────────────────── */
+â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 .hero {
   position: relative;
   min-height: 100vh;
@@ -776,9 +776,9 @@ button {
   }
 }
 
-/* ──────────────────────────────────────
+/* â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
    STATS BAND
-────────────────────────────────────── */
+â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 .stats-band {
   background: var(--white);
   border-bottom: 1px solid var(--border-light);
@@ -863,9 +863,9 @@ button {
   letter-spacing: 0.02em;
 }
 
-/* ──────────────────────────────────────
+/* â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
    ABOUT
-────────────────────────────────────── */
+â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 .about-layout {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -990,9 +990,9 @@ button {
   line-height: 1.4;
 }
 
-/* ──────────────────────────────────────
+/* â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
    PROGRAMS
-────────────────────────────────────── */
+â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 .programs-header {
   display: flex;
   justify-content: space-between;
@@ -1103,9 +1103,9 @@ button {
   gap: 0.6rem;
 }
 
-/* ──────────────────────────────────────
+/* â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
    WHY MIT (dark)
-────────────────────────────────────── */
+â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 .why-layout {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -1213,9 +1213,9 @@ button {
   margin-top: 0.2rem;
 }
 
-/* ──────────────────────────────────────
+/* â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
    GALLERY (Bento Grid)
-────────────────────────────────────── */
+â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 .gallery-top {
   text-align: center;
   max-width: 600px;
@@ -1296,9 +1296,9 @@ button {
   grid-row: 2 / 3;
 }
 
-/* ──────────────────────────────────────
+/* â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
    TESTIMONIALS
-────────────────────────────────────── */
+â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 .testi-header {
   text-align: center;
   max-width: 600px;
@@ -1387,9 +1387,9 @@ button {
   margin-top: 0.1rem;
 }
 
-/* ──────────────────────────────────────
+/* â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
    NEWS
-────────────────────────────────────── */
+â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 .news-header {
   display: flex;
   justify-content: space-between;
@@ -1488,9 +1488,9 @@ button {
   gap: 0.6rem;
 }
 
-/* ──────────────────────────────────────
+/* â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
    CTA SECTION
-────────────────────────────────────── */
+â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 .cta-section {
   position: relative;
   background: var(--navy);
@@ -1549,9 +1549,9 @@ button {
   flex-wrap: wrap;
 }
 
-/* ──────────────────────────────────────
+/* â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
    FOOTER
-────────────────────────────────────── */
+â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 footer {
   background: var(--navy-mid);
   color: var(--text-light);
@@ -1744,9 +1744,9 @@ footer {
   }
 }
 
-/* ──────────────────────────────────────
+/* â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
    LINK STYLE
-────────────────────────────────────── */
+â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 .link-red {
   color: var(--crimson);
   font-size: 0.83rem;
@@ -1772,9 +1772,9 @@ footer {
   color: var(--white);
 }
 
-/* ──────────────────────────────────────
+/* â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
    ANIMATIONS
-────────────────────────────────────── */
+â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 @keyframes fadeUp {
   from {
     opacity: 0;
@@ -1801,9 +1801,167 @@ footer {
 
 /* Scroll-triggered classes */
 .anim-fade {
-  opacity: 0;
-  transform: translateY(36px);
-  transition: opacity var(--dur-slow) var(--ease), transform var(--dur-slow) var(--ease);
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.6s ease, transform 0.6s var(--ease);
+}
+.anim-fade.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* ============================================================
+   DEPARTMENT CARDS GLOBAL STYLES
+   ============================================================ */
+.programs-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    margin-bottom: 3.5rem;
+    gap: 2rem;
+}
+.link-red {
+    color: var(--crimson);
+    font-weight: 700;
+    text-decoration: none;
+    font-size: 0.95rem;
+    transition: transform 0.2s;
+}
+.link-red:hover { transform: translateX(5px); }
+
+.programs-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+    gap: 2.5rem;
+}
+
+.dept-card {
+    background: #fff;
+    border-radius: 20px;
+    overflow: hidden;
+    text-decoration: none;
+    color: inherit;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 4px 24px rgba(0,0,0,0.05);
+    transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.4s ease;
+    border: 1px solid rgba(0,0,0,0.04);
+}
+
+.dept-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 48px rgba(0,0,0,0.12);
+}
+
+.dept-card-top {
+    height: 120px;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.dept-card-blob {
+    position: absolute;
+    width: 250px;
+    height: 250px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.12);
+    bottom: -100px;
+    right: -60px;
+    transition: transform 0.6s ease;
+}
+
+.dept-card:hover .dept-card-blob {
+    transform: scale(1.2);
+}
+
+.dept-card-icon {
+    color: white;
+    filter: drop-shadow(0 4px 12px rgba(0,0,0,0.25));
+    position: relative;
+    z-index: 2;
+    transition: transform 0.4s var(--spring);
+}
+
+.dept-card:hover .dept-card-icon {
+    transform: scale(1.1) rotate(5deg);
+}
+
+.dept-card-body {
+    padding: 1.8rem;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.dept-card-short {
+    font-size: 0.75rem;
+    font-weight: 800;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: #94a3b8;
+    margin-bottom: 0.5rem;
+    display: block;
+}
+
+.dept-card-name {
+    font-size: 1.25rem;
+    font-weight: 800;
+    color: #0f172a;
+    margin-bottom: 0.6rem;
+    line-height: 1.3;
+}
+
+.dept-card-hod {
+    font-size: 0.9rem;
+    color: #64748b;
+    font-weight: 600;
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.dept-card-overview {
+    font-size: 0.9rem;
+    color: #475569;
+    line-height: 1.7;
+    flex: 1;
+    margin-bottom: 1.5rem;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.dept-card-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 1.2rem;
+    border-top: 1px solid #f1f5f9;
+}
+
+.dept-card-faculty {
+    font-size: 0.8rem;
+    font-weight: 700;
+    color: #64748b;
+    background: #f8fafc;
+    padding: 0.4rem 0.9rem;
+    border-radius: 50px;
+}
+
+.dept-card-link {
+    font-size: 0.95rem;
+    font-weight: 700;
+    transition: transform 0.2s;
+}
+
+.dept-card:hover .dept-card-link {
+    transform: translateX(4px);
 }
 
 .anim-left {
@@ -1837,9 +1995,9 @@ footer {
   transition-delay: calc(var(--i, 0) * 80ms);
 }
 
-/* ──────────────────────────────────────
+/* â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
    RESPONSIVE
-────────────────────────────────────── */
+â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 @media (max-width: 1024px) {
   .programs-grid {
     grid-template-columns: repeat(2, 1fr);
@@ -2337,7 +2495,7 @@ footer {
    PLACEMENT PAGE
    ============================================================ */
 
-/* ── Shared ── */
+/* â”€â”€ Shared â”€â”€ */
 .pl-page {
   padding-top: 72px;
 }
@@ -2365,7 +2523,7 @@ footer {
   font-style: italic;
 }
 
-/* ── 1. HERO ── */
+/* â”€â”€ 1. HERO â”€â”€ */
 .pl-hero {
   position: relative;
   min-height: 80vh;
@@ -2493,7 +2651,7 @@ footer {
   text-transform: uppercase;
 }
 
-/* ── 2. HIGHLIGHTS ── */
+/* â”€â”€ 2. HIGHLIGHTS â”€â”€ */
 .pl-highlights {
   padding: var(--section-py) 5%;
 }
@@ -2568,14 +2726,14 @@ footer {
   border-radius: 2px;
 }
 
-/* ── 3. RECRUITERS ── */
+/* â”€â”€ 3. RECRUITERS â”€â”€ */
 .pl-recruiters {
   padding: var(--section-py) 5%;
 }
 
 
 
-/* ── 5. T&P CELL ── */
+/* â”€â”€ 5. T&P CELL â”€â”€ */
 .pl-tp {
   padding: var(--section-py) 5%;
   background: var(--surface);
@@ -2731,7 +2889,7 @@ footer {
   letter-spacing: 0.04em;
 }
 
-/* ── 6. TESTIMONIALS ── */
+/* â”€â”€ 6. TESTIMONIALS â”€â”€ */
 .pl-testimonials {
   padding: var(--section-py) 5%;
 }
@@ -2826,7 +2984,7 @@ footer {
   color: var(--crimson);
 }
 
-/* ── 7. CTA ── */
+/* â”€â”€ 7. CTA â”€â”€ */
 .pl-cta {
   position: relative;
   padding: 7rem 5%;
@@ -2880,7 +3038,7 @@ footer {
   padding: 0.9rem 2.2rem;
 }
 
-/* ── Responsive ── */
+/* â”€â”€ Responsive â”€â”€ */
 @media (max-width: 1100px) {
   /* Use flex-wrap instead of redefining grid columns */
 
@@ -2935,7 +3093,7 @@ footer {
    WHY CHOOSE US SECTION
    ============================================================ */
 
-/* ── Layout ── */
+/* â”€â”€ Layout â”€â”€ */
 .wcu-section {
   padding: var(--section-py) 0;
   overflow: hidden;
@@ -2951,7 +3109,7 @@ footer {
   padding: 0 5%;
 }
 
-/* ── Entrance Animations ── */
+/* â”€â”€ Entrance Animations â”€â”€ */
 .anim-left {
   opacity: 0;
   transform: translateX(-40px);
@@ -2977,7 +3135,7 @@ footer {
   transform: none;
 }
 
-/* ── Left column ── */
+/* â”€â”€ Left column â”€â”€ */
 .wcu-left {
   display: flex;
   flex-direction: column;
@@ -3000,7 +3158,7 @@ footer {
   background-clip: text;
 }
 
-/* ── Bento Cards ── */
+/* â”€â”€ Bento Cards â”€â”€ */
 .wcu-cards {
   display: flex;
   flex-direction: column;
@@ -3138,7 +3296,7 @@ footer {
   color: var(--crimson);
 }
 
-/* ── Right column ── */
+/* â”€â”€ Right column â”€â”€ */
 .wcu-right {
   position: relative;
   display: flex;
@@ -3358,7 +3516,7 @@ footer {
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
 
-/* ── Responsive ── */
+/* â”€â”€ Responsive â”€â”€ */
 @media (max-width: 960px) {
   .wcu-inner {
     grid-template-columns: 1fr;
@@ -3399,7 +3557,7 @@ footer {
    SOCIAL MEDIA FLOATING BAR
    ============================================================ */
 
-/* ── Desktop: fixed right-center pill ── */
+/* â”€â”€ Desktop: fixed right-center pill â”€â”€ */
 .social-bar {
   position: fixed;
   right: 0;
@@ -3481,7 +3639,7 @@ footer {
   transform: translateY(-50%) translateX(0);
 }
 
-/* ── Mobile: hidden desktop bar, show bottom sticky bar ── */
+/* â”€â”€ Mobile: hidden desktop bar, show bottom sticky bar â”€â”€ */
 .social-bar-mobile {
   display: none;
 }
@@ -3544,12 +3702,12 @@ footer {
    ADMISSIONS PAGE
    ============================================================ */
 
-/* ── Page wrapper ── */
+/* â”€â”€ Page wrapper â”€â”€ */
 .adm-page {
   background: #f8fafc;
 }
 
-/* ── Hero ── */
+/* â”€â”€ Hero â”€â”€ */
 .adm-hero {
   position: relative;
   background: var(--navy);
@@ -3611,7 +3769,7 @@ footer {
   letter-spacing: 0.02em;
 }
 
-/* ── Main grid ── */
+/* â”€â”€ Main grid â”€â”€ */
 .adm-main {
   padding: 5rem 0 6rem;
 }
@@ -3623,7 +3781,7 @@ footer {
   align-items: start;
 }
 
-/* ── Left column ── */
+/* â”€â”€ Left column â”€â”€ */
 .adm-left {
   display: flex;
   flex-direction: column;
@@ -3648,7 +3806,7 @@ footer {
   margin-bottom: 1.75rem;
 }
 
-/* ── Program tabs ── */
+/* â”€â”€ Program tabs â”€â”€ */
 .adm-tabs {
   display: flex;
   gap: 0.5rem;
@@ -3697,7 +3855,7 @@ footer {
   color: inherit;
 }
 
-/* ── Eligibility card ── */
+/* â”€â”€ Eligibility card â”€â”€ */
 .adm-elig-card {
   background: #fff;
   border: 1px solid #eaeaea;
@@ -3758,7 +3916,7 @@ footer {
   text-transform: uppercase;
 }
 
-/* ── Vertical Timeline ── */
+/* â”€â”€ Vertical Timeline â”€â”€ */
 .adm-timeline {
   display: flex;
   flex-direction: column;
@@ -3837,7 +3995,7 @@ footer {
   margin: 0;
 }
 
-/* ── Form card ── */
+/* â”€â”€ Form card â”€â”€ */
 .adm-form-col {
   position: sticky;
   top: 100px;
@@ -3921,7 +4079,7 @@ footer {
   background: #fff !important;
 }
 
-/* ── Responsive ── */
+/* â”€â”€ Responsive â”€â”€ */
 @media (max-width: 1024px) {
   .adm-grid {
     grid-template-columns: 1fr 420px;
@@ -3959,7 +4117,7 @@ footer {
 
 
 /* =========================================================================
-   RECRUITER MARQUEE — Infinite Scroll Logo Carousel
+   RECRUITER MARQUEE â€” Infinite Scroll Logo Carousel
    ========================================================================= */
 
 .recruiter-marquee-wrap {
@@ -3995,12 +4153,12 @@ footer {
   will-change: transform;
 }
 
-/* Row 1 → scrolls left */
+/* Row 1 â†’ scrolls left */
 .recruiter-marquee--left .recruiter-marquee-track {
   animation: marqueeScrollLeft 35s linear infinite;
 }
 
-/* Row 2 → scrolls right */
+/* Row 2 â†’ scrolls right */
 .recruiter-marquee--right .recruiter-marquee-track {
   animation: marqueeScrollRight 40s linear infinite;
 }
@@ -4093,7 +4251,7 @@ footer {
   text-overflow: ellipsis;
 }
 
-/* Gradient fades on edges — creates seamless loop illusion */
+/* Gradient fades on edges â€” creates seamless loop illusion */
 .recruiter-marquee-fade {
   position: absolute;
   top: 0;
@@ -4113,7 +4271,7 @@ footer {
   background: linear-gradient(to left, var(--surface-alt) 0%, transparent 100%);
 }
 
-/* ── Responsive ── */
+/* â”€â”€ Responsive â”€â”€ */
 @media (max-width: 768px) {
   .recruiter-marquee-card {
     min-width: 120px;
@@ -4142,9 +4300,9 @@ footer {
   }
 }
 
-/* ──────────────────────────────────────
+/* â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
    MISSION & VISION SECTION
-────────────────────────────────────── */
+â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 .mv-section {
   position: relative;
   padding: 6rem 5%;
@@ -4184,7 +4342,7 @@ footer {
   align-items: center;
 }
 
-/* ── Content side ── */
+/* â”€â”€ Content side â”€â”€ */
 .mv-content {
   opacity: 0;
   transform: translateY(40px);
@@ -4321,7 +4479,7 @@ footer {
   line-height: 1.65;
 }
 
-/* ── Image side ── */
+/* â”€â”€ Image side â”€â”€ */
 .mv-image-side {
   position: relative;
   opacity: 0;
@@ -4415,7 +4573,7 @@ footer {
   pointer-events: none;
 }
 
-/* ── Responsive ── */
+/* â”€â”€ Responsive â”€â”€ */
 @media (max-width: 1023px) {
   .mv-container {
     grid-template-columns: 1fr;
@@ -4482,7 +4640,7 @@ footer {
    COMPREHENSIVE MOBILE RESPONSIVE OVERRIDES
    ========================================================================= */
 
-/* ── 768px — Tablet & Small Landscape ── */
+/* â”€â”€ 768px â€” Tablet & Small Landscape â”€â”€ */
 @media (max-width: 768px) {
 
   /* Hero section */
@@ -4636,7 +4794,7 @@ footer {
   }
 }
 
-/* ── 480px — Small Mobile Phones ── */
+/* â”€â”€ 480px â€” Small Mobile Phones â”€â”€ */
 @media (max-width: 480px) {
 
   /* Hero */
@@ -4858,7 +5016,7 @@ footer {
   }
 }
 
-/* ── 380px — Very Small Screens ── */
+/* â”€â”€ 380px â€” Very Small Screens â”€â”€ */
 @media (max-width: 380px) {
 
   .hero h1 {
@@ -4906,4 +5064,221 @@ footer {
   .mv-intro-text {
     font-size: 0.82rem;
   }
+}
+/* ============================================================
+   DEPARTMENT CARDS GLOBAL STYLES
+   ============================================================ */
+.programs-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    margin-bottom: 3.5rem;
+    gap: 2rem;
+}
+.link-red {
+    color: var(--crimson);
+    font-weight: 700;
+    text-decoration: none;
+    font-size: 0.95rem;
+    transition: transform 0.2s;
+}
+.link-red:hover { transform: translateX(5px); }
+
+.programs-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+    gap: 2.5rem;
+}
+
+.dept-card {
+    background: #fff;
+    border-radius: 20px;
+    overflow: hidden;
+    text-decoration: none;
+    color: inherit;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 4px 24px rgba(0,0,0,0.05);
+    transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.4s ease;
+    border: 1px solid rgba(0,0,0,0.04);
+}
+
+.dept-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 48px rgba(0,0,0,0.12);
+}
+
+.dept-card-top {
+    height: 120px;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.dept-card-blob {
+    position: absolute;
+    width: 250px;
+    height: 250px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.12);
+    bottom: -100px;
+    right: -60px;
+    transition: transform 0.6s ease;
+}
+
+.dept-card:hover .dept-card-blob {
+    transform: scale(1.2);
+}
+
+.dept-card-icon {
+    color: white;
+    filter: drop-shadow(0 4px 12px rgba(0,0,0,0.25));
+    position: relative;
+    z-index: 2;
+    transition: transform 0.4s var(--spring);
+}
+
+.dept-card:hover .dept-card-icon {
+    transform: scale(1.1) rotate(5deg);
+}
+
+.dept-card-body {
+    padding: 1.8rem;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.dept-card-short {
+    font-size: 0.75rem;
+    font-weight: 800;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: #94a3b8;
+    margin-bottom: 0.5rem;
+    display: block;
+}
+
+.dept-card-name {
+    font-size: 1.25rem;
+    font-weight: 800;
+    color: #0f172a;
+    margin-bottom: 0.6rem;
+    line-height: 1.3;
+}
+
+.dept-card-hod {
+    font-size: 0.9rem;
+    color: #64748b;
+    font-weight: 600;
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.dept-card-overview {
+    font-size: 0.9rem;
+    color: #475569;
+    line-height: 1.7;
+    flex: 1;
+    margin-bottom: 1.5rem;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    line-clamp: 3;
+}
+
+.dept-card-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 1.2rem;
+    border-top: 1px solid #f1f5f9;
+}
+
+.dept-card-faculty {
+    font-size: 0.8rem;
+    font-weight: 700;
+    color: #64748b;
+    background: #f8fafc;
+    padding: 0.4rem 0.9rem;
+    border-radius: 50px;
+}
+
+.dept-card-link {
+    font-size: 0.95rem;
+    font-weight: 700;
+    transition: transform 0.2s;
+}
+
+.dept-card:hover .dept-card-link {
+    transform: translateX(4px);
+}
+
+/* Animations */
+.anim-fade {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.6s ease, transform 0.6s var(--ease);
+}
+.anim-fade.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* ============================================================
+   MOBILE SWIPEABLE GRIDS
+   ============================================================ */
+@media (max-width: 768px) {
+    .programs-grid {
+        display: flex !important;
+        overflow-x: auto !important;
+        scroll-snap-type: x mandatory;
+        gap: 1.25rem !important;
+        padding: 1.5rem 5% 3.5rem !important;
+        margin: 0 -5%;
+        scrollbar-width: none;
+        -ms-overflow-style: none;
+        -webkit-overflow-scrolling: touch;
+    }
+
+    .programs-grid::-webkit-scrollbar {
+        display: none;
+    }
+
+    .programs-grid .dept-card {
+        flex: 0 0 82%; /* Shows 82% of card, 18% of next */
+        scroll-snap-align: center;
+        min-width: 280px;
+        margin-bottom: 0 !important;
+    }
+
+    /* Adjust header for swipe cue */
+    .programs-header {
+        margin-bottom: 2rem;
+    }
+
+    .depts-grid {
+        display: flex !important;
+        overflow-x: auto !important;
+        scroll-snap-type: x mandatory;
+        gap: 1.25rem !important;
+        padding: 1rem 5% 3.5rem !important;
+        margin: 0 -5%;
+        scrollbar-width: none;
+    }
+    
+    .depts-grid::-webkit-scrollbar {
+        display: none;
+    }
+
+    .depts-grid .dept-card {
+        flex: 0 0 85%;
+        scroll-snap-align: center;
+        min-width: 280px;
+    }
 }

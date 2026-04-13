@@ -40,7 +40,7 @@ const Home = () => {
                     </div>
                 </div>
             </div>
-            <Programs />
+            <Programs limit={6} />
             <WhyChooseUs />
             <Gallery />
             <AlumniGallery />

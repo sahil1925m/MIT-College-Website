@@ -17,7 +17,7 @@ const Academics = () => {
                 </p>
             </div>
 
-            <Programs />
+            <Programs limit={6} />
 
             {/* Featured Video */}
             <section className="section" style={{ padding: '4rem 5%', backgroundColor: 'var(--bg-light, #f8fafc)' }}>

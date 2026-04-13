@@ -1,20 +1,12 @@
 import { useRef, useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
+import { departments } from '../pages/departments/departmentData';
 
-const programs = [
-    { icon: '💻', title: 'Computer Science and Engineering', desc: 'AI, Machine Learning, Cloud Computing, Cybersecurity, and full-stack development with cutting-edge lab facilities.', degrees: 'B.E. / M.Tech / Ph.D' },
-    { icon: '🌐', title: 'Information Technology', desc: 'Software Engineering, Database Management, Network Security, and Web Technologies for the digital age.', degrees: 'B.E.' },
-    { icon: '🤖', title: 'Artificial Intelligence/Machine Learning', desc: 'Deep Learning, Data Science, Natural Language Processing, and advanced algorithms for future tech.', degrees: 'B.E.' },
-    { icon: '📱', title: 'Electronics and Communication', desc: 'IoT, VLSI, Signal Processing, Wireless Communication, and next-gen Antenna Design laboratories.', degrees: 'B.E. / M.Tech' },
-    { icon: '⚡', title: 'Electrical and Electronics', desc: 'Power Systems, Control Engineering, Embedded Systems, VLSI Design, and Renewable Energy technologies.', degrees: 'B.E. / M.Tech' },
-    { icon: '⚙️', title: 'Mechanical Engineering', desc: 'Robotics, Manufacturing, CAD/CAM, Thermodynamics, and Automotive Design with industry-standard workshops.', degrees: 'B.E. / M.Tech' },
-    { icon: '🚘', title: 'Automobile Engineering', desc: 'Vehicle Dynamics, Electric Vehicles, Engine Design, and Automotive Electronics for modern transportation.', degrees: 'B.E.' },
-    { icon: '🏗️', title: 'Civil Engineering', desc: 'Structural Analysis, Environmental Engineering, Smart Urban Planning, and Construction Management.', degrees: 'B.E. / M.Tech' },
-    { icon: '🧪', title: 'Applied Sciences and Humanities', desc: 'Foundational courses in Mathematics, Physics, Chemistry, and Communication Skills for engineering.', degrees: 'First Year' },
-    { icon: '🏫', title: 'MBA', desc: 'Finance, Marketing, HR, Operations, and Technology Management with industry exposure and placements.', degrees: 'MBA (2 Years)' },
-];
+interface ProgramsProps {
+    limit?: number;
+}
 
-const Programs = () => {
+const Programs = ({ limit }: ProgramsProps) => {
     const ref = useRef<HTMLElement>(null);
     const [vis, setVis] = useState(false);
 
@@ -26,6 +18,8 @@ const Programs = () => {
         return () => obs.disconnect();
     }, []);
 
+    const displayDepartments = limit ? departments.slice(0, limit) : departments;
+
     return (
         <section className="section" id="programs" ref={ref}>
             <div className="programs-header">
@@ -35,28 +29,46 @@ const Programs = () => {
                     </div>
                     <h2 className="section-title">Our <span>Departments</span></h2>
                 </div>
-                <Link to="/academics" className="link-red">All Departments &#8594;</Link>
+                {limit && <Link to="/departments" className="link-red">All Departments &#8594;</Link>}
             </div>
 
             <div className="programs-grid">
-                {programs.map((p, i) => (
-                    <div
-                        key={i}
-                        className={`prog-card anim-fade ${vis ? 'visible' : ''}`}
+                {displayDepartments.map((dept, i) => (
+                    <Link
+                        key={dept.id}
+                        to={`/departments/${dept.id}`}
+                        className={`dept-card anim-fade ${vis ? 'visible' : ''}`}
                         style={{ transitionDelay: `${i * 90}ms` }}
                     >
-                        <div className="prog-card-top" />
-                        <div className="prog-card-body">
-                            <div className="prog-icon">{p.icon}</div>
-                            <h3>{p.title}</h3>
-                            <p>{p.desc}</p>
+                        <div className="dept-card-top" style={{ background: dept.gradient }}>
+                            <div className="dept-card-icon"><dept.icon size={48} /></div>
+                            <div className="dept-card-blob" />
                         </div>
-                        <div className="prog-card-footer">
-                            <span className="prog-degree">{p.degrees}</span>
+                        <div className="dept-card-body">
+                            <span className="dept-card-short">{dept.shortName}</span>
+                            <h3 className="dept-card-name">{dept.name}</h3>
+                            <p className="dept-card-hod">👤 HOD: {dept.hodName}</p>
+                            <p className="dept-card-overview">
+                                {dept.overview.substring(0, 110)}…
+                            </p>
+                            <div className="dept-card-footer">
+                                <span className="dept-card-faculty">
+                                    {dept.faculties.length} Faculty
+                                </span>
+                                <span className="dept-card-link" style={{ color: dept.color }}>
+                                    Explore →
+                                </span>
+                            </div>
                         </div>
-                    </div>
+                    </Link>
                 ))}
             </div>
+            
+            {limit && (
+                <div style={{ textAlign: 'center', marginTop: '3rem' }}>
+                    <Link to="/departments" className="btn" style={{ padding: '0.8rem 2rem', background: 'var(--navy)', color: '#fff', borderRadius: '50px', textDecoration: 'none', fontWeight: 600 }}>Explore More Programs</Link>
+                </div>
+            )}
         </section>
     );
 };

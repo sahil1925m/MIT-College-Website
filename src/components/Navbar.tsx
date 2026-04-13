@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { NavLink } from 'react-router-dom';
 import logoImg from '../assets/logo.png';
+import { departments } from '../pages/departments/departmentData';
 
 const links = [
     { label: 'Home', href: '/' },
@@ -11,6 +12,7 @@ const links = [
     { label: 'Campus Life', href: '/campus' },
     { label: 'Contact', href: '/contact' }
 ];
+
 
 const Navbar = () => {
     const [scrolled, setScrolled] = useState(false);
@@ -45,6 +47,35 @@ const Navbar = () => {
                             {l.label}
                         </NavLink>
                     ))}
+
+                    {/* Departments Dropdown */}
+                    <div className="nav-dropdown" style={{ position: 'relative' }}>
+                        <NavLink
+                            to="/departments"
+                            className={({ isActive }) => `nav-drop-btn-link${isActive ? ' active-link' : ''}`}
+                        >
+                            Departments ▾
+                        </NavLink>
+                        <div className="nav-drop-content nav-dept-drop">
+                            <div className="nav-dept-grid">
+                                {departments.map(d => (
+                                    <NavLink
+                                        key={d.id}
+                                        to={`/departments/${d.id}`}
+                                        className="nav-dept-item"
+                                    >
+                                        <span className="nav-dept-icon"><d.icon size={16} /></span>
+                                        <span className="nav-dept-name">{d.shortName}</span>
+                                    </NavLink>
+                                ))}
+                            </div>
+                            <div className="nav-dept-footer">
+                                <NavLink to="/departments" className="nav-dept-all">
+                                    View All Departments →
+                                </NavLink>
+                            </div>
+                        </div>
+                    </div>
 
                     {/* Portal Dropdown */}
                     <div className="nav-dropdown" style={{ position: 'relative', marginLeft: '0.5rem' }}>
@@ -94,6 +125,23 @@ const Navbar = () => {
                     </NavLink>
                 ))}
 
+                {/* Mobile Departments Links */}
+                <div style={{ padding: '1rem', borderTop: '1px solid rgba(0,0,0,0.05)', marginTop: '0.5rem' }}>
+                    <p style={{ fontSize: '0.8rem', textTransform: 'uppercase', color: 'var(--text-muted)', marginBottom: '0.8rem', fontWeight: 700 }}>Departments</p>
+                    <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '0.5rem' }}>
+                        {departments.map(d => (
+                            <NavLink
+                                key={d.id}
+                                to={`/departments/${d.id}`}
+                                onClick={() => setMobileOpen(false)}
+                                style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', color: 'var(--navy)', textDecoration: 'none', fontWeight: 500, fontSize: '0.85rem', padding: '0.4rem 0' }}
+                            >
+                                <span><d.icon size={16} /></span> {d.shortName}
+                            </NavLink>
+                        ))}
+                    </div>
+                </div>
+
                 {/* Mobile Portal Links */}
                 <div style={{ padding: '1rem', borderTop: '1px solid rgba(0,0,0,0.05)', marginTop: '0.5rem' }}>
                     <p style={{ fontSize: '0.8rem', textTransform: 'uppercase', color: 'var(--text-muted)', marginBottom: '0.8rem', fontWeight: 700 }}>Portals</p>
@@ -141,6 +189,7 @@ const Navbar = () => {
                     transform: translateY(10px);
                     transition: all 0.2s ease;
                     border: 1px solid rgba(0,0,0,0.05);
+                    z-index: 999;
                 }
                 .nav-drop-content a {
                     display: flex;
@@ -157,6 +206,94 @@ const Navbar = () => {
                 .nav-drop-content a:hover {
                     background: rgba(198,40,40,0.05);
                     color: var(--crimson);
+                }
+
+                /* Departments Dropdown Link */
+                .nav-drop-btn-link {
+                    background: transparent;
+                    border: none;
+                    font-size: 1rem;
+                    font-weight: 500;
+                    color: var(--navy);
+                    cursor: pointer;
+                    display: flex;
+                    align-items: center;
+                    gap: 0.3rem;
+                    text-decoration: none;
+                    padding: 0.25rem 0;
+                    position: relative;
+                }
+                .nav-drop-btn-link::after {
+                    content: '';
+                    position: absolute;
+                    bottom: -2px;
+                    left: 0;
+                    width: 100%;
+                    height: 2px;
+                    background: var(--crimson);
+                    transform: scaleX(0);
+                    transition: transform 0.3s;
+                }
+                .nav-drop-btn-link:hover::after {
+                    transform: scaleX(1);
+                }
+
+                /* Departments Mega Dropdown */
+                .nav-dept-drop {
+                    min-width: 340px;
+                    right: auto;
+                    left: 50%;
+                    transform: translateX(-50%) translateY(10px);
+                    padding: 0.8rem;
+                }
+                .nav-dropdown:hover .nav-dept-drop {
+                    transform: translateX(-50%) translateY(0);
+                }
+                .nav-dept-grid {
+                    display: grid;
+                    grid-template-columns: 1fr 1fr;
+                    gap: 0.3rem;
+                }
+                .nav-dept-item {
+                    display: flex !important;
+                    align-items: center !important;
+                    gap: 0.5rem !important;
+                    padding: 0.6rem 0.8rem !important;
+                    border-radius: 10px !important;
+                    text-decoration: none !important;
+                    color: var(--navy) !important;
+                    font-size: 0.85rem !important;
+                    font-weight: 600 !important;
+                    transition: all 0.2s !important;
+                }
+                .nav-dept-item:hover {
+                    background: rgba(99,102,241,0.08) !important;
+                    color: #6366f1 !important;
+                    transform: translateX(2px);
+                }
+                .nav-dept-icon {
+                    font-size: 1.1rem;
+                }
+                .nav-dept-name {
+                    white-space: nowrap;
+                }
+                .nav-dept-footer {
+                    border-top: 1px solid rgba(0,0,0,0.06);
+                    margin-top: 0.5rem;
+                    padding-top: 0.5rem;
+                }
+                .nav-dept-all {
+                    display: block !important;
+                    text-align: center !important;
+                    padding: 0.6rem !important;
+                    font-size: 0.82rem !important;
+                    font-weight: 700 !important;
+                    color: #6366f1 !important;
+                    text-decoration: none !important;
+                    border-radius: 8px !important;
+                }
+                .nav-dept-all:hover {
+                    background: rgba(99,102,241,0.08) !important;
                 }
             `}</style>
         </>
