@@ -33,7 +33,7 @@ const DepartmentsIndex = () => {
                   <User size={14} /> HOD: {dept.hodName}
                 </p>
                 <p className="dept-card-overview">
-                  {dept.overview.substring(0, 110)}…
+                  {dept.overview.substring(0, 110)}...
                 </p>
                 <div className="dept-card-footer">
                   <span className="dept-card-faculty">

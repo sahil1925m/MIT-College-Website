@@ -50,7 +50,7 @@ const Programs = ({ limit }: ProgramsProps) => {
                             <h3 className="dept-card-name">{dept.name}</h3>
                             <p className="dept-card-hod" style={{ display: 'flex', alignItems: 'center', gap: '4px' }}><User size={14} /> HOD: {dept.hodName}</p>
                             <p className="dept-card-overview">
-                                {dept.overview.substring(0, 110)}…
+                                {dept.overview.substring(0, 110)}...
                             </p>
                             <div className="dept-card-footer">
                                 <span className="dept-card-faculty">

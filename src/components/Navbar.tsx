@@ -88,7 +88,7 @@ const Navbar = () => {
                         </button>
                         <div className="nav-drop-content">
                             <a href="http://mit.thecollegeerp.com/academic/stlogin.php" target="_blank" rel="noopener noreferrer">
-                                <span style={{ background: 'rgba(198,40,40,0.1)', width: '32px', height: '32px', borderRadius: '8px', display: 'grid', placeItems: 'center' }}><GraduationCap size={16} color="var(--red)" /></span> Student ERP
+                                <span style={{ background: 'rgba(5,10,20,0.05)', width: '32px', height: '32px', borderRadius: '8px', display: 'grid', placeItems: 'center' }}><GraduationCap size={16} color="var(--navy)" /></span> Student ERP
                             </a>
                             <a href="http://mit.thecollegeerp.com/academic/facultylogin.php" target="_blank" rel="noopener noreferrer">
                                 <span style={{ background: 'rgba(5,10,20,0.05)', width: '32px', height: '32px', borderRadius: '8px', display: 'grid', placeItems: 'center' }}><Users size={16} color="var(--navy)" /></span> Faculty ERP
@@ -148,7 +148,7 @@ const Navbar = () => {
                     <p style={{ fontSize: '0.8rem', textTransform: 'uppercase', color: 'var(--text-muted)', marginBottom: '0.8rem', fontWeight: 700 }}>Portals</p>
                     <a href="http://mit.thecollegeerp.com/academic/stlogin.php" target="_blank" rel="noopener noreferrer"
                         style={{ display: 'flex', alignItems: 'center', gap: '0.8rem', color: 'var(--navy)', textDecoration: 'none', marginBottom: '1rem', fontWeight: 500 }}>
-                        <span style={{ background: 'rgba(198,40,40,0.1)', width: '32px', height: '32px', borderRadius: '8px', display: 'grid', placeItems: 'center' }}><GraduationCap size={16} color="var(--red)" /></span>
+                        <span style={{ background: 'rgba(5,10,20,0.05)', width: '32px', height: '32px', borderRadius: '8px', display: 'grid', placeItems: 'center' }}><GraduationCap size={16} color="var(--navy)" /></span>
                         Student ERP
                     </a>
                     <a href="http://mit.thecollegeerp.com/academic/facultylogin.php" target="_blank" rel="noopener noreferrer"

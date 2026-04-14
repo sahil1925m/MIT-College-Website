@@ -27,7 +27,7 @@ const KNOWLEDGE_BASE = [
     }
 ];
 
-const FALLBACK_RESPONSE = "I'm still learning! 🧠 For specific questions, please contact our admission office at **+91-9522722722** or email **admission@mitindore.co.in**.";
+const FALLBACK_RESPONSE = "I'm still learning! For specific questions, please contact our admission office at **+91-9522722722** or email **admission@mitindore.co.in**.";
 const GREETING_RESPONSE = KNOWLEDGE_BASE[4].response;
 
 const QUICK_ACTIONS = [

@@ -292,24 +292,24 @@ const DepartmentPage = () => {
                       </li>
                     </ul>
                   </div>
+                </div>
 
-                  {/* Explore Other Departments */}
-                  <div className="dept-explore-card" style={{ '--accent': dept.color } as React.CSSProperties}>
-                    <h4>Explore Other Branches</h4>
-                    <div className="dept-explore-links">
-                      {departments.filter(d => d.id !== dept.id).slice(0, 5).map(d => (
-                        <Link 
-                          to={`/departments/${d.id}`} 
-                          key={d.id} 
-                          className="dept-explore-link"
-                          style={{ '--hover-color': d.color } as React.CSSProperties}
-                        >
-                          <span className="icon-wrap"><d.icon size={16} /></span>
-                          <span className="name">{d.shortName}</span>
-                          <ChevronRight size={14} className="arrow" />
-                        </Link>
-                      ))}
-                    </div>
+                {/* Quick Navigation - Horizontal Branches Bar */}
+                <div className="dept-quick-nav">
+                  <div className="dept-section-label" style={{ color: dept.color, opacity: 0.8 }}>Explore More</div>
+                  <h3 className="dept-quick-nav-title" style={{ fontSize: '1.5rem', fontWeight: 800, color: 'var(--navy)', marginBottom: '1.5rem' }}>Other Academic Branches</h3>
+                  <div className="dept-quick-links">
+                    {departments.filter(d => d.id !== dept.id).slice(0, 7).map(d => (
+                      <Link 
+                        to={`/departments/${d.id}`} 
+                        key={d.id} 
+                        className="dept-quick-link"
+                        style={{ '--link-color': d.color } as React.CSSProperties}
+                      >
+                        <span className="icon-wrap"><d.icon size={18} /></span>
+                        <span className="name">{d.shortName}</span>
+                      </Link>
+                    ))}
                   </div>
                 </div>
               </div>
@@ -746,42 +746,59 @@ const DepartmentPage = () => {
         .dept-info-list .label { color: var(--text-muted); font-weight: 500; }
         .dept-info-list .value { color: var(--navy); font-weight: 700; text-align: right; }
 
-        .dept-explore-card {
+        /* ── QUICK NAV (Horizontal) ── */
+        .dept-quick-nav {
+          margin-top: 4rem;
+          padding: 3rem;
           background: var(--white);
+          border-radius: 32px;
           border: 1px solid var(--border-light);
-          border-radius: 20px;
-          padding: 1.5rem;
-          box-shadow: 0 10px 30px rgba(0,0,0,0.03);
+          box-shadow: 0 20px 40px rgba(0,0,0,0.03);
         }
-        .dept-explore-card h4 {
-          font-size: 1rem; font-weight: 700; color: var(--navy); margin-bottom: 1.2rem;
+        .dept-quick-links {
+          display: flex;
+          flex-wrap: wrap;
+          gap: 1rem;
         }
-        .dept-explore-links { display: flex; flex-direction: column; gap: 0.5rem; }
-        .dept-explore-link {
-          display: flex; align-items: center; gap: 1rem;
-          padding: 0.8rem 1rem;
-          border-radius: 12px;
-          background: var(--surface-alt);
-          transition: all 0.3s;
+        .dept-quick-link {
+          display: flex;
+          align-items: center;
+          gap: 0.8rem;
+          padding: 0.8rem 1.5rem;
+          background: #f8fafc;
+          border-radius: 100px;
+          text-decoration: none;
           color: var(--navy);
           font-weight: 600;
           font-size: 0.95rem;
+          transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+          border: 1px solid transparent;
         }
-        .dept-explore-link .icon-wrap {
-          display: flex; align-items: center; justify-content: center;
-          width: 32px; height: 32px; background: var(--white); border-radius: 8px;
-          color: var(--text-muted); transition: all 0.3s;
+        .dept-quick-link .icon-wrap {
+          display: flex;
+          align-items: center; justify-content: center;
+          width: 36px; height: 36px;
+          background: #fff;
+          border-radius: 50%;
+          color: var(--text-muted);
+          box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+          transition: all 0.3s;
         }
-        .dept-explore-link:hover {
-          background: var(--navy);
-          color: var(--white);
-          transform: translateX(5px);
+        .dept-quick-link:hover {
+          background: #fff;
+          border-color: var(--link-color);
+          transform: translateY(-3px);
+          box-shadow: 0 10px 20px rgba(0,0,0,0.08);
         }
-        .dept-explore-link:hover .icon-wrap {
-          color: var(--hover-color);
+        .dept-quick-link:hover .icon-wrap {
+          background: var(--link-color);
+          color: #fff;
         }
-        .dept-explore-link .arrow { margin-left: auto; opacity: 0; transform: translateX(-10px); transition: all 0.3s; }
-        .dept-explore-link:hover .arrow { opacity: 1; transform: translateX(0); }
+        @media (max-width: 640px) {
+          .dept-quick-nav { padding: 2rem 1.5rem; margin-top: 3rem; }
+          .dept-quick-links { gap: 0.6rem; }
+          .dept-quick-link { padding: 0.6rem 1rem; font-size: 0.85rem; }
+        }
 
         /* ── HOD TAB ── */
         .dept-hod-layout {
