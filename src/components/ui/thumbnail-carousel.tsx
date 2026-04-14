@@ -182,6 +182,7 @@ export default function ThumbnailCarousel() {
                     <motion.div
                         className='flex'
                         drag='x'
+                        // eslint-disable-next-line react-hooks/refs
                         dragConstraints={{ left: -((items.length - 1) * (containerRef.current?.offsetWidth || 1000)), right: 0 }}
                         dragElastic={0.05}
                         dragMomentum={true}
