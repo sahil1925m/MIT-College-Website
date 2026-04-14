@@ -7,23 +7,23 @@ import ReactMarkdown from 'react-markdown';
 const KNOWLEDGE_BASE = [
     {
         keywords: ["fee", "cost", "tuition", "price"],
-        response: "**Fee Structure** 💰\n\nThe total tuition fees for **B.Tech** range from **₹1.17 Lakhs to ₹1.24 Lakhs**. \n\n- **MBA:** ₹52,600 to ₹1.05 Lakhs\n- **M.Tech:** ₹62,000\n- **Diploma:** courses are ₹38,250."
+        response: "**Fee Structure**\n\nThe total tuition fees for **B.Tech** range from **₹1.17 Lakhs to ₹1.24 Lakhs**. \n\n- **MBA:** ₹52,600 to ₹1.05 Lakhs\n- **M.Tech:** ₹62,000\n- **Diploma:** courses are ₹38,250."
     },
     {
         keywords: ["placement", "package", "lpa", "salary", "recruiter", "company"],
-        response: "**Placement Records** 🚀\n\n- **Highest Package:** 12 LPA to 22 LPA (Peak: 36 LPA!)\n- **Average Package:** 3-8 LPA\n- **Top Recruiters:** TCS, Infosys, Wipro, Capgemini, and HCL.\n- **Placement Rate:** 80% in CSE and AI/ML!"
+        response: "**Placement Records**\n\n- **Highest Package:** 12 LPA to 22 LPA (Peak: 36 LPA!)\n- **Average Package:** 3-8 LPA\n- **Top Recruiters:** TCS, Infosys, Wipro, Capgemini, and HCL.\n- **Placement Rate:** 80% in CSE and AI/ML!"
     },
     {
         keywords: ["admission", "apply", "eligibility", "process", "btech", "mtech"],
-        response: "**Admissions 2026-27** 🎓\n\nAdmissions are now **OPEN**! We accept JEE Main, MP BE, GATE, and CMAT scores.\n\n**Offered Courses:** B.Tech in CSE, IT, AI/ML, ECE, Mechanical, Auto, and Civil."
+        response: "**Admissions 2026-27**\n\nAdmissions are now **OPEN**! We accept JEE Main, MP BE, GATE, and CMAT scores.\n\n**Offered Courses:** B.Tech in CSE, IT, AI/ML, ECE, Mechanical, Auto, and Civil."
     },
     {
         keywords: ["contact", "phone", "email", "address", "location", "where"],
-        response: "**Contact Information** 📞\n\n- **Location:** Indore-Dewas Bypass Road, Indore (MP) - 452016.\n- **Admission Office:** +91-9522722722\n- **Email:** admission@mitindore.co.in"
+        response: "**Contact Information**\n\n- **Location:** Indore-Dewas Bypass Road, Indore (MP) - 452016.\n- **Admission Office:** +91-9522722722\n- **Email:** admission@mitindore.co.in"
     },
     {
         keywords: ["hi", "hello", "hey"],
-        response: "Hello! 👋 Welcome to **MIT Indore**.\n\nI can help you with admissions, fee structures, placement records, and contact details. What would you like to know?"
+        response: "Hello! Welcome to **MIT Indore**.\n\nI can help you with admissions, fee structures, placement records, and contact details. What would you like to know?"
     }
 ];
 
@@ -130,11 +130,13 @@ const Chatbot = () => {
 
     const sendMessage = (text: string) => {
         if (!text.trim() || typing) return;
+        // eslint-disable-next-line react-hooks/purity
         const userMsg: Message = { id: Date.now(), role: 'user', text: text.trim(), time: getTime() };
         setMessages(prev => [...prev, userMsg]);
         setInput('');
         setTyping(true);
         setTimeout(() => {
+            // eslint-disable-next-line react-hooks/purity
             const botMsg: Message = { id: Date.now() + 1, role: 'bot', text: getBotReply(text), time: getTime() };
             setTyping(false);
             setMessages(prev => [...prev, botMsg]);

@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom';
+import { MapPin, Phone, ArrowUpRight } from 'lucide-react';
 import logoImg from '../assets/logo.png';
 import MapEmbed from './MapEmbed';
 
@@ -98,7 +99,7 @@ const Footer = () => {
                                 <li key={l.label}>
                                     {l.external ? (
                                         <a href={l.href} target="_blank" rel="noopener noreferrer">
-                                            {l.label} <span style={{ fontSize: '0.7rem', opacity: 0.5 }}>↗</span>
+                                            {l.label} <ArrowUpRight size={12} style={{ opacity: 0.5 }} />
                                         </a>
                                     ) : (
                                         <Link to={l.href}>
@@ -125,10 +126,10 @@ const Footer = () => {
                         />
                     </div>
                     <a href="https://www.google.com/maps/place/Malwa+Institute+of+Technology/@22.7667076,75.9303447,15z" target="_blank" rel="noopener noreferrer" className="footer-contact-item" style={{ textDecoration: 'none', transition: 'color 0.2s' }} onMouseOver={(e) => e.currentTarget.style.color = 'var(--crimson)'} onMouseOut={(e) => e.currentTarget.style.color = 'rgba(255, 255, 255, 0.6)'}>
-                        <span>📍</span> Off Bypass Road, Indore (M.P.) - 452016
+                        <MapPin size={16} /> Off Bypass Road, Indore (M.P.) - 452016
                     </a>
                     <a href="tel:+917312345678" className="footer-contact-item" style={{ textDecoration: 'none', transition: 'color 0.2s' }} onMouseOver={(e) => e.currentTarget.style.color = 'var(--crimson)'} onMouseOut={(e) => e.currentTarget.style.color = 'rgba(255, 255, 255, 0.6)'}>
-                        <span>📞</span> +91 731 2345678
+                        <Phone size={16} /> +91 731 2345678
                     </a>
                 </div>
 

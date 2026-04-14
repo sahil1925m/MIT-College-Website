@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom';
 import { departments } from './departmentData';
+import { ChevronRight, User, ArrowRight } from 'lucide-react';
 
 const DepartmentsIndex = () => {
   return (
@@ -8,8 +9,8 @@ const DepartmentsIndex = () => {
       <div className="depts-hero">
         <div className="depts-hero-bg" />
         <div className="depts-hero-content">
-          <div className="depts-breadcrumb">
-            <Link to="/">Home</Link> <span>›</span> <span>Departments</span>
+          <div className="depts-breadcrumb" style={{ alignItems: 'center' }}>
+            <Link to="/">Home</Link> <ChevronRight size={14} /> <span>Departments</span>
           </div>
           <h1>Our Departments</h1>
           <p>World-class academic programs with cutting-edge facilities and expert faculty</p>
@@ -28,7 +29,9 @@ const DepartmentsIndex = () => {
               <div className="dept-card-body">
                 <span className="dept-card-short">{dept.shortName}</span>
                 <h3 className="dept-card-name">{dept.name}</h3>
-                <p className="dept-card-hod">👤 HOD: {dept.hodName}</p>
+                <p className="dept-card-hod" style={{ display: 'flex', alignItems: 'center', gap: '0.25rem' }}>
+                  <User size={14} /> HOD: {dept.hodName}
+                </p>
                 <p className="dept-card-overview">
                   {dept.overview.substring(0, 110)}…
                 </p>
@@ -36,8 +39,8 @@ const DepartmentsIndex = () => {
                   <span className="dept-card-faculty">
                     {dept.faculties.length} Faculty
                   </span>
-                  <span className="dept-card-link" style={{ color: dept.color }}>
-                    Explore →
+                  <span className="dept-card-link" style={{ color: dept.color, display: 'flex', alignItems: 'center', gap: '0.25rem' }}>
+                    Explore <ArrowRight size={14} />
                   </span>
                 </div>
               </div>

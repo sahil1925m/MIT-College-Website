@@ -1,5 +1,6 @@
 import MapEmbed from '../components/MapEmbed';
 import EnquiryForm from '../components/EnquiryForm';
+import { MapPin, Phone, Mail, Clock } from 'lucide-react';
 
 const Contact = () => {
     return (
@@ -24,7 +25,7 @@ const Contact = () => {
                             <h3 style={{ fontSize: '1.5rem', color: 'var(--navy)', marginBottom: '1.5rem' }}>Contact Details</h3>
 
                             <div className="contact-item">
-                                <div className="c-icon">📍</div>
+                                <div className="c-icon"><MapPin size={20} /></div>
                                 <div>
                                     <h5>Campus Address</h5>
                                     <p>Malwa Institute of Technology<br />Off Bypass Road, Indore (M.P.) - 452016</p>
@@ -32,7 +33,7 @@ const Contact = () => {
                             </div>
 
                             <div className="contact-item">
-                                <div className="c-icon">📞</div>
+                                <div className="c-icon"><Phone size={20} /></div>
                                 <div>
                                     <h5>Phone Numbers</h5>
                                     <p>+91 731 2345678<br />+91 98765 43210 (Admission)</p>
@@ -40,7 +41,7 @@ const Contact = () => {
                             </div>
 
                             <div className="contact-item">
-                                <div className="c-icon">✉️</div>
+                                <div className="c-icon"><Mail size={20} /></div>
                                 <div>
                                     <h5>Email Address</h5>
                                     <p>admissions@mitindore.com<br />info@mitindore.com</p>
@@ -48,7 +49,7 @@ const Contact = () => {
                             </div>
 
                             <div className="contact-item">
-                                <div className="c-icon">⏰</div>
+                                <div className="c-icon"><Clock size={20} /></div>
                                 <div>
                                     <h5>Working Hours</h5>
                                     <p>Mon - Sat: 9:00 AM - 5:00 PM<br />Sun: Closed</p>

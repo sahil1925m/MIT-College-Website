@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
+import { Target, MessageSquare, Briefcase, Handshake, MapPin, Calendar, Award, Star } from 'lucide-react';
 import campus2 from '../assets/campus2.webp';
 import placementVideo from '../assets/video/placement.mp4';
 import Testimonials from '../components/Testimonials';
@@ -57,22 +58,22 @@ const recruitersRow2 = [
 
 const features = [
     {
-        icon: '🎯',
+        icon: <Target size={28} />,
         title: 'Industry-Oriented Training',
         desc: 'Hands-on workshops, live projects, and domain-specific skill programs aligned with industry expectations.',
     },
     {
-        icon: '🗣️',
+        icon: <MessageSquare size={28} />,
         title: 'Mock Interviews',
         desc: 'Regular mock interviews with industry professionals to prepare students for real-world recruitment.',
     },
     {
-        icon: '💼',
+        icon: <Briefcase size={28} />,
         title: 'Internship Support',
         desc: 'Strong network of 120+ companies offering internships to build practical experience from year 2.',
     },
     {
-        icon: '🤝',
+        icon: <Handshake size={28} />,
         title: 'Corporate Collaborations',
         desc: 'Long-term MoUs with top companies for exclusive hiring drives, seminars, and knowledge exchange.',
     },
@@ -181,9 +182,9 @@ const Placements = () => {
                         with a legacy of record-breaking packages and career excellence.
                     </p>
                     <div className="pl-hero-badges">
-                        <span className="pl-badge">🏆 95% Placement Rate</span>
-                        <span className="pl-badge">💼 ₹18 LPA Highest</span>
-                        <span className="pl-badge">⭐ 120+ Recruiters</span>
+                        <span className="pl-badge" style={{ display: 'inline-flex', alignItems: 'center', gap: '4px' }}><Award size={16} /> 95% Placement Rate</span>
+                        <span className="pl-badge" style={{ display: 'inline-flex', alignItems: 'center', gap: '4px' }}><Briefcase size={16} /> ₹18 LPA Highest</span>
+                        <span className="pl-badge" style={{ display: 'inline-flex', alignItems: 'center', gap: '4px' }}><Star size={16} /> 120+ Recruiters</span>
                     </div>
                 </div>
                 <div className="pl-hero-scroll">
@@ -314,11 +315,11 @@ const Placements = () => {
                                     <div className="pl-tp-big-label">Students Placed</div>
                                 </div>
                                 <div className="pl-tp-info-row">
-                                    <div className="pl-tp-info-pill">
-                                        <span>📅</span> Active since 2004
+                                    <div className="pl-tp-info-pill" style={{ display: 'inline-flex', alignItems: 'center', gap: '6px' }}>
+                                        <Calendar size={18} /> Active since 2004
                                     </div>
-                                    <div className="pl-tp-info-pill">
-                                        <span>🏙️</span> Pan-India Drives
+                                    <div className="pl-tp-info-pill" style={{ display: 'inline-flex', alignItems: 'center', gap: '6px' }}>
+                                        <MapPin size={18} /> Pan-India Drives
                                     </div>
                                 </div>
                                 <div className="pl-tp-quote">

@@ -1,4 +1,5 @@
 import { useRef, useEffect, useState } from 'react';
+import { Target, Landmark } from 'lucide-react';
 import campusImg from '../assets/campus1.webp';
 
 const missionPoints = [
@@ -38,7 +39,7 @@ const MissionVision = () => {
                 {/* Left — Content */}
                 <div className={`mv-content ${visible ? 'mv-visible' : ''}`}>
                     <div className="mv-chip">
-                        <span className="mv-chip-icon">🎯</span>
+                        <span className="mv-chip-icon"><Target size={16} /></span>
                         Our Mission & Vision
                     </div>
 
@@ -84,7 +85,7 @@ const MissionVision = () => {
                         <div className="mv-image-overlay" />
                         {/* Decorative floating badge */}
                         <div className="mv-float-badge">
-                            <span className="mv-float-badge-icon">🏛️</span>
+                            <span className="mv-float-badge-icon"><Landmark size={20} /></span>
                             <div>
                                 <div className="mv-float-badge-title">Since 2004</div>
                                 <div className="mv-float-badge-sub">Excellence in Education</div>

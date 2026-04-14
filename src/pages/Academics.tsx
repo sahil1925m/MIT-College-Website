@@ -1,3 +1,4 @@
+import { Lightbulb, Handshake, Beaker, MessageSquare } from 'lucide-react';
 import Programs from '../components/Programs';
 import campus5 from '../assets/campus5.webp';
 
@@ -50,7 +51,7 @@ const Academics = () => {
                     }}>
                         {[
                             {
-                                icon: '💡',
+                                icon: <Lightbulb size={28} />,
                                 title: 'Project-Based Learning',
                                 highlight: 'Real-world application from day one.',
                                 text: 'We believe learning extends beyond the classroom. From your very first semester, you will be immersed in hands-on projects that challenge you to apply theoretical knowledge to solve genuine, real-world problems. This practical approach builds portfolio-ready experience before you graduate.',
@@ -58,7 +59,7 @@ const Academics = () => {
                                 iconColor: '#4f46e5'
                             },
                             {
-                                icon: '🤝',
+                                icon: <Handshake size={28} />,
                                 title: 'Industry-Aligned Curriculum',
                                 highlight: 'Stay ahead of the technological curve.',
                                 text: 'Our syllabi are continuously refined and updated in direct consultation with leading industry experts and tech pioneers. We ensure that you are mastering the exact tools, languages, and methodologies that top-tier companies are actively seeking in the modern global landscape.',
@@ -66,7 +67,7 @@ const Academics = () => {
                                 iconColor: '#16a34a'
                             },
                             {
-                                icon: '🔬',
+                                icon: <Beaker size={28} />,
                                 title: 'Premier Research Focus',
                                 highlight: 'Innovate, discover, and patent.',
                                 text: 'We cultivate a profound environment of intellectual curiosity. Students are actively encouraged and mentored to publish high-impact research papers, attend international conferences, and file patents, translating their brightest ideas into tangible academic and industrial breakthroughs.',
@@ -74,7 +75,7 @@ const Academics = () => {
                                 iconColor: '#e11d48'
                             },
                             {
-                                icon: '🗣️',
+                                icon: <MessageSquare size={28} />,
                                 title: 'Holistic Soft Skills Training',
                                 highlight: 'Communication is your superpower.',
                                 text: 'Technical brilliance requires the voice to match it. Our dedicated training modules go far beyond engineering, focusing heavily on leadership, articulate communication, confident public speaking, and rigorous interview preparation to help you stand out in any boardroom.',

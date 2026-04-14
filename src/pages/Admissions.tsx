@@ -1,4 +1,5 @@
 import { useState, useRef, useEffect } from 'react';
+import { ClipboardList, Award, CheckCircle2, Calendar, GraduationCap, BarChart2, Briefcase, ShieldCheck, Download, Info } from 'lucide-react';
 import CallToAction from '../components/CallToAction';
 import EnquiryForm from '../components/EnquiryForm';
 import campus2 from '../assets/campus2.webp';
@@ -10,10 +11,10 @@ const programs = [
         label: 'B.Tech',
         badge: '4 Years',
         criteria: [
-            { icon: '📋', text: 'Passed 10+2 with Physics, Chemistry & Mathematics (PCM) from a recognized board.' },
-            { icon: '🏅', text: 'Minimum 45% aggregate marks in PCM (40% for reserved categories).' },
-            { icon: '✅', text: 'Valid JEE Mains score or State Level Engineering Entrance Exam.' },
-            { icon: '🎂', text: 'Age limit: Born on or after October 1, 2004.' },
+            { icon: <ClipboardList size={18} />, text: 'Passed 10+2 with Physics, Chemistry & Mathematics (PCM) from a recognized board.' },
+            { icon: <Award size={18} />, text: 'Minimum 45% aggregate marks in PCM (40% for reserved categories).' },
+            { icon: <CheckCircle2 size={18} />, text: 'Valid JEE Mains score or State Level Engineering Entrance Exam.' },
+            { icon: <Calendar size={18} />, text: 'Age limit: Born on or after October 1, 2004.' },
         ],
         seats: '480 Seats  •  8 Branches',
         accent: 'var(--crimson)',
@@ -23,10 +24,10 @@ const programs = [
         label: 'M.Tech',
         badge: '2 Years',
         criteria: [
-            { icon: '🎓', text: 'B.E. / B.Tech in relevant engineering branch from a recognized institution.' },
-            { icon: '📊', text: 'Minimum 55% aggregate (50% for reserved categories).' },
-            { icon: '✅', text: 'Valid GATE score mandatory for regular admission.' },
-            { icon: '💼', text: 'Working professionals with 2+ years experience may apply under Sponsored category.' },
+            { icon: <GraduationCap size={18} />, text: 'B.E. / B.Tech in relevant engineering branch from a recognized institution.' },
+            { icon: <BarChart2 size={18} />, text: 'Minimum 55% aggregate (50% for reserved categories).' },
+            { icon: <CheckCircle2 size={18} />, text: 'Valid GATE score mandatory for regular admission.' },
+            { icon: <Briefcase size={18} />, text: 'Working professionals with 2+ years experience may apply under Sponsored category.' },
         ],
         seats: '72 Seats  •  3 Specializations',
         accent: '#1565c0',
@@ -36,10 +37,10 @@ const programs = [
         label: 'MBA',
         badge: '2 Years',
         criteria: [
-            { icon: '🎓', text: 'Bachelor\'s degree (any discipline) with minimum 50% aggregate marks.' },
-            { icon: '📊', text: 'Valid CAT / MAT / CMAT / ATMA score required.' },
-            { icon: '✅', text: 'Group Discussion and Personal Interview as part of selection process.' },
-            { icon: '💼', text: 'Relevant work experience preferred but not mandatory.' },
+            { icon: <GraduationCap size={18} />, text: 'Bachelor\'s degree (any discipline) with minimum 50% aggregate marks.' },
+            { icon: <BarChart2 size={18} />, text: 'Valid CAT / MAT / CMAT / ATMA score required.' },
+            { icon: <CheckCircle2 size={18} />, text: 'Group Discussion and Personal Interview as part of selection process.' },
+            { icon: <Briefcase size={18} />, text: 'Relevant work experience preferred but not mandatory.' },
         ],
         seats: '120 Seats  •  2 Specializations',
         accent: '#2e7d32',
@@ -138,9 +139,9 @@ const Admissions = () => {
                         Join the legacy of excellence. Applications are now open for B.Tech, M.Tech, and MBA programs.
                     </p>
                     <div className="adm-hero-pills">
-                        <span className="adm-hero-pill">🎓 480+ Seats</span>
-                        <span className="adm-hero-pill">💯 RGPV Affiliated</span>
-                        <span className="adm-hero-pill">🏆 NAAC Accredited</span>
+                        <span className="adm-hero-pill"><GraduationCap size={16} /> 480+ Seats</span>
+                        <span className="adm-hero-pill"><ShieldCheck size={16} /> RGPV Affiliated</span>
+                        <span className="adm-hero-pill"><Award size={16} /> NAAC Accredited</span>
                     </div>
                 </div>
             </div>
@@ -183,9 +184,7 @@ const Admissions = () => {
                                     ))}
                                 </div>
                                 <div className="adm-elig-footer" style={{ '--tab-color': active.accent } as React.CSSProperties}>
-                                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-                                        <circle cx="12" cy="12" r="10" /><path d="M12 8v4M12 16h.01" />
-                                    </svg>
+                                    <Info size={14} />
                                     {active.seats}
                                 </div>
                             </div>
@@ -213,9 +212,7 @@ const Admissions = () => {
                             </div>
 
                             <a href="/brochure.pdf" className="btn btn-outline" style={{ marginTop: '2rem', display: 'inline-flex', alignItems: 'center', gap: '0.5rem' }} download>
-                                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-                                    <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" /><polyline points="7 10 12 15 17 10" /><line x1="12" y1="15" x2="12" y2="3" />
-                                </svg>
+                                <Download size={15} />
                                 Download Brochure
                             </a>
                         </div>

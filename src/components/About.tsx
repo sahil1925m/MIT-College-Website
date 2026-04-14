@@ -1,12 +1,13 @@
 import { useRef, useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
+import { Trophy, Users, Microscope, Globe, ArrowRight } from 'lucide-react';
 import aboutImg from '../assets/image_3.jpg';
 
 const features = [
-    { icon: '🏆', text: '20+ Years of Academic Leadership' },
-    { icon: '👨‍🏫', text: 'Expert PhD Faculty from IITs & NITs' },
-    { icon: '🔬', text: 'State-of-the-Art Labs & Infrastructure' },
-    { icon: '🌍', text: 'International Collaborations & MoUs' },
+    { icon: <Trophy size={20} />, text: '20+ Years of Academic Leadership' },
+    { icon: <Users size={20} />, text: 'Expert PhD Faculty from IITs & NITs' },
+    { icon: <Microscope size={20} />, text: 'State-of-the-Art Labs & Infrastructure' },
+    { icon: <Globe size={20} />, text: 'International Collaborations & MoUs' },
 ];
 
 const About = () => {
@@ -68,9 +69,9 @@ const About = () => {
                     <Link
                         to="/about"
                         className="btn btn-outline"
-                        style={{ marginTop: '2rem' }}
+                        style={{ marginTop: '2rem', display: 'inline-flex', alignItems: 'center', gap: '0.5rem' }}
                     >
-                        Our Story &#8594;
+                        Our Story <ArrowRight size={18} />
                     </Link>
                 </div>
             </div>

@@ -1,5 +1,6 @@
 import ThumbnailCarousel from '../components/ui/thumbnail-carousel';
 import VideoPlayer from '../components/VideoPlayer';
+import { BookOpen, Map, Mic, Bus, Coffee, HeartPulse } from 'lucide-react';
 import campus5 from '../assets/campus5.webp';
 import camp1 from '../assets/mit gallery/campus/camp1.jpeg';
 
@@ -42,15 +43,15 @@ const CampusLife = () => {
                 <h2 className="section-title" style={{ textAlign: 'center', marginBottom: '3rem' }}>World-Class <span>Amenities</span></h2>
                 <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))', gap: '1.5rem' }}>
                     {[
-                        { icon: '📚', title: 'Central Library', desc: '50,000+ books, e-journals, and digital resources.' },
-                        { icon: '🏟️', title: 'Sports Complex', desc: 'Cricket ground, basketball court, and indoor games.' },
-                        { icon: '🎭', title: 'Auditorium', desc: '750-seater centrally air-conditioned auditorium.' },
-                        { icon: '🚌', title: 'Transport', desc: 'Bus facility covering all major routes in Indore.' },
-                        { icon: '🥘', title: 'Calculated Canteen', desc: 'Hygienic and nutritious food for students and staff.' },
-                        { icon: '🏥', title: 'Medical Facility', desc: '24x7 medical assistance and ambulance service.' }
+                        { icon: <BookOpen size={40} strokeWidth={1.5} color="var(--crimson)" />, title: 'Central Library', desc: '50,000+ books, e-journals, and digital resources.' },
+                        { icon: <Map size={40} strokeWidth={1.5} color="var(--crimson)" />, title: 'Sports Complex', desc: 'Cricket ground, basketball court, and indoor games.' },
+                        { icon: <Mic size={40} strokeWidth={1.5} color="var(--crimson)" />, title: 'Auditorium', desc: '750-seater centrally air-conditioned auditorium.' },
+                        { icon: <Bus size={40} strokeWidth={1.5} color="var(--crimson)" />, title: 'Transport', desc: 'Bus facility covering all major routes in Indore.' },
+                        { icon: <Coffee size={40} strokeWidth={1.5} color="var(--crimson)" />, title: 'Calculated Canteen', desc: 'Hygienic and nutritious food for students and staff.' },
+                        { icon: <HeartPulse size={40} strokeWidth={1.5} color="var(--crimson)" />, title: 'Medical Facility', desc: '24x7 medical assistance and ambulance service.' }
                     ].map((item, i) => (
                         <div key={i} style={{ background: '#fff', padding: '2rem', borderRadius: '16px', boxShadow: '0 4px 20px rgba(0,0,0,0.05)', textAlign: 'center' }}>
-                            <div style={{ fontSize: '2.5rem', marginBottom: '1rem' }}>{item.icon}</div>
+                            <div style={{ marginBottom: '1rem', display: 'flex', justifyContent: 'center' }}>{item.icon}</div>
                             <h4 style={{ fontSize: '1.2rem', color: 'var(--navy)', marginBottom: '0.5rem' }}>{item.title}</h4>
                             <p style={{ color: 'var(--text-muted)' }}>{item.desc}</p>
                         </div>

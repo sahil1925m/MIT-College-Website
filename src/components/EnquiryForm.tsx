@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { CheckCircle2 } from 'lucide-react';
 
 interface EnquiryFormProps {
     variant?: 'full' | 'mini';
@@ -21,7 +22,7 @@ const EnquiryForm: React.FC<EnquiryFormProps> = ({ variant = 'full' }) => {
     if (submitted) {
         return (
             <div className={`enquiry-success ${variant === 'mini' ? 'mini-success' : ''}`} style={{ textAlign: 'center', padding: '2rem' }}>
-                <div style={{ fontSize: '3rem', marginBottom: '1rem' }}>✅</div>
+                <div style={{ marginBottom: '1rem', color: '#10b981' }}><CheckCircle2 size={48} /></div>
                 <h3 style={{ color: 'var(--navy)', marginBottom: '0.5rem' }}>Thank You!</h3>
                 <p style={{ color: 'var(--text-muted)' }}>We have received your enquiry. Our admissions team will contact you shortly.</p>
                 <button onClick={() => setSubmitted(false)} className="btn btn-outline" style={{ marginTop: '1.5rem' }}>Send Another</button>

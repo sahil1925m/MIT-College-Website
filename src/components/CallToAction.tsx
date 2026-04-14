@@ -1,5 +1,6 @@
 import { useRef, useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
+import { ArrowRight } from 'lucide-react';
 
 const CallToAction = () => {
     const ref = useRef<HTMLElement>(null);
@@ -27,8 +28,8 @@ const CallToAction = () => {
                     Batch 2025–26. Apply now and secure your future.
                 </p>
                 <div className="cta-actions">
-                    <Link to="/admissions" className="btn btn-white">
-                        Apply Now &#8594;
+                    <Link to="/admissions" className="btn btn-white" style={{ display: 'inline-flex', alignItems: 'center', gap: '0.5rem' }}>
+                        Apply Now <ArrowRight size={18} />
                     </Link>
                     <Link to="/academics" className="btn btn-ghost">View Programs</Link>
                 </div>

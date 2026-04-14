@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import { NavLink } from 'react-router-dom';
+import { GraduationCap, Users, ChevronDown, ArrowRight } from 'lucide-react';
 import logoImg from '../assets/logo.png';
 import { departments } from '../pages/departments/departmentData';
 
@@ -54,7 +55,7 @@ const Navbar = () => {
                             to="/departments"
                             className={({ isActive }) => `nav-drop-btn-link${isActive ? ' active-link' : ''}`}
                         >
-                            Departments ▾
+                            Departments <ChevronDown size={14} />
                         </NavLink>
                         <div className="nav-drop-content nav-dept-drop">
                             <div className="nav-dept-grid">
@@ -70,8 +71,8 @@ const Navbar = () => {
                                 ))}
                             </div>
                             <div className="nav-dept-footer">
-                                <NavLink to="/departments" className="nav-dept-all">
-                                    View All Departments →
+                                <NavLink to="/departments" className="nav-dept-all" style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '0.4rem' }}>
+                                    View All Departments <ArrowRight size={14} />
                                 </NavLink>
                             </div>
                         </div>
@@ -83,14 +84,14 @@ const Navbar = () => {
                             background: 'transparent', border: 'none', fontSize: '1rem', fontWeight: 500,
                             color: 'var(--navy)', cursor: 'pointer', display: 'flex', alignItems: 'center', gap: '0.3rem'
                         }}>
-                            Portal ▾
+                            Portal <ChevronDown size={14} />
                         </button>
                         <div className="nav-drop-content">
                             <a href="http://mit.thecollegeerp.com/academic/stlogin.php" target="_blank" rel="noopener noreferrer">
-                                <span style={{ background: 'rgba(198,40,40,0.1)', width: '32px', height: '32px', borderRadius: '8px', display: 'grid', placeItems: 'center' }}>👨‍🎓</span> Student ERP
+                                <span style={{ background: 'rgba(198,40,40,0.1)', width: '32px', height: '32px', borderRadius: '8px', display: 'grid', placeItems: 'center' }}><GraduationCap size={16} color="var(--red)" /></span> Student ERP
                             </a>
                             <a href="http://mit.thecollegeerp.com/academic/facultylogin.php" target="_blank" rel="noopener noreferrer">
-                                <span style={{ background: 'rgba(5,10,20,0.05)', width: '32px', height: '32px', borderRadius: '8px', display: 'grid', placeItems: 'center' }}>👨‍🏫</span> Faculty ERP
+                                <span style={{ background: 'rgba(5,10,20,0.05)', width: '32px', height: '32px', borderRadius: '8px', display: 'grid', placeItems: 'center' }}><Users size={16} color="var(--navy)" /></span> Faculty ERP
                             </a>
                         </div>
                     </div>
@@ -147,12 +148,12 @@ const Navbar = () => {
                     <p style={{ fontSize: '0.8rem', textTransform: 'uppercase', color: 'var(--text-muted)', marginBottom: '0.8rem', fontWeight: 700 }}>Portals</p>
                     <a href="http://mit.thecollegeerp.com/academic/stlogin.php" target="_blank" rel="noopener noreferrer"
                         style={{ display: 'flex', alignItems: 'center', gap: '0.8rem', color: 'var(--navy)', textDecoration: 'none', marginBottom: '1rem', fontWeight: 500 }}>
-                        <span style={{ background: 'rgba(198,40,40,0.1)', width: '32px', height: '32px', borderRadius: '8px', display: 'grid', placeItems: 'center' }}>👨‍🎓</span>
+                        <span style={{ background: 'rgba(198,40,40,0.1)', width: '32px', height: '32px', borderRadius: '8px', display: 'grid', placeItems: 'center' }}><GraduationCap size={16} color="var(--red)" /></span>
                         Student ERP
                     </a>
                     <a href="http://mit.thecollegeerp.com/academic/facultylogin.php" target="_blank" rel="noopener noreferrer"
                         style={{ display: 'flex', alignItems: 'center', gap: '0.8rem', color: 'var(--navy)', textDecoration: 'none', fontWeight: 500 }}>
-                        <span style={{ background: 'rgba(5,10,20,0.05)', width: '32px', height: '32px', borderRadius: '8px', display: 'grid', placeItems: 'center' }}>👨‍🏫</span>
+                        <span style={{ background: 'rgba(5,10,20,0.05)', width: '32px', height: '32px', borderRadius: '8px', display: 'grid', placeItems: 'center' }}><Users size={16} color="var(--navy)" /></span>
                         Faculty ERP
                     </a>
                 </div>

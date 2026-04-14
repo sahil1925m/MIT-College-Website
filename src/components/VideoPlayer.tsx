@@ -1,4 +1,5 @@
 import React, { useState, useRef, useEffect } from 'react';
+import { VolumeX, Volume2 } from 'lucide-react';
 
 interface VideoPlayerProps {
     src: string;
@@ -27,7 +28,7 @@ const VideoPlayer: React.FC<VideoPlayerProps> = ({
 
     // Extract video ID if it's a YouTube URL
     const getVideoId = (url: string) => {
-        const regex = /(?:youtube\.com\/(?:[^\/]+\/.+\/|(?:v|e(?:mbed)?)\/|.*[?&]v=)|youtu\.be\/)([^"&?\/\s]{11})/;
+        const regex = /(?:youtube\.com\/(?:[^/]+\/.+\/|(?:v|e(?:mbed)?)\/|.*[?&]v=)|youtu\.be\/)([^"&?/\s]{11})/;
         const match = url.match(regex);
         return match ? match[1] : null;
     };
@@ -53,13 +54,14 @@ const VideoPlayer: React.FC<VideoPlayerProps> = ({
             { threshold: 0.5 }
         );
 
-        if (containerRef.current) {
-            observer.observe(containerRef.current);
+        const container = containerRef.current;
+        if (container) {
+            observer.observe(container);
         }
 
         return () => {
-            if (containerRef.current) {
-                observer.unobserve(containerRef.current);
+            if (container) {
+                observer.unobserve(container);
             }
         };
     }, [autoplay]);
@@ -201,7 +203,7 @@ const VideoPlayer: React.FC<VideoPlayerProps> = ({
                                 backdropFilter: 'blur(4px)'
                             }}
                         >
-                            {isMuted ? '🔇 Unmute' : '🔊 Mute'}
+                            {isMuted ? <><VolumeX size={16} /> Unmute</> : <><Volume2 size={16} /> Mute</>}
                         </button>
                     )}
                 </>

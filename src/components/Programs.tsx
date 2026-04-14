@@ -1,5 +1,6 @@
 import { useRef, useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
+import { User, ArrowRight } from 'lucide-react';
 import { departments } from '../pages/departments/departmentData';
 
 interface ProgramsProps {
@@ -29,7 +30,7 @@ const Programs = ({ limit }: ProgramsProps) => {
                     </div>
                     <h2 className="section-title">Our <span>Departments</span></h2>
                 </div>
-                {limit && <Link to="/departments" className="link-red">All Departments &#8594;</Link>}
+                {limit && <Link to="/departments" className="link-red" style={{ display: 'inline-flex', alignItems: 'center', gap: '4px' }}>All Departments <ArrowRight size={16} /></Link>}
             </div>
 
             <div className="programs-grid">
@@ -47,7 +48,7 @@ const Programs = ({ limit }: ProgramsProps) => {
                         <div className="dept-card-body">
                             <span className="dept-card-short">{dept.shortName}</span>
                             <h3 className="dept-card-name">{dept.name}</h3>
-                            <p className="dept-card-hod">👤 HOD: {dept.hodName}</p>
+                            <p className="dept-card-hod" style={{ display: 'flex', alignItems: 'center', gap: '4px' }}><User size={14} /> HOD: {dept.hodName}</p>
                             <p className="dept-card-overview">
                                 {dept.overview.substring(0, 110)}…
                             </p>
@@ -55,8 +56,8 @@ const Programs = ({ limit }: ProgramsProps) => {
                                 <span className="dept-card-faculty">
                                     {dept.faculties.length} Faculty
                                 </span>
-                                <span className="dept-card-link" style={{ color: dept.color }}>
-                                    Explore →
+                                <span className="dept-card-link" style={{ display: 'flex', alignItems: 'center', gap: '4px', color: dept.color }}>
+                                    Explore <ArrowRight size={14} />
                                 </span>
                             </div>
                         </div>

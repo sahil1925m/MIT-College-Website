@@ -1,4 +1,5 @@
 import { useRef, useState, useEffect } from 'react';
+import { Star } from 'lucide-react';
 
 // ── SVG Icons ─────────────────────────────────────────────────────────────────
 
@@ -169,7 +170,7 @@ const WhyChooseUs = () => {
 
                         {/* Glassmorphism badge */}
                         <div className="wcu-glass-badge">
-                            <span>⭐</span>
+                            <span><Star size={18} fill="#eab308" color="#eab308" /></span>
                             <span>200+ Top Recruiters</span>
                         </div>
                     </div>
