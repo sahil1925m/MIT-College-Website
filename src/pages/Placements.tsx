@@ -138,10 +138,10 @@ function StatCard({ item, active }: { item: typeof highlights[0]; active: boolea
 // ─── Page ─────────────────────────────────────────────────────────────────────
 
 const Placements = () => {
-    const statsSection = useInView(0.2);
-    const recruitersSection = useInView(0.15);
+    const { ref: statsRef, inView: statsInView } = useInView(0.2);
+    const { ref: recruitersRef, inView: recruitersInView } = useInView(0.15);
 
-    const tpSection = useInView(0.2);
+    const { ref: tpRef, inView: tpInView } = useInView(0.2);
 
 
     return (
@@ -195,7 +195,7 @@ const Placements = () => {
             {/* ── 2. HIGHLIGHTS ─────────────────────────────────────── */}
             <section
                 className="pl-highlights section-dark"
-                ref={statsSection.ref}
+                ref={statsRef}
                 style={{
                     backgroundImage: `linear-gradient(rgba(10, 15, 28, 0.9), rgba(10, 15, 28, 0.9)), url(${campus2})`,
                     backgroundSize: 'cover',
@@ -218,14 +218,14 @@ const Placements = () => {
                     </div>
                     <div className="pl-stats-grid">
                         {highlights.map((item, i) => (
-                            <StatCard key={i} item={item} active={statsSection.inView} />
+                            <StatCard key={i} item={item} active={statsInView} />
                         ))}
                     </div>
                 </div>
             </section>
 
             {/* ── 3. TOP RECRUITERS ─────────────────────────────────── */}
-            <section className="pl-recruiters section section-alt" ref={recruitersSection.ref}>
+            <section className="pl-recruiters section section-alt" ref={recruitersRef}>
                 <div className="container">
                     <div className="pl-section-header center">
                         <div className="section-chip">
@@ -242,7 +242,7 @@ const Placements = () => {
                 </div>
 
                 {/* Marquee — Row 1 (scrolls left) */}
-                <div className={`recruiter-marquee-wrap ${recruitersSection.inView ? 'in-view' : ''}`}>
+                <div className={`recruiter-marquee-wrap ${recruitersInView ? 'in-view' : ''}`}>
                     <div className="recruiter-marquee recruiter-marquee--left">
                         <div className="recruiter-marquee-track">
                             {[...recruitersRow1, ...recruitersRow1, ...recruitersRow1].map((company, i) => (
@@ -278,10 +278,10 @@ const Placements = () => {
 
 
             {/* ── 5. T&P CELL ──────────────────────────────────────── */}
-            <section className="pl-tp section" ref={tpSection.ref}>
+            <section className="pl-tp section" ref={tpRef}>
                 <div className="container">
                     <div className="pl-tp-layout">
-                        <div className={`pl-tp-text ${tpSection.inView ? 'in-view' : ''}`}>
+                        <div className={`pl-tp-text ${tpInView ? 'in-view' : ''}`}>
                             <div className="section-chip">
                                 <span className="chip-dot" />
                                 Our Infrastructure
@@ -307,7 +307,7 @@ const Placements = () => {
                                 ))}
                             </div>
                         </div>
-                        <div className={`pl-tp-visual ${tpSection.inView ? 'in-view' : ''}`}>
+                        <div className={`pl-tp-visual ${tpInView ? 'in-view' : ''}`}>
                             <div className="pl-tp-card-stack">
                                 <div className="pl-tp-big-stat">
                                     <div className="pl-tp-big-num">5000+</div>

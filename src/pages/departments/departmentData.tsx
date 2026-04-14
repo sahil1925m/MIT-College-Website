@@ -9,6 +9,7 @@ import {
   Building,
   FlaskConical,
   BarChart,
+  type LucideIcon
 } from 'lucide-react';
 
 export interface Faculty {
@@ -24,7 +25,7 @@ export interface Department {
   id: string;
   name: string;
   shortName: string;
-  icon: any; // LucideIcon component
+  icon: LucideIcon; // LucideIcon component
   color: string;
   gradient: string;
   hodName: string;

@@ -47,6 +47,7 @@ const DepartmentPage = () => {
 
   useEffect(() => {
     window.scrollTo(0, 0);
+    // eslint-disable-next-line
     setActiveTab('overview');
   }, [id]);
 
