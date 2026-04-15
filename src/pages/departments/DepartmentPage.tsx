@@ -77,7 +77,7 @@ const DepartmentPage = () => {
   // Animation variants
   const fadeUp = {
     hidden: { opacity: 0, y: 30 },
-    visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: [0.16, 1, 0.3, 1] } }
+    visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" as const } }
   };
 
   const staggerContainer = {
@@ -296,7 +296,6 @@ const DepartmentPage = () => {
 
                 {/* Quick Navigation - Horizontal Branches Bar */}
                 <div className="dept-quick-nav">
-                  <div className="dept-section-label" style={{ color: dept.color, opacity: 0.8 }}>Explore More</div>
                   <h3 className="dept-quick-nav-title" style={{ fontSize: '1.5rem', fontWeight: 800, color: 'var(--navy)', marginBottom: '1.5rem' }}>Other Academic Branches</h3>
                   <div className="dept-quick-links">
                     {departments.filter(d => d.id !== dept.id).slice(0, 7).map(d => (
@@ -396,7 +395,7 @@ const DepartmentPage = () => {
                 initial="hidden"
                 animate="visible"
               >
-                {dept.faculties.map((f, i) => (
+                {dept.faculties.map((f) => (
                   <motion.div key={f.name} variants={fadeUp}>
                     <FacultyCard faculty={f} color={dept.color} />
                   </motion.div>
@@ -687,11 +686,11 @@ const DepartmentPage = () => {
         /* ── OVERVIEW TAB ── */
         .dept-overview-layout {
           display: grid;
-          grid-template-columns: 1fr 340px;
+          grid-template-columns: minmax(0, 1fr) 340px;
           gap: 4rem;
         }
         @media (max-width: 992px) {
-          .dept-overview-layout { grid-template-columns: 1fr; gap: 3rem; }
+          .dept-overview-layout { grid-template-columns: minmax(0, 1fr); gap: 3rem; }
         }
 
         .dept-overview-text p {
@@ -803,12 +802,12 @@ const DepartmentPage = () => {
         /* ── HOD TAB ── */
         .dept-hod-layout {
           display: grid;
-          grid-template-columns: 320px 1fr;
+          grid-template-columns: 320px minmax(0, 1fr);
           gap: 4rem;
           align-items: start;
         }
         @media (max-width: 868px) {
-          .dept-hod-layout { grid-template-columns: 1fr; gap: 3rem; }
+          .dept-hod-layout { grid-template-columns: minmax(0, 1fr); gap: 3rem; }
         }
 
         .dept-hod-profile {
@@ -956,50 +955,137 @@ const DepartmentPage = () => {
         .dept-cta-content p { font-size: 1.1rem; opacity: 0.9; max-width: 600px; margin: 0 auto 2.5rem; }
         
         @media (max-width: 992px) {
-          .dept-overview-layout { grid-template-columns: 1fr; gap: 3rem; }
-        }
-        
-        @media (max-width: 868px) {
-          .dept-hod-layout { grid-template-columns: 1fr; gap: 3rem; }
+          .dept-overview-layout { grid-template-columns: minmax(0, 1fr); gap: 3rem; }
+          .dept-hod-layout { grid-template-columns: minmax(0, 1fr); gap: 3rem; }
         }
         
         @media (max-width: 768px) {
-          .dept-hero { padding-top: 6rem; min-height: 50vh; }
-          .dept-hero-icon-wrap { width: 72px; height: 72px; margin-bottom: 1rem; }
+          .dept-hero { padding-top: 6rem; min-height: auto; padding-bottom: 4rem; }
+          .dept-hero-icon-wrap { 
+            width: 80px; height: 80px; margin-bottom: 1.5rem; 
+            border-radius: 24px;
+          }
           .dept-hero-icon-wrap svg { width: 40px; height: 40px; }
-          .dept-hero-breadcrumb { flex-wrap: wrap; justify-content: center; text-align: center; line-height: 1.6; }
-          .dept-stat { flex-direction: column; text-align: center; gap: 0.8rem; padding: 1.2rem; flex: 1 1 calc(50% - 1.5rem); }
-          .dept-cta-box { padding: 3rem 1.5rem; }
-          .dept-cta-content h2 { font-size: 2rem; }
-          .dept-faculty-grid { grid-template-columns: 1fr; }
+          .dept-hero-breadcrumb { 
+            flex-wrap: nowrap; 
+            overflow-x: auto; 
+            max-width: 100%; 
+            scrollbar-width: none; 
+            padding: 0.5rem 1.2rem; 
+            font-size: 0.8rem;
+            white-space: nowrap;
+          }
+          .dept-hero-breadcrumb::-webkit-scrollbar { display: none; }
           
-          /* Make tabs swipeable on mobile */
-          .dept-tabs { gap: 1.5rem; padding: 0 1rem; justify-content: flex-start; }
-          .dept-tab { padding: 1rem 0.2rem; font-size: 0.95rem; }
+          .dept-hero-title { font-size: 2.5rem; }
+          .dept-hero-subtitle { font-size: 1.05rem; margin-bottom: 2.5rem; padding: 0 1rem; }
           
-          /* Padding and sizing adjustments */
+          /* Sleek Stats Mobile Grid */
+          .dept-hero-stats { 
+            display: grid; 
+            grid-template-columns: repeat(2, 1fr); 
+            gap: 1rem;
+            padding: 0 1rem;
+            width: 100%;
+          }
+          .dept-stat { 
+            flex-direction: column; 
+            text-align: center; 
+            gap: 0.8rem; 
+            padding: 1.5rem 1rem; 
+            background: rgba(255, 255, 255, 0.08); 
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            border-radius: 20px;
+            backdrop-filter: blur(16px);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+          }
+          .dept-stat-icon { margin: 0 auto; width: 42px; height: 42px; padding: 10px; }
+          .dept-stat-num { font-size: 1.4rem; }
+          .dept-stat-label { font-size: 0.75rem; letter-spacing: 0.1em; }
+          
+          /* Tabs improvements */
+          .dept-tabs-container { top: 60px; }
+          .dept-tabs { gap: 0.5rem; padding: 0 1rem; justify-content: space-between; overflow-x: visible; width: 100%; }
+          .dept-tab { padding: 1rem 0; font-size: 0.95rem; justify-content: center; flex: 1; text-align: center; }
+          
+          /* Layout Adjustments */
           .dept-body { padding-top: 3rem; }
+          .dept-section-title { font-size: 2rem; text-align: center; }
+          .dept-section-chip { margin: 0 auto 1.5rem auto; display: flex; width: fit-content; }
+          .dept-overview-text p { font-size: 1.05rem; text-align: left; }
+          
+          .dept-info-card { border-radius: 24px; }
+          .dept-cta-wrapper { padding: 0 1rem; }
+          .dept-cta-box { padding: 4rem 2rem; border-radius: 28px; }
+          .dept-cta-content h2 { font-size: 2.2rem; line-height: 1.2; }
+          
+          .dept-faculty-grid { grid-template-columns: 1fr; gap: 1.2rem; }
         }
 
         @media (max-width: 640px) {
-          .dept-hod-message-area { padding: 2.5rem 1.5rem; }
-          .dept-hod-quote-wrapper .quote-mark { top: -45px; left: -10px; font-size: 6rem; opacity: 0.8; }
+          .dept-hod-message-area { 
+            padding: 2.5rem 1.5rem; 
+            border-radius: 24px;
+            margin-top: 1rem;
+          }
+          .dept-hod-quote-wrapper { margin-top: 2rem; }
+          .dept-hod-quote-wrapper .quote-mark { top: -50px; left: -10px; font-size: 6rem; opacity: 0.6; }
+          .dept-hod-text { font-size: 1.05rem; text-align: left; }
         }
 
         @media (max-width: 480px) {
-          .dept-hero { padding-top: 6rem; padding-bottom: 3rem; }
+          .dept-hero { padding-top: 5rem; padding-bottom: 3rem; }
           .dept-hero-title { font-size: 2.2rem; }
-          .dept-stat { flex: 1 1 100%; }
           
-          .dept-hod-avatar-main { width: 120px; height: 120px; font-size: 2.2rem; }
+          /* Ultra small adjustments for tabs */
+          .dept-tabs { gap: 0.2rem; padding: 0 0.5rem; }
+          .dept-tab { font-size: 0.8rem; flex-direction: column; gap: 0.3rem; padding: 0.8rem 0; }
+          .dept-tab-icon { margin-bottom: 2px; }
+
+          .dept-hod-profile { padding: 2rem 1.2rem; border-radius: 24px; }
+          .dept-hod-avatar-main { width: 110px; height: 110px; font-size: 2.5rem; border-width: 3px; }
           
           /* Enhance Info Cards for extra small screens */
-          .dept-info-list li { flex-direction: column; gap: 0.4rem; padding: 1rem 0; }
-          .dept-info-list .value { text-align: left; font-size: 1rem; }
+          .dept-info-list li { flex-direction: column; gap: 0.5rem; padding: 1.2rem 0; align-items: flex-start; }
+          .dept-info-list .value { text-align: left; font-size: 1.05rem; color: var(--navy); }
+          .dept-info-list .label { font-size: 0.85rem; }
           
-          /* Mobile Faculty Cards */
-          .dept-faculty-card { flex-direction: column; align-items: flex-start; gap: 1rem; }
-          .dept-faculty-avatar { width: 56px; height: 56px; }
+          /* Sleeker Mobile Faculty Cards */
+          .dept-faculty-card { 
+            flex-direction: row; 
+            align-items: center; 
+            gap: 1.2rem; 
+            padding: 1.2rem; 
+            border-radius: 20px;
+          }
+          .dept-faculty-avatar-wrap { align-self: flex-start; }
+          .dept-faculty-avatar { width: 56px; height: 56px; font-size: 1.1rem; border-radius: 14px; }
+          .dept-faculty-info h4 { font-size: 1.05rem; }
+          .dept-faculty-role { font-size: 0.85rem; margin-bottom: 0.6rem; }
+          .dept-faculty-meta { gap: 0.3rem; }
+          .dept-faculty-meta span { font-size: 0.8rem; }
+          
+          /* Elegant structured horizontal links */
+          .dept-quick-nav { padding: 2.5rem 1rem; border-radius: 24px; margin-top: 2rem; background: var(--white); box-shadow: 0 10px 30px rgba(0,0,0,0.03); }
+          .dept-quick-nav-title { font-size: 1.4rem !important; text-align: center; margin-bottom: 1.5rem; }
+          .dept-quick-links { 
+            flex-wrap: wrap; 
+            justify-content: center;
+            gap: 0.8rem;
+          }
+          .dept-quick-link { 
+            padding: 0.6rem 1.2rem; 
+            border-radius: 100px; 
+            font-size: 0.85rem;
+            background: rgba(255, 255, 255, 0.8);
+            border: 1px solid var(--border-light);
+            box-shadow: 0 2px 8px rgba(0,0,0,0.02);
+          }
+          
+          /* CTA Box tweaks */
+          .dept-cta-box { padding: 3rem 1.5rem; }
+          .dept-cta-content h2 { font-size: 1.8rem; }
+          .dept-cta-content p { font-size: 1rem; }
         }
       `}</style>
     </div>
