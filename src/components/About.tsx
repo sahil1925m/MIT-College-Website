@@ -1,7 +1,7 @@
 import { useRef, useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Trophy, Users, Microscope, Globe, ArrowRight } from 'lucide-react';
-import aboutImg from '../assets/image_3.jpg';
+import aboutImg from '../assets/image_3.webp';
 
 const features = [
     { icon: <Trophy size={20} />, text: '20+ Years of Academic Leadership' },

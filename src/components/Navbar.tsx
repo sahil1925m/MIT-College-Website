@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { NavLink } from 'react-router-dom';
 import { GraduationCap, Users, ChevronDown, ArrowRight } from 'lucide-react';
-import logoImg from '../assets/logo.png';
+import logoImg from '../assets/logo.webp';
 import { departments } from '../pages/departments/departmentData';
 
 const links = [
@@ -99,7 +99,7 @@ const Navbar = () => {
 
                 {/* CTA */}
                 <div className="nav-cta">
-                    <NavLink to="/admissions" className="btn btn-primary">Apply Now</NavLink>
+                    <a href="https://forms.zohopublic.in/lakshya2025miti1/form/CollegeRegistrationForm/formperma/bW1CsY15bWQWYeLV6_DHEHzn6lVy8u5-7K8zOwu42Es" target="_blank" rel="noopener noreferrer" className="btn btn-primary">Register Online</a>
 
                     {/* Hamburger */}
                     <div
@@ -159,9 +159,9 @@ const Navbar = () => {
                 </div>
 
                 <div style={{ padding: '0 1rem' }}>
-                    <NavLink to="/admissions" className="btn btn-primary" onClick={() => setMobileOpen(false)}>
-                        Apply Now
-                    </NavLink>
+                    <a href="https://forms.zohopublic.in/lakshya2025miti1/form/CollegeRegistrationForm/formperma/bW1CsY15bWQWYeLV6_DHEHzn6lVy8u5-7K8zOwu42Es" target="_blank" rel="noopener noreferrer" className="btn btn-primary" onClick={() => setMobileOpen(false)} style={{ display: 'flex', justifyContent: 'center' }}>
+                        Register Online
+                    </a>
                 </div>
             </div>
 
@@ -204,6 +204,9 @@ const Navbar = () => {
                     border-radius: 8px;
                     transition: background 0.2s;
                 }
+                .nav-drop-content a::after {
+                    display: none !important;
+                }
                 .nav-drop-content a:hover {
                     background: rgba(198,40,40,0.05);
                     color: var(--crimson);
@@ -224,19 +227,8 @@ const Navbar = () => {
                     padding: 0.25rem 0;
                     position: relative;
                 }
-                .nav-drop-btn-link::after {
-                    content: '';
-                    position: absolute;
-                    bottom: -2px;
-                    left: 0;
-                    width: 100%;
-                    height: 2px;
-                    background: var(--crimson);
-                    transform: scaleX(0);
-                    transition: transform 0.3s;
-                }
-                .nav-drop-btn-link:hover::after {
-                    transform: scaleX(1);
+                .nav-drop-btn-link.active-link {
+                    color: var(--navy) !important;
                 }
 
                 /* Departments Mega Dropdown */
@@ -284,14 +276,17 @@ const Navbar = () => {
                     padding-top: 0.5rem;
                 }
                 .nav-dept-all {
-                    display: block !important;
-                    text-align: center !important;
-                    padding: 0.6rem !important;
-                    font-size: 0.82rem !important;
+                    display: flex !important;
+                    align-items: center !important;
+                    justify-content: center !important;
+                    gap: 0.4rem !important;
+                    padding: 0.8rem !important;
+                    font-size: 0.85rem !important;
                     font-weight: 700 !important;
                     color: #6366f1 !important;
                     text-decoration: none !important;
                     border-radius: 8px !important;
+                    transition: all 0.2s !important;
                 }
                 .nav-dept-all:hover {
                     background: rgba(99,102,241,0.08) !important;

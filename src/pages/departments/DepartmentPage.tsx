@@ -52,12 +52,12 @@ const DepartmentPage = () => {
   const { id } = useParams<{ id: string }>();
   // const navigate = useNavigate();
   const dept = getDepartmentById(id || '');
-  const [activeTab, setActiveTab] = useState<'overview' | 'hod' | 'faculty'>('overview');
+  const [activeTab, setActiveTab] = useState<'hod' | 'faculty'>('hod');
 
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
     // eslint-disable-next-line react-hooks/set-state-in-effect
-    setActiveTab('overview');
+    setActiveTab('hod');
   }, [id]);
 
   if (!dept) {
@@ -89,8 +89,7 @@ const DepartmentPage = () => {
   };
 
   const tabs = [
-    { id: 'overview', label: 'Overview', icon: Building2 },
-    { id: 'hod', label: "HOD's Desk", icon: MessageSquare },
+    { id: 'hod', label: "Department / HOD Desk", icon: Building2 },
     { id: 'faculty', label: 'Faculty', icon: Users },
   ] as const;
 
@@ -166,13 +165,6 @@ const DepartmentPage = () => {
             initial="hidden"
             animate="visible"
           >
-            <motion.div className="dept-stat" variants={fadeUp}>
-              <Users size={24} className="dept-stat-icon" />
-              <div>
-                <span className="dept-stat-num">{dept.faculties.length}+</span>
-                <span className="dept-stat-label">Faculty Experts</span>
-              </div>
-            </motion.div>
             
             {dept.established && (
               <motion.div className="dept-stat" variants={fadeUp}>
@@ -193,14 +185,6 @@ const DepartmentPage = () => {
                 </div>
               </motion.div>
             )}
-            
-            <motion.div className="dept-stat" variants={fadeUp}>
-              <Award size={24} className="dept-stat-icon" />
-              <div>
-                <span className="dept-stat-num">A++</span>
-                <span className="dept-stat-label">NAAC Grade</span>
-              </div>
-            </motion.div>
           </motion.div>
         </div>
       </div>
@@ -239,81 +223,7 @@ const DepartmentPage = () => {
       {/* ── Content Area ── */}
       <div className="dept-body container">
         <AnimatePresence mode="wait">
-          {/* Overview Tab */}
-          {activeTab === 'overview' && (
-            <motion.div 
-              key="overview"
-              variants={fadeUp}
-              initial="hidden"
-              animate="visible"
-              exit={{ opacity: 0, y: -20, transition: { duration: 0.2 } }}
-              className="dept-tab-content"
-            >
-              <div className="dept-overview-layout">
-                <div className="dept-overview-main">
-                  <div className="dept-section-chip" style={{ color: dept.color, background: `${dept.color}15`, borderColor: `${dept.color}30` }}>
-                    <div className="dept-chip-dot" style={{ background: dept.color }} />
-                    About Department
-                  </div>
-                  <h2 className="dept-section-title">Nurturing Future Technocrats</h2>
-                  <div className="dept-overview-text">
-                    {dept.overview.split('\\n').map((para, index) => (
-                      <p key={index}>{para}</p>
-                    ))}
-                  </div>
-                </div>
 
-                <div className="dept-overview-sidebar">
-                  {/* Info Card */}
-                  <div className="dept-info-card group" style={{ borderColor: `${dept.color}30` }}>
-                    <div className="dept-info-card-bg" style={{ background: `linear-gradient(135deg, ${dept.color}05, transparent)` }} />
-                    <div className="dept-info-card-header" style={{ color: dept.color }}>
-                      <Icon size={24} />
-                      <h3>Key Information</h3>
-                    </div>
-                    <ul className="dept-info-list">
-                      <li>
-                        <span className="label">Department Name</span>
-                        <span className="value">{dept.name}</span>
-                      </li>
-                      <li>
-                        <span className="label">Head of Dept.</span>
-                        <span className="value">{dept.hodName}</span>
-                      </li>
-                      {dept.intake && (
-                        <li>
-                          <span className="label">Approved Intake</span>
-                          <span className="value">{dept.intake} Students</span>
-                        </li>
-                      )}
-                      <li>
-                        <span className="label">Affiliation</span>
-                        <span className="value">RGPV, Bhopal</span>
-                      </li>
-                    </ul>
-                  </div>
-                </div>
-
-                {/* Quick Navigation - Horizontal Branches Bar */}
-                <div className="dept-quick-nav">
-                  <h3 className="dept-quick-nav-title" style={{ fontSize: '1.5rem', fontWeight: 800, color: 'var(--navy)', marginBottom: '1.5rem' }}>Other Academic Branches</h3>
-                  <div className="dept-quick-links">
-                    {departments.filter(d => d.id !== dept.id).slice(0, 7).map(d => (
-                      <Link 
-                        to={`/departments/${d.id}`} 
-                        key={d.id} 
-                        className="dept-quick-link"
-                        style={{ '--link-color': d.color } as React.CSSProperties}
-                      >
-                        <span className="icon-wrap"><d.icon size={18} /></span>
-                        <span className="name">{d.shortName}</span>
-                      </Link>
-                    ))}
-                  </div>
-                </div>
-              </div>
-            </motion.div>
-          )}
 
           {/* HOD Tab */}
           {activeTab === 'hod' && (
@@ -325,6 +235,21 @@ const DepartmentPage = () => {
               exit={{ opacity: 0, y: -20, transition: { duration: 0.2 } }}
               className="dept-tab-content"
             >
+              {/* --- New Premium Full-Width Overview Card --- */}
+              <div className="dept-overview-full-card">
+                <div className="dept-section-chip" style={{ color: dept.color, background: `${dept.color}15`, borderColor: `${dept.color}30`, marginBottom: '1rem' }}>
+                  <div className="dept-chip-dot" style={{ background: dept.color }} />
+                  About Department
+                </div>
+                <h2 className="dept-section-title" style={{ fontSize: '2.4rem', marginBottom: '1.5rem' }}>Overview</h2>
+                <div className="dept-overview-text">
+                  {dept.overview.split('\n').map((para, index) => (
+                    <p key={index} style={{ color: 'var(--text-muted)', lineHeight: 1.8, marginBottom: '1rem', fontSize: '1.1rem', textAlign: 'justify' }}>{para}</p>
+                  ))}
+                </div>
+              </div>
+
+              {/* --- HOD Desk Split Layout --- */}
               <div className="dept-hod-layout">
                 <motion.div 
                   className="dept-hod-profile"
@@ -332,8 +257,10 @@ const DepartmentPage = () => {
                   animate={{ opacity: 1, scale: 1 }}
                   transition={{ delay: 0.2 }}
                 >
-                  <div className="dept-hod-avatar-main" style={{ background: `linear-gradient(135deg, ${dept.color}, var(--navy))` }}>
-                    {hod ? initials(hod.name) : <Users size={64} color="white" />}
+                  <div className="dept-hod-avatar-main" style={{ background: `linear-gradient(135deg, ${dept.color}, var(--navy))`, overflow: 'hidden' }}>
+                    {dept.hodImage ? (
+                      <img src={dept.hodImage} alt={dept.hodName} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+                    ) : hod ? initials(hod.name) : <Users size={64} color="white" />}
                   </div>
                   <div className="dept-hod-profile-name">
                     <h3>{dept.hodName}</h3>
@@ -351,19 +278,20 @@ const DepartmentPage = () => {
                   )}
                 </motion.div>
 
-                <div className="dept-hod-message-area">
-                  <div className="dept-section-chip" style={{ color: dept.color, background: `${dept.color}15`, borderColor: `${dept.color}30` }}>
+                <div className="dept-hod-message-card">
+                  {/* --- HOD Desk --- */}
+                  <div className="dept-section-chip" style={{ color: dept.color, background: `${dept.color}15`, borderColor: `${dept.color}30`, marginBottom: '1rem' }}>
                     <div className="dept-chip-dot" style={{ background: dept.color }} />
                     Message from HOD
                   </div>
-                  <h2 className="dept-section-title">Guiding the Next Generation</h2>
-                  <div className="dept-hod-quote-wrapper">
-                    <span className="quote-mark" style={{ color: `${dept.color}20` }}>"</span>
-                    <p className="dept-hod-text">{dept.hodDesk}</p>
-                    <div className="dept-hod-signature">
-                      <div className="sig-line" style={{ background: dept.color }} />
-                      <strong>{dept.hodName}</strong>
-                      <span>HOD, {dept.shortName}</span>
+                  <h2 className="dept-section-title" style={{ fontSize: '2.4rem', marginBottom: '1.5rem' }}>Guiding the Next Generation</h2>
+                  <div className="dept-hod-quote-wrapper" style={{ position: 'relative' }}>
+                    <span className="quote-mark" style={{ color: `${dept.color}15`, position: 'absolute', top: '-20px', left: '-20px', fontSize: '6rem', lineHeight: 1, fontFamily: 'var(--font-serif)', zIndex: 0 }}>"</span>
+                    <p className="dept-hod-text" style={{ position: 'relative', zIndex: 1, fontSize: '1.15rem', lineHeight: 1.8, color: 'var(--text-muted)', marginBottom: '2rem', fontStyle: 'italic' }}>{dept.hodDesk}</p>
+                    <div className="dept-hod-signature" style={{ display: 'flex', flexDirection: 'column', gap: '0.3rem', position: 'relative', zIndex: 1 }}>
+                      <div className="sig-line" style={{ background: dept.color, width: '40px', height: '3px', borderRadius: '2px', marginBottom: '0.8rem' }} />
+                      <strong style={{ fontSize: '1.2rem', color: 'var(--navy)' }}>{dept.hodName}</strong>
+                      <span style={{ fontSize: '0.9rem', color: 'var(--text-muted)', textTransform: 'uppercase', letterSpacing: '0.05em', fontWeight: 600 }}>HOD, {dept.shortName}</span>
                     </div>
                   </div>
                 </div>
@@ -404,6 +332,33 @@ const DepartmentPage = () => {
             </motion.div>
           )}
         </AnimatePresence>
+
+        {/* Quick Navigation - Horizontal Branches Bar (Now Centered and global) */}
+        <motion.div 
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="dept-quick-nav"
+          style={{ textAlign: 'center', maxWidth: '800px', margin: '4rem auto 0 auto' }}
+        >
+          <h3 className="dept-quick-nav-title" style={{ fontSize: '1.5rem', fontWeight: 800, color: 'var(--navy)', marginBottom: '1.5rem' }}>
+            Other Academic Branches
+          </h3>
+          <div className="dept-quick-links" style={{ justifyContent: 'center' }}>
+            {departments.filter(d => d.id !== dept.id).slice(0, 7).map(d => (
+              <Link 
+                to={`/departments/${d.id}`} 
+                key={d.id} 
+                className="dept-quick-link"
+                style={{ '--link-color': d.color } as React.CSSProperties}
+              >
+                <span className="icon-wrap"><d.icon size={18} /></span>
+                <span className="name">{d.shortName}</span>
+              </Link>
+            ))}
+          </div>
+        </motion.div>
+
       </div>
 
       {/* ── CTA ── */}
@@ -812,42 +767,93 @@ const DepartmentPage = () => {
 
         .dept-hod-profile {
           background: var(--white);
-          border-radius: 24px;
-          padding: 2rem;
+          border-radius: 28px;
+          padding: 2.5rem 2rem;
           text-align: center;
-          box-shadow: 0 20px 40px rgba(0,0,0,0.04);
-          border: 1px solid var(--border-light);
+          box-shadow: 0 24px 48px rgba(0,0,0,0.06), 0 0 0 1px rgba(0,0,0,0.02);
+          position: relative;
+          overflow: hidden;
+          transition: transform 0.3s ease;
+        }
+        
+        .dept-hod-profile:hover {
+          transform: translateY(-5px);
+          box-shadow: 0 32px 64px rgba(0,0,0,0.08), 0 0 0 1px rgba(0,0,0,0.02);
+        }
+
+        .dept-hod-profile::before {
+          content: '';
+          position: absolute;
+          top: 0; left: 0; right: 0;
+          height: 130px;
+          background: linear-gradient(135deg, rgba(198,40,40,0.06), rgba(10,15,30,0.04));
+          z-index: 0;
         }
 
         .dept-hod-avatar-main {
-          width: 150px; height: 150px;
+          width: 170px; height: 170px;
           border-radius: 50%;
-          margin: 0 auto 1.5rem;
+          margin: 0 auto 1.8rem;
           display: flex; align-items: center; justify-content: center;
           color: var(--white); font-size: 3rem; font-weight: 800;
-          box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-          border: 4px solid var(--white);
+          box-shadow: 0 15px 35px rgba(0,0,0,0.12), 0 0 0 6px var(--white), 0 0 0 8px rgba(10,15,30,0.06);
+          position: relative;
+          z-index: 1;
+        }
+
+        .dept-hod-profile-name {
+          position: relative;
+          z-index: 1;
         }
 
         .dept-hod-profile-name h3 {
-          font-size: 1.4rem; font-weight: 800; color: var(--navy); margin-bottom: 0.3rem;
+          font-size: 1.5rem; font-weight: 800; color: var(--navy); margin-bottom: 0.4rem;
         }
         .dept-hod-profile-name p {
-          font-size: 0.95rem; color: var(--text-muted); font-weight: 500;
+          font-size: 0.95rem; color: var(--crimson); font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em;
+        }
+
+        .dept-overview-full-card, .dept-hod-message-card {
+          background: var(--white);
+          border-radius: 32px;
+          padding: 3.5rem;
+          border: 1px solid var(--border-light);
+          box-shadow: 0 20px 40px rgba(0,0,0,0.03);
+        }
+        
+        .dept-overview-full-card {
+          margin-bottom: 3rem;
+        }
+
+        @media (max-width: 640px) {
+          .dept-overview-full-card, .dept-hod-message-card {
+            padding: 2rem 1.5rem;
+            border-radius: 20px;
+          }
+          .dept-overview-full-card { margin-bottom: 2rem; }
         }
 
         .dept-hod-profile-meta {
-          margin-top: 1.5rem;
-          padding-top: 1.5rem;
-          border-top: 1px dashed var(--border-light);
-          display: flex; flex-direction: column; gap: 0.8rem;
-          text-align: left;
+          position: relative; z-index: 1;
+          margin-top: 2rem;
+          display: flex; flex-direction: column; gap: 0.6rem;
         }
         .dept-hod-profile-meta div {
-          display: flex; align-items: center; gap: 0.8rem;
-          color: var(--navy); font-size: 0.9rem; font-weight: 500;
+          display: flex; align-items: center; gap: 1rem;
+          background: #f8fafc;
+          padding: 0.9rem 1.2rem;
+          border-radius: 12px;
+          border: 1px solid var(--border-light);
+          color: var(--navy); font-size: 0.95rem; font-weight: 600;
+          transition: all 0.2s;
         }
-        .dept-hod-profile-meta div svg { color: var(--text-muted); }
+        .dept-hod-profile-meta div:hover {
+          background: #fff;
+          border-color: rgba(198,40,40,0.2);
+          transform: translateY(-2px);
+          box-shadow: 0 4px 12px rgba(0,0,0,0.03);
+        }
+        .dept-hod-profile-meta div svg { color: var(--crimson); }
 
         .dept-hod-message-area {
           background: var(--white);

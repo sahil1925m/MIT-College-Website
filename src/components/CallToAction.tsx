@@ -28,9 +28,15 @@ const CallToAction = () => {
                     Batch 2025–26. Apply now and secure your future.
                 </p>
                 <div className="cta-actions">
-                    <Link to="/admissions" className="btn btn-white" style={{ display: 'inline-flex', alignItems: 'center', gap: '0.5rem' }}>
-                        Apply Now <ArrowRight size={18} />
-                    </Link>
+                    <a 
+                        href="https://forms.zohopublic.in/lakshya2025miti1/form/CollegeRegistrationForm/formperma/bW1CsY15bWQWYeLV6_DHEHzn6lVy8u5-7K8zOwu42Es" 
+                        target="_blank" 
+                        rel="noopener noreferrer" 
+                        className="btn btn-white" 
+                        style={{ display: 'inline-flex', alignItems: 'center', gap: '0.5rem' }}
+                    >
+                        Register Online <ArrowRight size={18} />
+                    </a>
                     <Link to="/academics" className="btn btn-ghost">View Programs</Link>
                 </div>
             </div>

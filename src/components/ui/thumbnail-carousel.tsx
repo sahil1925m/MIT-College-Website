@@ -1,26 +1,26 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { motion, useMotionValue, animate, type PanInfo } from 'framer-motion';
 
-import evm1 from '../../assets/mit gallery/EVM/aditya.jpeg';
+import evm1 from '../../assets/mit gallery/EVM/aditya.webp';
 import ncc1 from '../../assets/mit gallery/NCC/Copy of DSC_2586.jpg.webp';
 import spandan1 from '../../assets/mit gallery/spandan/TOWgame_spandan.webp';
-import event1 from '../../assets/mit gallery/Events/event.jpeg';
-import campus1 from '../../assets/mit gallery/campus/camp1.jpeg';
+import event1 from '../../assets/mit gallery/Events/event.webp';
+import campus1 from '../../assets/mit gallery/campus/camp1.webp';
 
-import evm2 from '../../assets/mit gallery/EVM/aman.jpeg';
+import evm2 from '../../assets/mit gallery/EVM/aman.webp';
 import ncc2 from '../../assets/mit gallery/NCC/Copy of DSC_2873.jpg.webp';
 import spandan2 from '../../assets/mit gallery/spandan/green_dance_spandan.webp';
-import event2 from '../../assets/mit gallery/Events/event2.jpg';
+import event2 from '../../assets/mit gallery/Events/event2.webp';
 
-import evm3 from '../../assets/mit gallery/EVM/judge.jpeg';
-import ncc3 from '../../assets/mit gallery/NCC/IMG-20240921-WA0014.jpg.jpeg';
+import evm3 from '../../assets/mit gallery/EVM/judge.webp';
+import ncc3 from '../../assets/mit gallery/NCC/IMG-20240921-WA0014.jpg.webp';
 import spandan3 from '../../assets/mit gallery/spandan/jeet_spandan.webp';
 
-import evm4 from '../../assets/mit gallery/EVM/mehak.jpeg';
-import ncc4 from '../../assets/mit gallery/NCC/IMG-20250216-WA0106.jpg.jpeg';
+import evm4 from '../../assets/mit gallery/EVM/mehak.webp';
+import ncc4 from '../../assets/mit gallery/NCC/IMG-20250216-WA0106.jpg.webp';
 import spandan4 from '../../assets/mit gallery/spandan/medal_spandan.webp';
 
-import evm5 from '../../assets/mit gallery/EVM/visitor.jpeg';
+import evm5 from '../../assets/mit gallery/EVM/visitor.webp';
 import ncc5 from '../../assets/mit gallery/NCC/IMG_20250202_084052.jpg.webp';
 import spandan5 from '../../assets/mit gallery/spandan/stage_couple_spandan.webp';
 

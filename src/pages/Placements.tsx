@@ -352,12 +352,17 @@ const Placements = () => {
                         Your success story begins here.
                     </p>
                     <div className="pl-cta-actions">
-                        <Link to="/admissions" className="btn btn-primary pl-cta-btn">
-                            Apply Now
+                        <a 
+                            href="https://forms.zohopublic.in/lakshya2025miti1/form/CollegeRegistrationForm/formperma/bW1CsY15bWQWYeLV6_DHEHzn6lVy8u5-7K8zOwu42Es" 
+                            target="_blank" 
+                            rel="noopener noreferrer" 
+                            className="btn btn-primary pl-cta-btn"
+                        >
+                            Register Online
                             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" width="18" height="18">
                                 <path d="M5 12h14M12 5l7 7-7 7" />
                             </svg>
-                        </Link>
+                        </a>
                         <Link to="/contact" className="btn btn-ghost pl-cta-btn">
                             Contact Placement Cell
                         </Link>

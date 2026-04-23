@@ -2,7 +2,7 @@ import ThumbnailCarousel from '../components/ui/thumbnail-carousel';
 import VideoPlayer from '../components/VideoPlayer';
 import { BookOpen, Map, Mic, Bus, Coffee, HeartPulse } from 'lucide-react';
 import campus5 from '../assets/campus5.webp';
-import camp1 from '../assets/mit gallery/campus/camp1.jpeg';
+import camp1 from '../assets/mit gallery/campus/camp1.webp';
 
 const CampusLife = () => {
     return (
