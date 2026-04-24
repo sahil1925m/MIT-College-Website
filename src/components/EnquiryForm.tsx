@@ -156,6 +156,34 @@ const EnquiryForm: React.FC<EnquiryFormProps> = ({ variant = 'full' }) => {
                 .register-cta-card.variant-mini .register-btn {
                     width: 100%;
                 }
+
+                @media (max-width: 640px) {
+                    .register-cta-card {
+                        gap: 1rem;
+                    }
+                    .register-cta-card.variant-full {
+                        padding: 3rem 1.5rem;
+                        border-radius: 20px;
+                    }
+                    .register-cta-card.variant-mini {
+                        padding: 2.5rem 1.5rem;
+                        border-radius: 20px;
+                    }
+                    .card-text-content h3 {
+                        font-size: 2rem;
+                    }
+                    .register-cta-card.variant-mini .card-text-content h3 {
+                        font-size: 1.6rem;
+                    }
+                    .card-text-content p {
+                        font-size: 1rem;
+                    }
+                    .register-btn {
+                        padding: 1rem 2rem;
+                        font-size: 1rem;
+                        width: 100%;
+                    }
+                }
             `}</style>
         </div>
     );

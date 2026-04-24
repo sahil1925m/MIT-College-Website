@@ -220,22 +220,7 @@ const Admissions = () => {
 
                     {/* ── RIGHT COLUMN — Form ── */}
                     <div className={`adm-form-col anim-right ${vis ? 'visible' : ''}`} style={{ transitionDelay: '0.1s' }}>
-                        <div className="adm-form-card">
-                            <div className="adm-form-header">
-                                <div className="adm-form-header-icon">
-                                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                                        <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" /><circle cx="9" cy="7" r="4" />
-                                        <path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75" />
-                                    </svg>
-                                </div>
-                                <div>
-                                    <h3 className="adm-form-title">Apply Online</h3>
-                                    <p className="adm-form-subtitle">Our team will contact you within 24 hours</p>
-                                </div>
-                            </div>
-                            <EnquiryForm variant="full" />
-                            <p className="adm-form-trust">⚡ Takes less than 2 minutes</p>
-                        </div>
+                        <EnquiryForm variant="full" />
                     </div>
 
                 </div>
