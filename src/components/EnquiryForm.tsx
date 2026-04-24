@@ -49,6 +49,8 @@ const EnquiryForm: React.FC<EnquiryFormProps> = ({ variant = 'full' }) => {
                     position: relative;
                     overflow: hidden;
                     transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+                    margin: 0 auto;
+                    width: 100%;
                 }
                 
                 .register-cta-card:hover {

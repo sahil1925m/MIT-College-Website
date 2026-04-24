@@ -4093,6 +4093,14 @@ footer {
   .adm-grid {
     grid-template-columns: 1fr;
     gap: 3rem;
+    justify-items: center;
+  }
+
+  .adm-left,
+  .adm-form-col {
+    width: 100%;
+    max-width: 600px;
+    margin: 0 auto;
   }
 
   .adm-form-col {
