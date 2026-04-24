@@ -1,7 +1,7 @@
 import { useParams, Link } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Users, Calendar, Award, BookOpen, GraduationCap, ChevronRight, MessageSquare, ArrowLeft, Building2 } from 'lucide-react';
+import { Users, Calendar, BookOpen, GraduationCap, ChevronRight, ArrowLeft, Building2 } from 'lucide-react';
 import { getDepartmentById, departments } from './departmentData';
 import type { Faculty } from './departmentData';
 
